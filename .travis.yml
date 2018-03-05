@@ -1,0 +1,62 @@
+language: c
+sudo: required
+dist: trusty
+
+submodules: false
+
+addons:
+        apt:
+                packages:
+                        - autoconf
+                        - automake
+                        - autoconf-archive
+                        - cmake
+                        - elfutils
+                        - exuberant-ctags
+                        - libconfig-dev
+                        - libtool
+                        - libpcap-dev
+                        - libssl-dev
+                        - gnuplot
+                        - perl
+                        - rpm
+                        - wdiff
+
+script:
+        - sudo dpkg -i deb/*.deb || true
+        - ./init.sh
+        - ./doit.sh
+        - rm -rf ./installed/ODP/api-next/ installed/ODP/current/
+
+deploy:
+        - edge:
+                branch: v1.8.47
+          provider: pages
+          skip-cleanup: true
+          github-token: $GITHUB_TOKEN
+          verbose: true
+          local-dir: gh-pages
+          target-branch: gh-pages
+          on:
+                  branch: master
+        - edge:
+                branch: v1.8.47
+          provider: pages
+          skip-cleanup: true
+          github-token: $GITHUB_TOKEN
+          verbose: true
+          local-dir: installed
+          target-branch: installed-out
+          on:
+                  branch: master
+        - edge:
+                branch: v1.8.47
+          provider: pages
+          skip-cleanup: true
+          github-token: $GITHUB_TOKEN
+          keep-history: true
+          verbose: true
+          local-dir: build_logs
+          target-branch: build_logs-out
+          on:
+                  branch: master

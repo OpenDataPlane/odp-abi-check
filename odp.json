@@ -1,0 +1,162 @@
+{
+  "Name":           "ODP",
+  "SourceUrl":      "https://github.com/Linaro/odp/releases",
+  "SourceUrlDepth": "1",
+  "Git":            "https://github.com/Linaro/odp/",
+  "Configure":      "LDFLAGS=-latomic",
+  "PreInstall":     "echo -n {VERSION} > .scmversion ;",
+  "Changelog":      "CHANGELOG",
+  "Make":           "-j 6",
+
+  "Versions": [
+  {
+    "Number":         "api-next",
+    "Installed":      "installed/ODP/api-next",
+    "Source":         "build-api-next/configure.ac",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "current",
+    "Installed":      "installed/ODP/current",
+    "Source":         "src/ODP/current",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.18.0.1",
+    "Installed":      "installed/ODP/1.18.0.1",
+    "Source":         "src/ODP/1.18.0.1/ODP-1.18.0.1.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.18.0.0",
+    "Installed":      "installed/ODP/1.18.0.0",
+    "Source":         "src/ODP/1.18.0.0/ODP-1.18.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.17.0.0",
+    "Installed":      "installed/ODP/1.17.0.0",
+    "Source":         "src/ODP/1.17.0.0/ODP-1.17.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.16.0.0",
+    "Installed":      "installed/ODP/1.16.0.0",
+    "Source":         "src/ODP/1.16.0.0/ODP-1.16.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.15.0.0",
+    "Installed":      "installed/ODP/1.15.0.0",
+    "Source":         "src/ODP/1.15.0.0/ODP-1.15.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.14.0.0",
+    "Installed":      "installed/ODP/1.14.0.0",
+    "Source":         "src/ODP/1.14.0.0/ODP-1.14.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.13.0.0",
+    "Installed":      "installed/ODP/1.13.0.0",
+    "Source":         "src/ODP/1.13.0.0/ODP-1.13.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.12.0.0",
+    "Installed":      "installed/ODP/1.12.0.0",
+    "Source":         "src/ODP/1.12.0.0/ODP-1.12.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.11.0.1",
+    "Installed":      "installed/ODP/1.11.0.1",
+    "Source":         "src/ODP/1.11.0.1/ODP-1.11.0.1.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.11.0.0",
+    "Installed":      "installed/ODP/1.11.0.0",
+    "Source":         "src/ODP/1.11.0.0/ODP-1.11.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.10.1.0",
+    "Installed":      "installed/ODP/1.10.1.0",
+    "Source":         "src/ODP/1.10.1.0/ODP-1.10.1.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.10.0.0",
+    "Installed":      "installed/ODP/1.10.0.0",
+    "Source":         "src/ODP/1.10.0.0/ODP-1.10.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  },
+  {
+    "Number":         "1.9.0.0",
+    "Installed":      "installed/ODP/1.9.0.0",
+    "Source":         "src/ODP/1.9.0.0/ODP-1.9.0.0.tar.gz",
+    "Changelog":      "CHANGELOG",
+    "HeadersDiff":    "On",
+    "PkgDiff":        "Off",
+    "ABIView":        "Off",
+    "ABIDiff":        "Off"
+  }]
+}

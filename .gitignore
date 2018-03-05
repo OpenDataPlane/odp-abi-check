@@ -1,0 +1,17 @@
+*.swp
+api-next
+current
+/abi_dump
+/build-api-next
+/build_logs
+/changelog
+/compat_report
+/css
+/db
+/gh-pages
+/graph
+/headers_diff
+/installed
+/objects_report
+/src
+/timeline
