@@ -1,0 +1,242 @@
+Making all in platform/linux-generic
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/platform/linux-generic'
+  CC       _fdserver.lo
+  CC       _ishm.lo
+  CC       _ishmphy.lo
+  CC       odp_atomic.lo
+  CC       odp_bitmap.lo
+  CC       odp_barrier.lo
+  CC       odp_buffer.lo
+  CC       odp_byteorder.lo
+  CC       odp_classification.lo
+  CC       odp_cpu.lo
+  CC       odp_cpumask.lo
+  CC       odp_cpumask_task.lo
+  CC       odp_crypto.lo
+  CC       odp_errno.lo
+  CC       odp_event.lo
+  CC       odp_hash.lo
+  CC       odp_init.lo
+  CC       odp_impl.lo
+  CC       odp_name_table.lo
+  CC       odp_packet.lo
+  CC       odp_packet_flags.lo
+  CC       odp_packet_io.lo
+  CC       odp_pkt_queue.lo
+  CC       odp_pool.lo
+  CC       odp_queue.lo
+  CC       odp_rwlock.lo
+  CC       odp_rwlock_recursive.lo
+  CC       odp_schedule.lo
+  CC       odp_schedule_if.lo
+  CC       odp_schedule_sp.lo
+  CC       odp_schedule_iquery.lo
+  CC       odp_shared_memory.lo
+  CC       odp_sorted_list.lo
+  CC       odp_spinlock.lo
+  CC       odp_spinlock_recursive.lo
+  CC       odp_std_clib.lo
+  CC       odp_sync.lo
+  CC       odp_system_info.lo
+  CC       odp_thread.lo
+  CC       odp_thrmask.lo
+  CC       odp_ticketlock.lo
+  CC       odp_time.lo
+  CC       odp_timer.lo
+  CC       odp_timer_wheel.lo
+  CC       odp_traffic_mngr.lo
+  CC       odp_version.lo
+  CC       odp_weak.lo
+  CC       pktio/ethtool.lo
+  CC       pktio/io_ops.lo
+  CC       pktio/ipc.lo
+  CC       pktio/pktio_common.lo
+  CC       pktio/loop.lo
+  CC       pktio/netmap.lo
+  CC       pktio/dpdk.lo
+  CC       pktio/socket.lo
+  CC       pktio/socket_mmap.lo
+  CC       pktio/sysfs.lo
+  CC       pktio/tap.lo
+  CC       pktio/ring.lo
+  CC       arch/x86/odp_cpu_arch.lo
+  CC       arch/x86/odp_sysinfo_parse.lo
+  CCLD     ../../lib/libodp-linux.la
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/platform/linux-generic'
+Making all in helper
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/helper'
+make  all-am
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/helper'
+  CC       eth.lo
+  CC       chksum.lo
+  CC       ip.lo
+  CC       hashtable.lo
+  CC       lineartable.lo
+  CC       cuckootable.lo
+  CC       iplookuptable.lo
+  CC       threads.lo
+  CCLD     ../lib/libodphelper.la
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/helper'
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/helper'
+Making all in test
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test'
+Making all in common_plat
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat'
+Making all in performance
+make[3]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/performance'
+  CC       odp_bench_packet-odp_bench_packet.o
+  CC       odp_crypto-odp_crypto.o
+  CC       odp_pktio_perf-odp_pktio_perf.o
+  CC       odp_l2fwd-odp_l2fwd.o
+  CC       odp_sched_latency-odp_sched_latency.o
+  CC       odp_pktio_ordered-odp_pktio_ordered.o
+  CC       odp_scheduling-odp_scheduling.o
+  CCLD     odp_crypto
+  CCLD     odp_sched_latency
+  CCLD     odp_pktio_perf
+  CCLD     odp_l2fwd
+  CCLD     odp_pktio_ordered
+  CCLD     odp_bench_packet
+  CCLD     odp_scheduling
+make[3]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/performance'
+Making all in miscellaneous
+make[3]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/miscellaneous'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/miscellaneous'
+Making all in validation
+make[3]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/validation'
+make[4]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/validation'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/validation'
+make[3]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat/validation'
+make[3]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat'
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/common_plat'
+Making all in linux-generic
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/linux-generic'
+Making all in performance
+make[3]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/linux-generic/performance'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/linux-generic/performance'
+make[3]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/linux-generic'
+echo "TESTS=\"\""    > tests-validation.env
+echo "ODP_PLATFORM=linux-generic EXEEXT= TEST_DIR=../../test/common_plat/validation" >> tests-validation.env
+echo ""      >> tests-validation.env
+make[3]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/linux-generic'
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test/linux-generic'
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test'
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/test'
+Making all in helper/test
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/helper/test'
+  CC       chksum.o
+  CC       cuckootable.o
+  CC       parse.o
+  CC       table.o
+  CC       iplookuptable.o
+  CC       odpthreads.o
+  CCLD     table
+  CCLD     chksum
+  CCLD     iplookuptable
+  CCLD     odpthreads
+  CCLD     parse
+  CCLD     cuckootable
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/helper/test'
+Making all in doc
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc'
+Making all in application-api-guide
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/application-api-guide'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/application-api-guide'
+Making all in helper-guide
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/helper-guide'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/helper-guide'
+Making all in platform-api-guide
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/platform-api-guide'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/platform-api-guide'
+Making all in driver-api-guide
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/driver-api-guide'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc/driver-api-guide'
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc'
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/doc'
+Making all in example
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example'
+Making all in classifier
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/classifier'
+  CC       odp_classifier-odp_classifier.o
+  CCLD     odp_classifier
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/classifier'
+Making all in generator
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/generator'
+  CC       odp_generator-odp_generator.o
+  CCLD     odp_generator
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/generator'
+Making all in hello
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/hello'
+  CC       odp_hello-odp_hello.o
+  CCLD     odp_hello
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/hello'
+Making all in ipsec
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/ipsec'
+  CC       odp_ipsec-odp_ipsec.o
+  CC       odp_ipsec-odp_ipsec_sa_db.o
+  CC       odp_ipsec-odp_ipsec_sp_db.o
+  CC       odp_ipsec-odp_ipsec_fwd_db.o
+  CC       odp_ipsec-odp_ipsec_cache.o
+  CC       odp_ipsec-odp_ipsec_loop_db.o
+  CC       odp_ipsec-odp_ipsec_stream.o
+  CCLD     odp_ipsec
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/ipsec'
+Making all in l2fwd_simple
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/l2fwd_simple'
+  CC       odp_l2fwd_simple-odp_l2fwd_simple.o
+  CCLD     odp_l2fwd_simple
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/l2fwd_simple'
+Making all in l3fwd
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/l3fwd'
+  CC       odp_l3fwd-odp_l3fwd.o
+  CC       odp_l3fwd-odp_l3fwd_db.o
+  CC       odp_l3fwd-odp_l3fwd_lpm.o
+  CCLD     odp_l3fwd
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/l3fwd'
+Making all in packet
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/packet'
+  CC       odp_pktio-odp_pktio.o
+  CCLD     odp_pktio
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/packet'
+Making all in switch
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/switch'
+  CC       odp_switch-odp_switch.o
+  CCLD     odp_switch
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/switch'
+Making all in time
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/time'
+  CC       odp_time_global-time_global_test.o
+  CCLD     odp_time_global
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/time'
+Making all in timer
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/timer'
+  CC       odp_timer_test-odp_timer_test.o
+  CC       odp_timer_simple-odp_timer_simple.o
+  CCLD     odp_timer_simple
+  CCLD     odp_timer_test
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/timer'
+Making all in traffic_mgmt
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/traffic_mgmt'
+  CC       odp_traffic_mgmt-odp_traffic_mgmt.o
+  CCLD     odp_traffic_mgmt
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example/traffic_mgmt'
+make[2]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example'
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0/example'
+make[1]: Entering directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0'
+make[1]: Nothing to be done for `all-am'.
+make[1]: Leaving directory `/tmp/snbbfNwoPo/build/odp-1.14.0.0'
