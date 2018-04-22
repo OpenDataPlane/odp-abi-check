@@ -1,0 +1,11 @@
+prefix=/home/travis/build/lumag/odp-abi-check/installed/ODP/1.10.1.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libodp-linux
+Description: The ODP packet processing engine
+Version: 1.10.1.0
+Libs: -L${libdir} -lodp-linux
+Libs.private:
+Cflags: -I${includedir}

@@ -1,0 +1,11 @@
+prefix=/home/travis/build/lumag/odp-abi-check/installed/ODP/1.12.0.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libodphelper-linux
+Description: Helper for the ODP packet processing engine
+Version: 1.12.0.0
+Libs: -L${libdir} -lodphelper-linux
+Libs.private:
+Cflags: -I${includedir}
