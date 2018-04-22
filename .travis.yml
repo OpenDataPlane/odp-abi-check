@@ -44,6 +44,7 @@ deploy:
           provider: pages
           skip-cleanup: true
           github-token: $GITHUB_TOKEN
+          keep-history: true
           verbose: true
           local-dir: installed
           target-branch: installed-out
