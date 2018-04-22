@@ -1,0 +1,9 @@
+This is a set of scripts to maintain ABI compatibility database visible at
+https://linaro.github.io/odp-abi-check/timeline/ODP/ . Travis CI cron builds
+will automatically update, build and publish both build cache and generated
+timeline.
+
+However to stop it from rebuilding last releases on and on it might be useful
+to update remote branches manually. To do so, run `./remote-update.sh` script,
+passing the name of git remote as first argument. If you use `origin`, there
+is no need to pass anything, it will be picked up automatically.
