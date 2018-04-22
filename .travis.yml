@@ -29,9 +29,7 @@ script:
         - rm -rf ./installed/ODP/api-next/ installed/ODP/current/
 
 deploy:
-        - edge:
-                branch: v1.8.47
-          provider: pages
+        - provider: pages
           skip-cleanup: true
           github-token: $GITHUB_TOKEN
           verbose: true
@@ -39,9 +37,7 @@ deploy:
           target-branch: gh-pages
           on:
                   branch: master
-        - edge:
-                branch: v1.8.47
-          provider: pages
+        - provider: pages
           skip-cleanup: true
           github-token: $GITHUB_TOKEN
           keep-history: true
@@ -50,9 +46,7 @@ deploy:
           target-branch: installed-out
           on:
                   branch: master
-        - edge:
-                branch: v1.8.47
-          provider: pages
+        - provider: pages
           skip-cleanup: true
           github-token: $GITHUB_TOKEN
           keep-history: true
@@ -61,9 +55,7 @@ deploy:
           target-branch: build_logs-out
           on:
                   branch: master
-        - edge:
-                branch: v1.8.47
-          provider: pages
+        - provider: pages
           skip-cleanup: true
           github-token: $GITHUB_TOKEN
           keep-history: true
