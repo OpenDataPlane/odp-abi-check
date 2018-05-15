@@ -216,9 +216,13 @@ checking openssl/evp.h usability... yes
 checking openssl/evp.h presence... yes
 checking for openssl/evp.h... yes
 checking for EVP_EncryptInit in -lcrypto... yes
-checking pcap/pcap.h usability... no
-checking pcap/pcap.h presence... no
-checking for pcap/pcap.h... no
+checking pcap/pcap.h usability... yes
+checking pcap/pcap.h presence... yes
+checking for pcap/pcap.h... yes
+checking pcap/bpf.h usability... yes
+checking pcap/bpf.h presence... yes
+checking for pcap/bpf.h... yes
+checking for pcap_open_offline in -lpcap... yes
 checking for doxygen... no
 configure: WARNING: Doxygen not found - continuing without Doxygen support
 checking for asciidoctor... no
@@ -325,7 +329,7 @@ config.status: executing libtool commands
 	ARCH_ABI		x86_64-linux
 	with_platform:		linux-generic
 	helper_linux:		yes
-	prefix:			/home/travis/build/lumag/odp-abi-check/installed/ODP/1.18.0.0
+	prefix:			/home/travis/build/Linaro/odp-abi-check/installed/ODP/1.18.0.0
 	sysconfdir:		${prefix}/etc
 	libdir:			${exec_prefix}/lib
 	includedir:		${prefix}/include
