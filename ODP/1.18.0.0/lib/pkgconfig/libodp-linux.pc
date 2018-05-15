@@ -1,0 +1,11 @@
+prefix=/home/travis/build/Linaro/odp-abi-check/installed/ODP/1.18.0.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libodp-linux
+Description: The ODP packet processing engine
+Version: 1.18.0.0
+Libs: -L${libdir} -lodp-linux
+Libs.private: -lcrypto -ldl  -lpcap  -lrt -lpthread -latomic
+Cflags: -I${includedir}

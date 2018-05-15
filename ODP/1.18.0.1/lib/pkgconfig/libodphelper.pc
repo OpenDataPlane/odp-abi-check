@@ -1,0 +1,11 @@
+prefix=/home/travis/build/Linaro/odp-abi-check/installed/ODP/1.18.0.1
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libodphelper
+Description: Helper for the ODP packet processing engine
+Version: 1.18.0.1
+Libs: -L${libdir} -lodphelper
+Libs.private:
+Cflags: -I${includedir}
