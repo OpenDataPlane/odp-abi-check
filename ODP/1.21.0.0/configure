@@ -323,7 +323,7 @@ config.status: executing platform/linux-generic/include/odp_libconfig_config.h c
 	ARCH_ABI		x86_64-linux
 	with_platform:		linux-generic
 	helper_linux:		yes
-	prefix:			/home/travis/build/Linaro/odp-abi-check/installed/ODP/1.21.0.0
+	prefix:			/home/travis/build/OpenDataPlane/odp-abi-check/installed/ODP/1.21.0.0
 	sysconfdir:		${prefix}/etc
 	libdir:			${exec_prefix}/lib
 	includedir:		${prefix}/include
