@@ -1,0 +1,12 @@
+prefix=/home/travis/build/OpenDataPlane/odp-abi-check/installed/ODP/1.22.0.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libodp-linux
+Description: The ODP packet processing engine
+Version: 1.22.0.0
+Requires.private: libconfig
+Libs: -L${libdir} -lodp-linux
+Libs.private: -lcrypto -ldl  -lpcap -pthread -lrt -lpthread -latomic
+Cflags: -I${includedir}
