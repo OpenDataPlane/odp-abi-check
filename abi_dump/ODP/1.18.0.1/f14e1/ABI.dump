@@ -1,0 +1,1952 @@
+$VAR1 = {
+          'ABI_DUMPER_VERSION' => '1.1',
+          'ABI_DUMP_VERSION' => '3.5',
+          'Arch' => 'x86_64',
+          'GccVersion' => '4.8.4',
+          'Headers' => {
+                         'chksum.h' => 1,
+                         'cpumask.h' => 1,
+                         'eth.h' => 1,
+                         'init.h' => 1,
+                         'ip.h' => 1,
+                         'odph_cuckootable.h' => 1,
+                         'odph_hashtable.h' => 1,
+                         'odph_iplookuptable.h' => 1,
+                         'odph_lineartable.h' => 1,
+                         'packet.h' => 1,
+                         'process.h' => 1,
+                         'pthread.h' => 1,
+                         'table.h' => 1,
+                         'thread_types.h' => 1,
+                         'threads.h' => 1
+                       },
+          'Language' => 'C',
+          'LibraryName' => 'libodphelper.so.118.0.1',
+          'LibraryVersion' => '1.18.0.1',
+          'NameSpaces' => {},
+          'Needed' => {
+                        'libc.so.6' => 1,
+                        'libodp-linux.so.118' => 1,
+                        'libpthread.so.0' => 1
+                      },
+          'PublicABI' => '1',
+          'Sources' => {
+                         'chksum.c' => 1,
+                         'cuckootable.c' => 1,
+                         'eth.c' => 1,
+                         'hashtable.c' => 1,
+                         'ip.c' => 1,
+                         'iplookuptable.c' => 1,
+                         'lineartable.c' => 1,
+                         'thread.c' => 1,
+                         'threads.c' => 1
+                       },
+          'SymbolInfo' => {
+                            '10075' => {
+                                         'Header' => 'odph_hashtable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'table',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'buffer',
+                                                               'type' => '148'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'buffer_size',
+                                                               'type' => '1134'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_hash_get_value',
+                                         'Source' => 'hashtable.c',
+                                         'SourceLine' => '282'
+                                       },
+                            '10459' => {
+                                         'Data' => 1,
+                                         'Header' => 'odph_hashtable.h',
+                                         'Return' => '7001',
+                                         'ShortName' => 'odph_hash_table_ops',
+                                         'Source' => 'hashtable.c',
+                                         'SourceLine' => '353'
+                                       },
+                            '12378' => {
+                                         'Header' => 'odph_lineartable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'name',
+                                                               'type' => '137'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'capacity',
+                                                               'type' => '1134'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'un',
+                                                               'type' => '1134'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'value_size',
+                                                               'type' => '1134'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '6662',
+                                         'ShortName' => 'odph_linear_table_create',
+                                         'Source' => 'lineartable.c',
+                                         'SourceLine' => '45'
+                                       },
+                            '12942' => {
+                                         'Header' => 'odph_lineartable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'table',
+                                                               'type' => '6662'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_linear_table_destroy',
+                                         'Source' => 'lineartable.c',
+                                         'SourceLine' => '107'
+                                       },
+                            '13091' => {
+                                         'Header' => 'odph_lineartable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'name',
+                                                               'type' => '137'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '6662',
+                                         'ShortName' => 'odph_linear_table_lookup',
+                                         'Source' => 'lineartable.c',
+                                         'SourceLine' => '130'
+                                       },
+                            '13853' => {
+                                         'Data' => 1,
+                                         'Header' => 'odph_lineartable.h',
+                                         'Return' => '7001',
+                                         'ShortName' => 'odph_linear_table_ops',
+                                         'Source' => 'lineartable.c',
+                                         'SourceLine' => '212'
+                                       },
+                            '17580' => {
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'name',
+                                                               'type' => '137'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '6662',
+                                         'ShortName' => 'odph_cuckoo_table_lookup',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '154'
+                                       },
+                            '1765' => {
+                                        'Header' => 'ip.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'ip_addr',
+                                                              'type' => '1963'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'str',
+                                                              'type' => '137'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi'
+                                                 },
+                                        'Return' => '59',
+                                        'ShortName' => 'odph_ipv4_addr_parse',
+                                        'Source' => 'ip.c',
+                                        'SourceLine' => '14'
+                                      },
+                            '17772' => {
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_cuckoo_table_destroy',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '326'
+                                       },
+                            '18256' => {
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'name',
+                                                               'type' => '137'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'capacity',
+                                                               'type' => '1134'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'key_size',
+                                                               'type' => '1134'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'value_size',
+                                                               'type' => '1134'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '6662',
+                                         'ShortName' => 'odph_cuckoo_table_create',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '175'
+                                       },
+                            '19790' => {
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_cuckoo_table_remove_value',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '754'
+                                       },
+                            '20359' => {
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'buffer',
+                                                               'type' => '148'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'buffer_size',
+                                                               'type' => '1134'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_cuckoo_table_get_value',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '674'
+                                       },
+                            '21472' => {
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'value',
+                                                               'type' => '148'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_cuckoo_table_put_value',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '596'
+                                       },
+                            '22776' => {
+                                         'Data' => 1,
+                                         'Header' => 'odph_cuckootable.h',
+                                         'Return' => '7001',
+                                         'ShortName' => 'odph_cuckoo_table_ops',
+                                         'Source' => 'cuckootable.c',
+                                         'SourceLine' => '769'
+                                       },
+                            '26836' => {
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'name',
+                                                               'type' => '137'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '6662',
+                                         'ShortName' => 'odph_iplookup_table_lookup',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '422'
+                                       },
+                            '27515' => {
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_iplookup_table_destroy',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '526'
+                                       },
+                            '29804' => {
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_iplookup_table_remove_value',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '889'
+                                       },
+                            '30462' => {
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'name',
+                                                               'type' => '137'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'p1',
+                                                               'type' => '1134'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'p2',
+                                                               'type' => '1134'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'value_size',
+                                                               'type' => '1134'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '6662',
+                                         'ShortName' => 'odph_iplookup_table_create',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '443'
+                                       },
+                            '31996' => {
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'value',
+                                                               'type' => '148'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_iplookup_table_put_value',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '668'
+                                       },
+                            '32308' => {
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'tbl',
+                                                               'type' => '6662'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'key',
+                                                               'type' => '148'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'buffer',
+                                                               'type' => '148'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'buffer_size',
+                                                               'type' => '1134'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_iplookup_table_get_value',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '712'
+                                       },
+                            '32583' => {
+                                         'Data' => 1,
+                                         'Header' => 'odph_iplookuptable.h',
+                                         'Return' => '7001',
+                                         'ShortName' => 'odph_iplookup_table_ops',
+                                         'Source' => 'iplookuptable.c',
+                                         'SourceLine' => '941'
+                                       },
+                            '36406' => {
+                                         'Header' => 'threads.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'thread_tbl',
+                                                               'type' => '35367'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'mask',
+                                                               'type' => '33695'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'thr_params',
+                                                               'type' => '35373'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_odpthreads_create',
+                                         'Source' => 'threads.c',
+                                         'SourceLine' => '157'
+                                       },
+                            '36968' => {
+                                         'Header' => 'threads.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'thread_tbl',
+                                                               'type' => '35367'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_odpthreads_join',
+                                         'Source' => 'threads.c',
+                                         'SourceLine' => '203'
+                                       },
+                            '37922' => {
+                                         'Header' => 'threads.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'cpu',
+                                                               'type' => '33446'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_odpthread_setaffinity',
+                                         'Source' => 'threads.c',
+                                         'SourceLine' => '288'
+                                       },
+                            '38163' => {
+                                         'Header' => 'threads.h',
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_odpthread_getaffinity',
+                                         'Source' => 'threads.c',
+                                         'SourceLine' => '309'
+                                       },
+                            '38450' => {
+                                         'Header' => 'threads.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'shortopts1',
+                                                               'type' => '137'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'shortopts2',
+                                                               'type' => '137'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'longopts1',
+                                                               'type' => '34968'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'longopts2',
+                                                               'type' => '34968'
+                                                             },
+                                                      '4' => {
+                                                               'name' => 'shortopts',
+                                                               'type' => '38914'
+                                                             },
+                                                      '5' => {
+                                                               'name' => 'longopts',
+                                                               'type' => '38920'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx',
+                                                    '4' => 'r8',
+                                                    '5' => 'r9'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_merge_getopt_options',
+                                         'Source' => 'threads.c',
+                                         'SourceLine' => '351'
+                                       },
+                            '38932' => {
+                                         'Header' => 'threads.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'argc',
+                                                               'type' => '59'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'argv',
+                                                               'type' => '38914'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'caller_shortopts',
+                                                               'type' => '137'
+                                                             },
+                                                      '3' => {
+                                                               'name' => 'caller_longopts',
+                                                               'type' => '34968'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx',
+                                                    '3' => 'rcx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_parse_options',
+                                         'Source' => 'threads.c',
+                                         'SourceLine' => '410'
+                                       },
+                            '4026' => {
+                                        'Header' => 'chksum.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'odp_pkt',
+                                                              'type' => '2333'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'op',
+                                                              'type' => '2423'
+                                                            },
+                                                     '2' => {
+                                                              'name' => 'chksum_ptr',
+                                                              'type' => '3488'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi',
+                                                   '2' => 'rdx'
+                                                 },
+                                        'Return' => '59',
+                                        'ShortName' => 'odph_udp_tcp_chksum',
+                                        'Source' => 'chksum.c',
+                                        'SourceLine' => '266'
+                                      },
+                            '42123' => {
+                                         'Header' => 'pthread.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'pthread_tbl',
+                                                               'type' => '42895'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'mask',
+                                                               'type' => '33695'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'thr_params',
+                                                               'type' => '42901'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_linux_pthread_create',
+                                         'Source' => 'thread.c',
+                                         'SourceLine' => '48'
+                                       },
+                            '42933' => {
+                                         'Header' => 'pthread.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'thread_tbl',
+                                                               'type' => '42895'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'num',
+                                                               'type' => '59'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi'
+                                                  },
+                                         'Return' => '1',
+                                         'ShortName' => 'odph_linux_pthread_join',
+                                         'Source' => 'thread.c',
+                                         'SourceLine' => '104'
+                                       },
+                            '43187' => {
+                                         'Header' => 'process.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'proc_tbl',
+                                                               'type' => '44178'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'mask',
+                                                               'type' => '33695'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'thr_params',
+                                                               'type' => '42901'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_linux_process_fork_n',
+                                         'Source' => 'thread.c',
+                                         'SourceLine' => '120'
+                                       },
+                            '44189' => {
+                                         'Header' => 'process.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'proc',
+                                                               'type' => '44178'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'cpu',
+                                                               'type' => '59'
+                                                             },
+                                                      '2' => {
+                                                               'name' => 'thr_params',
+                                                               'type' => '42901'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi',
+                                                    '2' => 'rdx'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_linux_process_fork',
+                                         'Source' => 'thread.c',
+                                         'SourceLine' => '189'
+                                       },
+                            '44386' => {
+                                         'Header' => 'process.h',
+                                         'Param' => {
+                                                      '0' => {
+                                                               'name' => 'proc_tbl',
+                                                               'type' => '44178'
+                                                             },
+                                                      '1' => {
+                                                               'name' => 'num',
+                                                               'type' => '59'
+                                                             }
+                                                    },
+                                         'Reg' => {
+                                                    '0' => 'rdi',
+                                                    '1' => 'rsi'
+                                                  },
+                                         'Return' => '59',
+                                         'ShortName' => 'odph_linux_process_wait_n',
+                                         'Source' => 'thread.c',
+                                         'SourceLine' => '199'
+                                       },
+                            '766' => {
+                                       'Header' => 'eth.h',
+                                       'Param' => {
+                                                    '0' => {
+                                                             'name' => 'mac',
+                                                             'type' => '978'
+                                                           },
+                                                    '1' => {
+                                                             'name' => 'str',
+                                                             'type' => '137'
+                                                           }
+                                                  },
+                                       'Reg' => {
+                                                  '0' => 'rdi',
+                                                  '1' => 'rsi'
+                                                },
+                                       'Return' => '59',
+                                       'ShortName' => 'odph_eth_addr_parse',
+                                       'Source' => 'eth.c',
+                                       'SourceLine' => '14'
+                                     },
+                            '8377' => {
+                                        'Header' => 'odph_hashtable.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'name',
+                                                              'type' => '137'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'capacity',
+                                                              'type' => '1134'
+                                                            },
+                                                     '2' => {
+                                                              'name' => 'key_size',
+                                                              'type' => '1134'
+                                                            },
+                                                     '3' => {
+                                                              'name' => 'value_size',
+                                                              'type' => '1134'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi',
+                                                   '2' => 'rdx',
+                                                   '3' => 'rcx'
+                                                 },
+                                        'Return' => '6662',
+                                        'ShortName' => 'odph_hash_table_create',
+                                        'Source' => 'hashtable.c',
+                                        'SourceLine' => '67'
+                                      },
+                            '8874' => {
+                                        'Header' => 'odph_hashtable.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'table',
+                                                              'type' => '6662'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi'
+                                                 },
+                                        'Return' => '59',
+                                        'ShortName' => 'odph_hash_table_destroy',
+                                        'Source' => 'hashtable.c',
+                                        'SourceLine' => '131'
+                                      },
+                            '9029' => {
+                                        'Header' => 'odph_hashtable.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'name',
+                                                              'type' => '137'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi'
+                                                 },
+                                        'Return' => '6662',
+                                        'ShortName' => 'odph_hash_table_lookup',
+                                        'Source' => 'hashtable.c',
+                                        'SourceLine' => '153'
+                                      },
+                            '9215' => {
+                                        'Header' => 'odph_hashtable.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'table',
+                                                              'type' => '6662'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'key',
+                                                              'type' => '148'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi'
+                                                 },
+                                        'Return' => '59',
+                                        'ShortName' => 'odph_hash_remove_value',
+                                        'Source' => 'hashtable.c',
+                                        'SourceLine' => '322'
+                                      },
+                            '9453' => {
+                                        'Header' => 'odph_hashtable.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'table',
+                                                              'type' => '6662'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'key',
+                                                              'type' => '148'
+                                                            },
+                                                     '2' => {
+                                                              'name' => 'value',
+                                                              'type' => '148'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi',
+                                                   '2' => 'rdx'
+                                                 },
+                                        'Return' => '59',
+                                        'ShortName' => 'odph_hash_put_value',
+                                        'Source' => 'hashtable.c',
+                                        'SourceLine' => '234'
+                                      }
+                          },
+          'SymbolVersion' => {},
+          'Symbols' => {
+                         'libodphelper.so.118.0.1' => {
+                                                        '_fini' => 1,
+                                                        '_init' => 1,
+                                                        'odph_cuckoo_table_create' => 1,
+                                                        'odph_cuckoo_table_destroy' => 1,
+                                                        'odph_cuckoo_table_get_value' => 1,
+                                                        'odph_cuckoo_table_lookup' => 1,
+                                                        'odph_cuckoo_table_ops' => -48,
+                                                        'odph_cuckoo_table_put_value' => 1,
+                                                        'odph_cuckoo_table_remove_value' => 1,
+                                                        'odph_eth_addr_parse' => 1,
+                                                        'odph_hash_get_value' => 1,
+                                                        'odph_hash_put_value' => 1,
+                                                        'odph_hash_remove_value' => 1,
+                                                        'odph_hash_table_create' => 1,
+                                                        'odph_hash_table_destroy' => 1,
+                                                        'odph_hash_table_lookup' => 1,
+                                                        'odph_hash_table_ops' => -48,
+                                                        'odph_iplookup_table_create' => 1,
+                                                        'odph_iplookup_table_destroy' => 1,
+                                                        'odph_iplookup_table_get_value' => 1,
+                                                        'odph_iplookup_table_lookup' => 1,
+                                                        'odph_iplookup_table_ops' => -48,
+                                                        'odph_iplookup_table_put_value' => 1,
+                                                        'odph_iplookup_table_remove_value' => 1,
+                                                        'odph_ipv4_addr_parse' => 1,
+                                                        'odph_linear_table_create' => 1,
+                                                        'odph_linear_table_destroy' => 1,
+                                                        'odph_linear_table_lookup' => 1,
+                                                        'odph_linear_table_ops' => -48,
+                                                        'odph_linux_process_fork' => 1,
+                                                        'odph_linux_process_fork_n' => 1,
+                                                        'odph_linux_process_wait_n' => 1,
+                                                        'odph_linux_pthread_create' => 1,
+                                                        'odph_linux_pthread_join' => 1,
+                                                        'odph_merge_getopt_options' => 1,
+                                                        'odph_odpthread_getaffinity' => 1,
+                                                        'odph_odpthread_setaffinity' => 1,
+                                                        'odph_odpthreads_create' => 1,
+                                                        'odph_odpthreads_join' => 1,
+                                                        'odph_parse_options' => 1,
+                                                        'odph_udp_tcp_chksum' => 1
+                                                      }
+                       },
+          'Target' => 'unix',
+          'TypeInfo' => {
+                          '1' => {
+                                   'Name' => 'void',
+                                   'Type' => 'Intrinsic'
+                                 },
+                          '105' => {
+                                     'Name' => 'unsigned long',
+                                     'Size' => '8',
+                                     'Type' => 'Intrinsic'
+                                   },
+                          '1134' => {
+                                      'BaseType' => '98',
+                                      'Header' => 'stdint.h',
+                                      'Line' => '51',
+                                      'Name' => 'uint32_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '4',
+                                      'Type' => 'Typedef'
+                                    },
+                          '130' => {
+                                     'Name' => 'char',
+                                     'Size' => '1',
+                                     'Type' => 'Intrinsic'
+                                   },
+                          '137' => {
+                                     'BaseType' => '143',
+                                     'Name' => 'char const*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   },
+                          '143' => {
+                                     'BaseType' => '130',
+                                     'Name' => 'char const',
+                                     'Size' => '1',
+                                     'Type' => 'Const'
+                                   },
+                          '148' => {
+                                     'BaseType' => '1',
+                                     'Name' => 'void*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   },
+                          '150' => {
+                                     'BaseType' => '130',
+                                     'Name' => 'char*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   },
+                          '177' => {
+                                     'BaseType' => '73',
+                                     'Name' => 'uint8_t[6]',
+                                     'Size' => '6',
+                                     'Type' => 'Array'
+                                   },
+                          '193' => {
+                                     'Header' => 'eth.h',
+                                     'Line' => '55',
+                                     'Memb' => {
+                                                 '0' => {
+                                                          'name' => 'addr',
+                                                          'offset' => '0',
+                                                          'type' => '177'
+                                                        }
+                                               },
+                                     'Name' => 'struct odph_ethaddr_t',
+                                     'Size' => '6',
+                                     'Type' => 'Struct'
+                                   },
+                          '1963' => {
+                                      'BaseType' => '1134',
+                                      'Name' => 'uint32_t*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '2123' => {
+                                      'BaseType' => '91',
+                                      'Header' => 'stdint.h',
+                                      'Line' => '49',
+                                      'Name' => 'uint16_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '2',
+                                      'Type' => 'Typedef'
+                                    },
+                          '2290' => {
+                                      'Header' => 'packet.h',
+                                      'Line' => '17',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'dummy',
+                                                           'offset' => '0',
+                                                           'type' => '130'
+                                                         }
+                                                },
+                                      'Name' => 'struct _odp_abi_packet_t',
+                                      'Size' => '1',
+                                      'Type' => 'Struct'
+                                    },
+                          '2333' => {
+                                      'BaseType' => '2344',
+                                      'Header' => 'packet.h',
+                                      'Line' => '26',
+                                      'Name' => 'odp_packet_t',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '2344' => {
+                                      'BaseType' => '2290',
+                                      'Name' => '_odp_abi_packet_t*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '2423' => {
+                                      'Header' => 'chksum.h',
+                                      'Line' => '35',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'ODPH_CHKSUM_GENERATE',
+                                                           'value' => '0'
+                                                         },
+                                                  '1' => {
+                                                           'name' => 'ODPH_CHKSUM_VERIFY',
+                                                           'value' => '1'
+                                                         },
+                                                  '2' => {
+                                                           'name' => 'ODPH_CHKSUM_RETURN',
+                                                           'value' => '2'
+                                                         }
+                                                },
+                                      'Name' => 'enum odph_chksum_op_t',
+                                      'Size' => '4',
+                                      'Type' => 'Enum'
+                                    },
+                          '33321' => {
+                                       'BaseType' => '59',
+                                       'Header' => 'types.h',
+                                       'Line' => '133',
+                                       'Name' => '__pid_t',
+                                       'PrivateABI' => 1,
+                                       'Size' => '4',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33376' => {
+                                       'BaseType' => '33321',
+                                       'Header' => 'sched.h',
+                                       'Line' => '35',
+                                       'Name' => 'pid_t',
+                                       'PrivateABI' => 1,
+                                       'Size' => '4',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33446' => {
+                                       'BaseType' => '59',
+                                       'Name' => 'int const',
+                                       'Size' => '4',
+                                       'Type' => 'Const'
+                                     },
+                          '33474' => {
+                                       'BaseType' => '33486',
+                                       'Header' => 'siginfo.h',
+                                       'Line' => '303',
+                                       'Name' => 'pthread_attr_t',
+                                       'PrivateABI' => 1,
+                                       'Size' => '56',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33486' => {
+                                       'Header' => 'pthreadtypes.h',
+                                       'Line' => '63',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => '__size',
+                                                            'offset' => '0',
+                                                            'type' => '33552'
+                                                          },
+                                                   '1' => {
+                                                            'name' => '__align',
+                                                            'offset' => '0',
+                                                            'type' => '66'
+                                                          }
+                                                 },
+                                       'Name' => 'union pthread_attr_t',
+                                       'PrivateABI' => 1,
+                                       'Size' => '56',
+                                       'Type' => 'Union'
+                                     },
+                          '33541' => {
+                                       'BaseType' => '105',
+                                       'Header' => 'pthreadtypes.h',
+                                       'Line' => '60',
+                                       'Name' => 'pthread_t',
+                                       'PrivateABI' => 1,
+                                       'Size' => '8',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33552' => {
+                                       'BaseType' => '130',
+                                       'Name' => 'char[56]',
+                                       'Size' => '56',
+                                       'Type' => 'Array'
+                                     },
+                          '33568' => {
+                                       'BaseType' => '59',
+                                       'Name' => 'int*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '33596' => {
+                                       'Header' => 'thread_types.h',
+                                       'Line' => '27',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'ODP_THREAD_WORKER',
+                                                            'value' => '0'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'ODP_THREAD_CONTROL',
+                                                            'value' => '1'
+                                                          }
+                                                 },
+                                       'Name' => 'enum odp_thread_type_e',
+                                       'Size' => '4',
+                                       'Type' => 'Enum'
+                                     },
+                          '33621' => {
+                                       'BaseType' => '33596',
+                                       'Header' => 'thread_types.h',
+                                       'Line' => '49',
+                                       'Name' => 'odp_thread_type_t',
+                                       'Size' => '4',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33632' => {
+                                       'Header' => 'cpumask.h',
+                                       'Line' => '36',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => '_u8',
+                                                            'offset' => '0',
+                                                            'type' => '33657'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odp_cpumask_t',
+                                       'Size' => '128',
+                                       'Type' => 'Struct'
+                                     },
+                          '33657' => {
+                                       'BaseType' => '73',
+                                       'Name' => 'uint8_t[128]',
+                                       'Size' => '128',
+                                       'Type' => 'Array'
+                                     },
+                          '33673' => {
+                                       'BaseType' => '33632',
+                                       'Header' => 'cpumask.h',
+                                       'Line' => '43',
+                                       'Name' => 'odp_cpumask_t',
+                                       'Size' => '128',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33684' => {
+                                       'BaseType' => '6630',
+                                       'Header' => 'init.h',
+                                       'Line' => '22',
+                                       'Name' => 'odp_instance_t',
+                                       'Size' => '8',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33695' => {
+                                       'BaseType' => '33701',
+                                       'Name' => 'odp_cpumask_t const*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '33701' => {
+                                       'BaseType' => '33673',
+                                       'Name' => 'odp_cpumask_t const',
+                                       'Size' => '128',
+                                       'Type' => 'Const'
+                                     },
+                          '33749' => {
+                                       'Header' => 'getopt.h',
+                                       'Line' => '104',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'name',
+                                                            'offset' => '0',
+                                                            'type' => '137'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'has_arg',
+                                                            'offset' => '8',
+                                                            'type' => '59'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'flag',
+                                                            'offset' => '16',
+                                                            'type' => '33568'
+                                                          },
+                                                   '3' => {
+                                                            'name' => 'val',
+                                                            'offset' => '24',
+                                                            'type' => '59'
+                                                          }
+                                                 },
+                                       'Name' => 'struct option',
+                                       'PrivateABI' => 1,
+                                       'Size' => '32',
+                                       'Type' => 'Struct'
+                                     },
+                          '33825' => {
+                                       'Name' => 'void*(*)(void*)',
+                                       'Param' => {
+                                                    '0' => {
+                                                             'type' => '148'
+                                                           }
+                                                  },
+                                       'Return' => '148',
+                                       'Size' => '8',
+                                       'Type' => 'FuncPtr'
+                                     },
+                          '33831' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '58',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'ODPTHREAD_NOT_STARTED',
+                                                            'value' => '0'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'ODPTHREAD_PROCESS',
+                                                            'value' => '1'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'ODPTHREAD_PTHREAD',
+                                                            'value' => '2'
+                                                          }
+                                                 },
+                                       'Name' => 'enum odph_odpthread_linuxtype_e',
+                                       'Size' => '4',
+                                       'Type' => 'Enum'
+                                     },
+                          '33862' => {
+                                       'BaseType' => '33831',
+                                       'Header' => 'threads.h',
+                                       'Line' => '62',
+                                       'Name' => 'odph_odpthread_linuxtype_t',
+                                       'Size' => '4',
+                                       'Type' => 'Typedef'
+                                     },
+                          '33945' => {
+                                       'Name' => 'int(*)(void*)',
+                                       'Param' => {
+                                                    '0' => {
+                                                             'type' => '148'
+                                                           }
+                                                  },
+                                       'Return' => '59',
+                                       'Size' => '8',
+                                       'Type' => 'FuncPtr'
+                                     },
+                          '33951' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '70',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'start',
+                                                            'offset' => '0',
+                                                            'type' => '33945'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'arg',
+                                                            'offset' => '8',
+                                                            'type' => '148'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'thr_type',
+                                                            'offset' => '16',
+                                                            'type' => '33621'
+                                                          },
+                                                   '3' => {
+                                                            'name' => 'instance',
+                                                            'offset' => '24',
+                                                            'type' => '33684'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odph_odpthread_params_t',
+                                       'Size' => '32',
+                                       'Type' => 'Struct'
+                                     },
+                          '33995' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '76',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'linuxtype',
+                                                            'offset' => '0',
+                                                            'type' => '33862'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'thr_params',
+                                                            'offset' => '8',
+                                                            'type' => '33951'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odph_odpthread_start_args_t',
+                                       'Size' => '40',
+                                       'Type' => 'Struct'
+                                     },
+                          '34006' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '86',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'thread_id',
+                                                            'offset' => '0',
+                                                            'type' => '33541'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'attr',
+                                                            'offset' => '8',
+                                                            'type' => '33474'
+                                                          }
+                                                 },
+                                       'Name' => 'anon-struct-threads.h-86',
+                                       'Size' => '64',
+                                       'Type' => 'Struct'
+                                     },
+                          '34039' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '91',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'pid',
+                                                            'offset' => '0',
+                                                            'type' => '33376'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'status',
+                                                            'offset' => '4',
+                                                            'type' => '59'
+                                                          }
+                                                 },
+                                       'Name' => 'anon-struct-threads.h-91',
+                                       'Size' => '8',
+                                       'Type' => 'Struct'
+                                     },
+                          '34072' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '84',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'thread',
+                                                            'offset' => '0',
+                                                            'type' => '34006'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'proc',
+                                                            'offset' => '0',
+                                                            'type' => '34039'
+                                                          }
+                                                 },
+                                       'Name' => 'anon-union-threads.h-84',
+                                       'Size' => '64',
+                                       'Type' => 'Union'
+                                     },
+                          '34154' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '96',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'start_args',
+                                                            'offset' => '0',
+                                                            'type' => '33995'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'cpu',
+                                                            'offset' => '40',
+                                                            'type' => '59'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'last',
+                                                            'offset' => '44',
+                                                            'type' => '59'
+                                                          },
+                                                   '3' => {
+                                                            'name' => 'unnamed0',
+                                                            'offset' => '48',
+                                                            'type' => '34072'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odph_odpthread_t',
+                                       'Size' => '112',
+                                       'Type' => 'Struct'
+                                     },
+                          '3488' => {
+                                      'BaseType' => '2123',
+                                      'Name' => 'uint16_t*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '34968' => {
+                                       'BaseType' => '34974',
+                                       'Name' => 'struct option const*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '34974' => {
+                                       'BaseType' => '33749',
+                                       'Name' => 'struct option const',
+                                       'Size' => '32',
+                                       'Type' => 'Const'
+                                     },
+                          '35367' => {
+                                       'BaseType' => '34154',
+                                       'Name' => 'odph_odpthread_t*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '35373' => {
+                                       'BaseType' => '35379',
+                                       'Name' => 'odph_odpthread_params_t const*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '35379' => {
+                                       'BaseType' => '33951',
+                                       'Name' => 'odph_odpthread_params_t const',
+                                       'Size' => '32',
+                                       'Type' => 'Const'
+                                     },
+                          '38914' => {
+                                       'BaseType' => '150',
+                                       'Name' => 'char**',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '38920' => {
+                                       'BaseType' => '38926',
+                                       'Name' => 'struct option**',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '38926' => {
+                                       'BaseType' => '33749',
+                                       'Name' => 'struct option*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '41475' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '39',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'start',
+                                                            'offset' => '0',
+                                                            'type' => '33825'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'arg',
+                                                            'offset' => '8',
+                                                            'type' => '148'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'thr_type',
+                                                            'offset' => '16',
+                                                            'type' => '33621'
+                                                          },
+                                                   '3' => {
+                                                            'name' => 'instance',
+                                                            'offset' => '24',
+                                                            'type' => '33684'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odph_linux_thr_params_t',
+                                       'Size' => '32',
+                                       'Type' => 'Struct'
+                                     },
+                          '41543' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '48',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'thread',
+                                                            'offset' => '0',
+                                                            'type' => '33541'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'attr',
+                                                            'offset' => '8',
+                                                            'type' => '33474'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'cpu',
+                                                            'offset' => '64',
+                                                            'type' => '59'
+                                                          },
+                                                   '3' => {
+                                                            'name' => 'thr_params',
+                                                            'offset' => '72',
+                                                            'type' => '41475'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odph_linux_pthread_t',
+                                       'Size' => '104',
+                                       'Type' => 'Struct'
+                                     },
+                          '41599' => {
+                                       'Header' => 'threads.h',
+                                       'Line' => '55',
+                                       'Memb' => {
+                                                   '0' => {
+                                                            'name' => 'pid',
+                                                            'offset' => '0',
+                                                            'type' => '33376'
+                                                          },
+                                                   '1' => {
+                                                            'name' => 'cpu',
+                                                            'offset' => '4',
+                                                            'type' => '59'
+                                                          },
+                                                   '2' => {
+                                                            'name' => 'status',
+                                                            'offset' => '8',
+                                                            'type' => '59'
+                                                          }
+                                                 },
+                                       'Name' => 'struct odph_linux_process_t',
+                                       'Size' => '12',
+                                       'Type' => 'Struct'
+                                     },
+                          '42895' => {
+                                       'BaseType' => '41543',
+                                       'Name' => 'odph_linux_pthread_t*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '42901' => {
+                                       'BaseType' => '42907',
+                                       'Name' => 'odph_linux_thr_params_t const*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '42907' => {
+                                       'BaseType' => '41475',
+                                       'Name' => 'odph_linux_thr_params_t const',
+                                       'Size' => '32',
+                                       'Type' => 'Const'
+                                     },
+                          '44178' => {
+                                       'BaseType' => '41599',
+                                       'Name' => 'odph_linux_process_t*',
+                                       'Size' => '8',
+                                       'Type' => 'Pointer'
+                                     },
+                          '59' => {
+                                    'Name' => 'int',
+                                    'Size' => '4',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '66' => {
+                                    'Name' => 'long',
+                                    'Size' => '8',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '6630' => {
+                                      'BaseType' => '105',
+                                      'Header' => 'stdint.h',
+                                      'Line' => '55',
+                                      'Name' => 'uint64_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6641' => {
+                                      'Header' => 'table.h',
+                                      'Line' => '98',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'unused_dummy_var',
+                                                           'offset' => '0',
+                                                           'type' => '73'
+                                                         }
+                                                },
+                                      'Name' => 'anon-struct-table.h-98',
+                                      'Size' => '1',
+                                      'Type' => 'Struct'
+                                    },
+                          '6662' => {
+                                      'BaseType' => '6673',
+                                      'Header' => 'table.h',
+                                      'Line' => '98',
+                                      'Name' => 'odph_table_t',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6673' => {
+                                      'BaseType' => '6641',
+                                      'Name' => 'anon-struct-table.h-98*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '6679' => {
+                                      'BaseType' => '6690',
+                                      'Header' => 'table.h',
+                                      'Line' => '117',
+                                      'Name' => 'odph_table_create',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6690' => {
+                                      'Name' => 'odph_table_t(*)(char const*, uint32_t, uint32_t, uint32_t)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '137'
+                                                          },
+                                                   '1' => {
+                                                            'type' => '1134'
+                                                          },
+                                                   '2' => {
+                                                            'type' => '1134'
+                                                          },
+                                                   '3' => {
+                                                            'type' => '1134'
+                                                          }
+                                                 },
+                                      'Return' => '6662',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '6726' => {
+                                      'BaseType' => '6737',
+                                      'Header' => 'table.h',
+                                      'Line' => '134',
+                                      'Name' => 'odph_table_lookup',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6737' => {
+                                      'Name' => 'odph_table_t(*)(char const*)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '137'
+                                                          }
+                                                 },
+                                      'Return' => '6662',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '6758' => {
+                                      'BaseType' => '6769',
+                                      'Header' => 'table.h',
+                                      'Line' => '148',
+                                      'Name' => 'odph_table_destroy',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6769' => {
+                                      'Name' => 'int(*)(odph_table_t)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '6662'
+                                                          }
+                                                 },
+                                      'Return' => '59',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '6790' => {
+                                      'BaseType' => '6801',
+                                      'Header' => 'table.h',
+                                      'Line' => '170',
+                                      'Name' => 'odph_table_put_value',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6801' => {
+                                      'Name' => 'int(*)(odph_table_t, void*, void*)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '6662'
+                                                          },
+                                                   '1' => {
+                                                            'type' => '148'
+                                                          },
+                                                   '2' => {
+                                                            'type' => '148'
+                                                          }
+                                                 },
+                                      'Return' => '59',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '6832' => {
+                                      'BaseType' => '6843',
+                                      'Header' => 'table.h',
+                                      'Line' => '199',
+                                      'Name' => 'odph_table_get_value',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6843' => {
+                                      'Name' => 'int(*)(odph_table_t, void*, void*, uint32_t)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '6662'
+                                                          },
+                                                   '1' => {
+                                                            'type' => '148'
+                                                          },
+                                                   '2' => {
+                                                            'type' => '148'
+                                                          },
+                                                   '3' => {
+                                                            'type' => '1134'
+                                                          }
+                                                 },
+                                      'Return' => '59',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '6879' => {
+                                      'BaseType' => '6890',
+                                      'Header' => 'table.h',
+                                      'Line' => '219',
+                                      'Name' => 'odph_table_remove_value',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '6890' => {
+                                      'Name' => 'int(*)(odph_table_t, void*)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '6662'
+                                                          },
+                                                   '1' => {
+                                                            'type' => '148'
+                                                          }
+                                                 },
+                                      'Return' => '59',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '6916' => {
+                                      'Header' => 'table.h',
+                                      'Line' => '224',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'f_create',
+                                                           'offset' => '0',
+                                                           'type' => '6679'
+                                                         },
+                                                  '1' => {
+                                                           'name' => 'f_lookup',
+                                                           'offset' => '8',
+                                                           'type' => '6726'
+                                                         },
+                                                  '2' => {
+                                                           'name' => 'f_des',
+                                                           'offset' => '16',
+                                                           'type' => '6758'
+                                                         },
+                                                  '3' => {
+                                                           'name' => 'f_put',
+                                                           'offset' => '24',
+                                                           'type' => '6790'
+                                                         },
+                                                  '4' => {
+                                                           'name' => 'f_get',
+                                                           'offset' => '32',
+                                                           'type' => '6832'
+                                                         },
+                                                  '5' => {
+                                                           'name' => 'f_remove',
+                                                           'offset' => '40',
+                                                           'type' => '6879'
+                                                         }
+                                                },
+                                      'Name' => 'struct odph_table_ops_t',
+                                      'Size' => '48',
+                                      'Type' => 'Struct'
+                                    },
+                          '7001' => {
+                                      'BaseType' => '6916',
+                                      'Header' => 'table.h',
+                                      'Line' => '234',
+                                      'Name' => 'odph_table_ops_t',
+                                      'Size' => '48',
+                                      'Type' => 'Typedef'
+                                    },
+                          '73' => {
+                                    'BaseType' => '84',
+                                    'Header' => 'stdint.h',
+                                    'Line' => '48',
+                                    'Name' => 'uint8_t',
+                                    'PrivateABI' => 1,
+                                    'Size' => '1',
+                                    'Type' => 'Typedef'
+                                  },
+                          '84' => {
+                                    'Name' => 'unsigned char',
+                                    'Size' => '1',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '91' => {
+                                    'Name' => 'unsigned short',
+                                    'Size' => '2',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '978' => {
+                                     'BaseType' => '193',
+                                     'Name' => 'odph_ethaddr_t*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   },
+                          '98' => {
+                                    'Name' => 'unsigned int',
+                                    'Size' => '4',
+                                    'Type' => 'Intrinsic'
+                                  }
+                        },
+          'UndefinedSymbols' => {
+                                  'libodphelper.so.118.0.1' => {
+                                                                 '_ITM_deregisterTMCloneTable' => 0,
+                                                                 '_ITM_registerTMCloneTable' => 0,
+                                                                 '_Jv_RegisterClasses' => 0,
+                                                                 '__cxa_finalize@GLIBC_2.2.5' => 0,
+                                                                 '__fprintf_chk@GLIBC_2.3.4' => 0,
+                                                                 '__gmon_start__' => 0,
+                                                                 '__printf_chk@GLIBC_2.3.4' => 0,
+                                                                 '__sched_cpucount@GLIBC_2.6' => 0,
+                                                                 '__snprintf_chk@GLIBC_2.3.4' => 0,
+                                                                 '__sprintf_chk@GLIBC_2.3.4' => 0,
+                                                                 '__stack_chk_fail@GLIBC_2.4' => 0,
+                                                                 '_exit@GLIBC_2.2.5' => 0,
+                                                                 'fork@GLIBC_2.2.5' => 0,
+                                                                 'free@GLIBC_2.2.5' => 0,
+                                                                 'getopt_long@GLIBC_2.2.5' => 0,
+                                                                 'getpid@GLIBC_2.2.5' => 0,
+                                                                 'getppid@GLIBC_2.2.5' => 0,
+                                                                 'kill@GLIBC_2.2.5' => 0,
+                                                                 'malloc@GLIBC_2.2.5' => 0,
+                                                                 'memcmp@GLIBC_2.2.5' => 0,
+                                                                 'memcpy@GLIBC_2.14' => 0,
+                                                                 'memset@GLIBC_2.2.5' => 0,
+                                                                 'odp_be_to_cpu_16' => 0,
+                                                                 'odp_buffer_addr' => 0,
+                                                                 'odp_buffer_alloc' => 0,
+                                                                 'odp_buffer_free' => 0,
+                                                                 'odp_buffer_from_event' => 0,
+                                                                 'odp_buffer_to_event' => 0,
+                                                                 'odp_cpu_count' => 0,
+                                                                 'odp_cpumask_count' => 0,
+                                                                 'odp_cpumask_first' => 0,
+                                                                 'odp_cpumask_next' => 0,
+                                                                 'odp_cpumask_set' => 0,
+                                                                 'odp_cpumask_zero' => 0,
+                                                                 'odp_hash_crc32c' => 0,
+                                                                 'odp_init_local' => 0,
+                                                                 'odp_packet_copy_from_mem' => 0,
+                                                                 'odp_packet_copy_to_mem' => 0,
+                                                                 'odp_packet_has_ipv4' => 0,
+                                                                 'odp_packet_has_ipv6' => 0,
+                                                                 'odp_packet_has_tcp' => 0,
+                                                                 'odp_packet_has_udp' => 0,
+                                                                 'odp_packet_l3_offset' => 0,
+                                                                 'odp_packet_l3_ptr' => 0,
+                                                                 'odp_packet_l4_offset' => 0,
+                                                                 'odp_packet_l4_ptr' => 0,
+                                                                 'odp_packet_offset' => 0,
+                                                                 'odp_pool_capability' => 0,
+                                                                 'odp_pool_create' => 0,
+                                                                 'odp_pool_destroy' => 0,
+                                                                 'odp_pool_lookup' => 0,
+                                                                 'odp_pool_param_init' => 0,
+                                                                 'odp_queue_capability' => 0,
+                                                                 'odp_queue_create' => 0,
+                                                                 'odp_queue_deq' => 0,
+                                                                 'odp_queue_destroy' => 0,
+                                                                 'odp_queue_enq' => 0,
+                                                                 'odp_queue_param_init' => 0,
+                                                                 'odp_rwlock_init' => 0,
+                                                                 'odp_rwlock_read_lock' => 0,
+                                                                 'odp_rwlock_read_unlock' => 0,
+                                                                 'odp_rwlock_write_lock' => 0,
+                                                                 'odp_rwlock_write_unlock' => 0,
+                                                                 'odp_shm_addr' => 0,
+                                                                 'odp_shm_free' => 0,
+                                                                 'odp_shm_lookup' => 0,
+                                                                 'odp_shm_reserve' => 0,
+                                                                 'odp_term_local' => 0,
+                                                                 'optind@GLIBC_2.2.5' => 0,
+                                                                 'prctl@GLIBC_2.2.5' => 0,
+                                                                 'pthread_attr_destroy@GLIBC_2.2.5' => 0,
+                                                                 'pthread_attr_init@GLIBC_2.2.5' => 0,
+                                                                 'pthread_attr_setaffinity_np@GLIBC_2.3.4' => 0,
+                                                                 'pthread_create@GLIBC_2.2.5' => 0,
+                                                                 'pthread_getaffinity_np@GLIBC_2.3.4' => 0,
+                                                                 'pthread_join@GLIBC_2.2.5' => 0,
+                                                                 'pthread_self@GLIBC_2.2.5' => 0,
+                                                                 'pthread_setaffinity_np@GLIBC_2.3.4' => 0,
+                                                                 'sched_getaffinity@GLIBC_2.3.4' => 0,
+                                                                 'sched_setaffinity@GLIBC_2.3.4' => 0,
+                                                                 'snprintf@GLIBC_2.2.5' => 0,
+                                                                 'sscanf@GLIBC_2.2.5' => 0,
+                                                                 'stderr@GLIBC_2.2.5' => 0,
+                                                                 'strcat@GLIBC_2.2.5' => 0,
+                                                                 'strcmp@GLIBC_2.2.5' => 0,
+                                                                 'strcpy@GLIBC_2.2.5' => 0,
+                                                                 'strncpy@GLIBC_2.2.5' => 0,
+                                                                 'strsignal@GLIBC_2.2.5' => 0,
+                                                                 'syscall@GLIBC_2.2.5' => 0,
+                                                                 'wait@GLIBC_2.2.5' => 0,
+                                                                 'waitpid@GLIBC_2.2.5' => 0
+                                                               }
+                                },
+          'WordSize' => '8'
+        };

@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, header, diff" />
+    <meta name="description" content="Diff for header files between 1.10.0.0 and 1.10.1.0 versions of ODP" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/headers_diff.css" />
+    
+    
+    <title>
+        ODP: headers diff between 1.10.0.0 and 1.10.1.0 versions
+    </title>
+    
+    </head>
+
+<body>
+<table width='100%' cellpadding='0' cellspacing='0'><tr><td><table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Headers diff: <span class='version'>1.10.0.0</span> vs <span class='version'>1.10.1.0</span></h1><br/><br/> 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;queue_types.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;queue_types.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 39</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 39</em></th></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef ODP_HANDLE_T(odp_queue_group_t);</td><td> </td><td class="right">typedef ODP_HANDLE_T(odp_queue_group_t);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_QUEUE_INVALID  _odp_cast_scalar(odp_queue_t, 0)</td><td> </td><td class="right">#define ODP_QUEUE_INVALID  _odp_cast_scalar(odp_queue_t, 0)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_QUEUE_NAME_LEN 32</td><td> </td><td class="right">#define ODP_QUEUE_NAME_LEN 32</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @def ODP_QUEUE_TYPE_TM</td><td> </td><td class="right"> * @def ODP_QUEUE_TYPE_TM</td></tr>
+      <tr><td class="left"> * Traffic manager queue</td><td> </td><td class="right"> * Traffic manager queue</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"> * @note Internal to <span class="delete">linux-generic implementation--not part of queue type A
+</span>PI</td><td> </td><td class="rblock"> * @note Internal to <span class="insert">the implementation -- not part of queue type A</span>PI</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_QUEUE_TYPE_TM     4</td><td> </td><td class="right">#define ODP_QUEUE_TYPE_TM     4</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Get printable format of odp_queue_t */</td><td> </td><td class="right">/** Get printable format of odp_queue_t */</td></tr>
+      <tr><td class="left">static inline uint64_t odp_queue_to_u64(odp_queue_t hdl)</td><td> </td><td class="right">static inline uint64_t odp_queue_to_u64(odp_queue_t hdl)</td></tr>
+      <tr><td class="left">{</td><td> </td><td class="right">{</td></tr>
+      <tr><td class="left">       return _odp_pri(hdl);</td><td> </td><td class="right">       return _odp_pri(hdl);</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;time_types.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;time_types.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 25</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 25</em></th></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @addtogroup odp_time</td><td> </td><td class="right">/** @addtogroup odp_time</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> **/</td><td> </td><td class="right"> **/</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"> * @internal Time structure used to isolate <span class="delete">linux-generic implementation fr
+</span>om</td><td> </td><td class="rblock"> * @internal Time structure used to isolate <span class="insert">odp-linux implementation fr</span>om</td></tr>
+      <tr><td class="left"> * the linux timespec structure, which is dependent on POSIX extension leve
+l.</td><td> </td><td class="right"> * the linux timespec structure, which is dependent on POSIX extension leve
+l.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct odp_time_t {</td><td> </td><td class="right">typedef struct odp_time_t {</td></tr>
+      <tr><td class="left">       int64_t tv_sec;      /**&lt; @internal Seconds */</td><td> </td><td class="right">       int64_t tv_sec;      /**&lt; @internal Seconds */</td></tr>
+      <tr><td class="left">       int64_t tv_nsec;     /**&lt; @internal Nanoseconds */</td><td> </td><td class="right">       int64_t tv_nsec;     /**&lt; @internal Nanoseconds */</td></tr>
+      <tr><td class="left">} odp_time_t;</td><td> </td><td class="right">} odp_time_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_TIME_NULL ((odp_time_t){0, 0})</td><td> </td><td class="right">#define ODP_TIME_NULL ((odp_time_t){0, 0})</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;timer_types.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;timer_types.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 20</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 20</em></th></tr>
+      <tr><td class="left"> * ODP timer service</td><td> </td><td class="right"> * ODP timer service</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_TIMER_TYPES_H_</td><td> </td><td class="right">#ifndef ODP_TIMER_TYPES_H_</td></tr>
+      <tr><td class="left">#define ODP_TIMER_TYPES_H_</td><td> </td><td class="right">#define ODP_TIMER_TYPES_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/strong_types.h&gt;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">/** @addtogroup odp_timer</td><td> </td><td class="right">/** @addtogroup odp_timer</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> **/</td><td> </td><td class="right"> **/</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">struct odp_timer_pool_s; /**&lt; Forward declaration */</td><td> </td><td class="right">struct odp_timer_pool_s; /**&lt; Forward declaration */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef struct odp_timer_pool_s *odp_timer_pool_t;</td><td> </td><td class="right">typedef struct odp_timer_pool_s *odp_timer_pool_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_TIMER_POOL_INVALID NULL</td><td> </td><td class="right">#define ODP_TIMER_POOL_INVALID NULL</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock">typedef <span class="delete">uint32_t odp_timer_t</span>;</td><td> </td><td class="rblock">typedef <span class="insert">ODP_HANDLE_T(odp_timer_t)</span>;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock">#define ODP_TIMER_INVALID <span class="delete">((uint32_t)~0U</span>)</td><td> </td><td class="rblock">#define ODP_TIMER_INVALID <span class="insert">_odp_cast_scalar(odp_timer_t, 0xffffffff</span>)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock">typedef <span class="delete">void *odp_timeout_t</span>;</td><td> </td><td class="rblock">typedef <span class="insert">ODP_HANDLE_T(odp_timeout_t)</span>;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0005" /></td></tr>
+      <tr><td class="lblock">#define ODP_TIMEOUT_INVALID <span class="delete">NULL</span></td><td> </td><td class="rblock">#define ODP_TIMEOUT_INVALID <span class="insert"> _odp_cast_scalar(odp_timeout_t, 0)</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 5 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>4 lines changed or deleted</i></th><th><i> </i></th><th><i>6 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;version.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;version.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 56</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 56</em></th></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_VERSION_API_MAJOR 10</td><td> </td><td class="right">#define ODP_VERSION_API_MAJOR 10</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API minor version</td><td> </td><td class="right"> * ODP API minor version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Minor version is incremented when introducing backward compatible change
+s</td><td> </td><td class="right"> * Minor version is incremented when introducing backward compatible change
+s</td></tr>
+      <tr><td class="left"> * to the API. For an API with common generation and major version, but wit
+h</td><td> </td><td class="right"> * to the API. For an API with common generation and major version, but wit
+h</td></tr>
+      <tr><td class="left"> * different minor numbers the two versions are backward compatible.</td><td> </td><td class="right"> * different minor numbers the two versions are backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">#define ODP_VERSION_API_MINOR <span class="delete">0</span></td><td> </td><td class="rblock">#define ODP_VERSION_API_MINOR <span class="insert">1</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API version string</td><td> </td><td class="right"> * ODP API version string</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * The API version string defines ODP API version in this format:</td><td> </td><td class="right"> * The API version string defines ODP API version in this format:</td></tr>
+      <tr><td class="left"> * @verbatim &lt;generation&gt;.&lt;major&gt;.&lt;minor&gt; @endverbatim</td><td> </td><td class="right"> * @verbatim &lt;generation&gt;.&lt;major&gt;.&lt;minor&gt; @endverbatim</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * The string is null terminated.</td><td> </td><td class="right"> * The string is null terminated.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return Pointer to API version string</td><td> </td><td class="right"> * @return Pointer to API version string</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;chksum.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;chksum.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 21</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 21</em></th></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#ifndef ODPH_CHKSUM_H_</td><td> </td><td class="right">#ifndef ODPH_CHKSUM_H_</td></tr>
+      <tr><td class="left">#define ODPH_CHKSUM_H_</td><td> </td><td class="right">#define ODPH_CHKSUM_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp_api.h&gt;</td><td> </td><td class="right">#include &lt;odp_api.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** @addtogroup odph_chksum ODPH CHECK SUM</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *  @{</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Chksum Operation Code</td><td> </td><td class="right"> * Chksum Operation Code</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * This enumeration type is used to tell odph_udp_tcp_chksum what to do onc
+e</td><td> </td><td class="right"> * This enumeration type is used to tell odph_udp_tcp_chksum what to do onc
+e</td></tr>
+      <tr><td class="left"> * it has calculated the TCP/UDP check sum.</td><td> </td><td class="right"> * it has calculated the TCP/UDP check sum.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef enum {</td><td> </td><td class="right">typedef enum {</td></tr>
+      <tr><td class="left">       ODPH_CHKSUM_GENERATE, /**&lt; Set TCP/UDP header chksum field */</td><td> </td><td class="right">       ODPH_CHKSUM_GENERATE, /**&lt; Set TCP/UDP header chksum field */</td></tr>
+      <tr><td class="left">       ODPH_CHKSUM_VERIFY,   /**&lt; See if TCP/UDP header chksum is correct *
+/</td><td> </td><td class="right">       ODPH_CHKSUM_VERIFY,   /**&lt; See if TCP/UDP header chksum is correct *
+/</td></tr>
+      <tr><td class="left">       ODPH_CHKSUM_RETURN    /**&lt; Don't generate or verify chksum */</td><td> </td><td class="right">       ODPH_CHKSUM_RETURN    /**&lt; Don't generate or verify chksum */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l2" /><small>skipping to change at</small><em> line 43</em></th><th> </th><th><a name="part-r2" /><small>skipping to change at</small><em> line 47</em></th></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Checksum</td><td> </td><td class="right"> * Checksum</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @param buffer calculate chksum for buffer</td><td> </td><td class="right"> * @param buffer calculate chksum for buffer</td></tr>
+      <tr><td class="left"> * @param len    buffer length</td><td> </td><td class="right"> * @param len    buffer length</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return checksum value in host cpu order</td><td> </td><td class="right"> * @return checksum value in host cpu order</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">static inline odp_u16sum_t odph_chksum(void *buffer, int len)</td><td> </td><td class="right">static inline odp_u16sum_t odph_chksum(void *buffer, int len)</td></tr>
+      <tr><td class="left">{</td><td> </td><td class="right">{</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock">       uint16_t *buf = buffer;</td><td> </td><td class="rblock">       uint16_t *buf = <span class="insert">(uint16_t *)</span>buffer;</td></tr>
+      <tr><td class="left">       uint32_t sum = 0;</td><td> </td><td class="right">       uint32_t sum = 0;</td></tr>
+      <tr><td class="left">       uint16_t result;</td><td> </td><td class="right">       uint16_t result;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       for (sum = 0; len &gt; 1; len -= 2)</td><td> </td><td class="right">       for (sum = 0; len &gt; 1; len -= 2)</td></tr>
+      <tr><td class="left">               sum += *buf++;</td><td> </td><td class="right">               sum += *buf++;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       if (len == 1)</td><td> </td><td class="right">       if (len == 1)</td></tr>
+      <tr><td class="left">               sum += *(unsigned char *)buf;</td><td> </td><td class="right">               sum += *(unsigned char *)buf;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       sum = (sum &gt;&gt; 16) + (sum &amp; 0xFFFF);</td><td> </td><td class="right">       sum = (sum &gt;&gt; 16) + (sum &amp; 0xFFFF);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l3" /><small>skipping to change at</small><em> line 215</em></th><th> </th><th><a name="part-r3" /><small>skipping to change at</small><em> line 219</em></th></tr>
+      <tr><td class="left"> *                     when the chksum field is incorrect.</td><td> </td><td class="right"> *                     when the chksum field is incorrect.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">static inline int odph_udp_chksum_verify(odp_packet_t odp_pkt)</td><td> </td><td class="right">static inline int odph_udp_chksum_verify(odp_packet_t odp_pkt)</td></tr>
+      <tr><td class="left">{</td><td> </td><td class="right">{</td></tr>
+      <tr><td class="left">       if (!odp_packet_has_udp(odp_pkt))</td><td> </td><td class="right">       if (!odp_packet_has_udp(odp_pkt))</td></tr>
+      <tr><td class="left">               return -1;</td><td> </td><td class="right">               return -1;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       return odph_udp_tcp_chksum(odp_pkt, ODPH_CHKSUM_VERIFY, NULL);</td><td> </td><td class="right">       return odph_udp_tcp_chksum(odp_pkt, ODPH_CHKSUM_VERIFY, NULL);</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @}</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 3 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>9 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;linux.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;linux.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 27</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 27</em></th></tr>
+      <tr><td class="left">#ifndef ODPH_LINUX_H_</td><td> </td><td class="right">#ifndef ODPH_LINUX_H_</td></tr>
+      <tr><td class="left">#define ODPH_LINUX_H_</td><td> </td><td class="right">#define ODPH_LINUX_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp_api.h&gt;</td><td> </td><td class="right">#include &lt;odp_api.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;pthread.h&gt;</td><td> </td><td class="right">#include &lt;pthread.h&gt;</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#include &lt;getopt.h&gt;</span></td></tr>
+      <tr><td class="left">#include &lt;sys/types.h&gt;</td><td> </td><td class="right">#include &lt;sys/types.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** @addtogroup odph_linux ODPH LINUX</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *  @{</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">/** Thread parameter for Linux pthreads and processes */</td><td> </td><td class="right">/** Thread parameter for Linux pthreads and processes */</td></tr>
+      <tr><td class="left">typedef struct {</td><td> </td><td class="right">typedef struct {</td></tr>
+      <tr><td class="left">       void *(*start)(void *);    /**&lt; Thread entry point function */</td><td> </td><td class="right">       void *(*start)(void *);    /**&lt; Thread entry point function */</td></tr>
+      <tr><td class="left">       void *arg;                  /**&lt; Argument for the function */</td><td> </td><td class="right">       void *arg;                  /**&lt; Argument for the function */</td></tr>
+      <tr><td class="left">       odp_thread_type_t thr_type; /**&lt; ODP thread type */</td><td> </td><td class="right">       odp_thread_type_t thr_type; /**&lt; ODP thread type */</td></tr>
+      <tr><td class="left">       odp_instance_t instance;    /**&lt; ODP instance handle */</td><td> </td><td class="right">       odp_instance_t instance;    /**&lt; ODP instance handle */</td></tr>
+      <tr><td class="left">} odph_linux_thr_params_t;</td><td> </td><td class="right">} odph_linux_thr_params_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Linux pthread state information */</td><td> </td><td class="right">/** Linux pthread state information */</td></tr>
+      <tr><td class="left">typedef struct {</td><td> </td><td class="right">typedef struct {</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l2" /><small>skipping to change at</small><em> line 53</em></th><th> </th><th><a name="part-r2" /><small>skipping to change at</small><em> line 58</em></th></tr>
+      <tr><td class="left">       odph_linux_thr_params_t thr_params;</td><td> </td><td class="right">       odph_linux_thr_params_t thr_params;</td></tr>
+      <tr><td class="left">} odph_linux_pthread_t;</td><td> </td><td class="right">} odph_linux_pthread_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Linux process state information */</td><td> </td><td class="right">/** Linux process state information */</td></tr>
+      <tr><td class="left">typedef struct {</td><td> </td><td class="right">typedef struct {</td></tr>
+      <tr><td class="left">       pid_t pid;      /**&lt; Process ID */</td><td> </td><td class="right">       pid_t pid;      /**&lt; Process ID */</td></tr>
+      <tr><td class="left">       int   cpu;      /**&lt; CPU ID */</td><td> </td><td class="right">       int   cpu;      /**&lt; CPU ID */</td></tr>
+      <tr><td class="left">       int   status;   /**&lt; Process state change status */</td><td> </td><td class="right">       int   status;   /**&lt; Process state change status */</td></tr>
+      <tr><td class="left">} odph_linux_process_t;</td><td> </td><td class="right">} odph_linux_process_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** odpthread linux type: whether an ODP thread is a linux thread or proces</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">s */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">typedef enum odph_odpthread_linuxtype_e {</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       ODPTHREAD_NOT_STARTED = 0,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       ODPTHREAD_PROCESS,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       ODPTHREAD_PTHREAD</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">} odph_odpthread_linuxtype_t;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** odpthread parameters for odp threads (pthreads and processes) */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">typedef struct {</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       int (*start)(void *);       /**&lt; Thread entry point function */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       void *arg;                  /**&lt; Argument for the function */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       odp_thread_type_t thr_type; /**&lt; ODP thread type */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       odp_instance_t instance;    /**&lt; ODP instance handle */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">} odph_odpthread_params_t;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** The odpthread starting arguments, used both in process or thread mode *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">typedef struct {</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       odph_odpthread_linuxtype_t linuxtype; /**&lt; process or pthread */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       odph_odpthread_params_t thr_params; /**&lt; odpthread start parameters </span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">*/</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">} odph_odpthread_start_args_t;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** Linux odpthread state information, used both in process or thread mode </span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">*/</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">typedef struct {</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       odph_odpthread_start_args_t     start_args; /**&lt; start arguments */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       int                             cpu;    /**&lt; CPU ID */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       int                             last;   /**&lt; true if last table entr</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">y */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       union {</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">               struct { /* for thread implementation */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                       pthread_t       thread_id; /**&lt; Pthread ID */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                       pthread_attr_t  attr;   /**&lt; Pthread attributes */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">               } thread;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">               struct { /* for process implementation */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                       pid_t           pid;    /**&lt; Process ID */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                       int             status; /**&lt; Process state chge stat</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">us*/</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">               } proc;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       };</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">} odph_odpthread_t;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Creates and launches pthreads</td><td> </td><td class="right"> * Creates and launches pthreads</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Creates, pins and launches threads to separate CPU's based on the cpumas
+k.</td><td> </td><td class="right"> * Creates, pins and launches threads to separate CPU's based on the cpumas
+k.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @param[out] pthread_tbl Table of pthread state information records. Tabl
+e</td><td> </td><td class="right"> * @param[out] pthread_tbl Table of pthread state information records. Tabl
+e</td></tr>
+      <tr><td class="left"> *                         must have at least as many entries as there are</td><td> </td><td class="right"> *                         must have at least as many entries as there are</td></tr>
+      <tr><td class="left"> *                         CPUs in the CPU mask.</td><td> </td><td class="right"> *                         CPUs in the CPU mask.</td></tr>
+      <tr><td class="left"> * @param      mask        CPU mask</td><td> </td><td class="right"> * @param      mask        CPU mask</td></tr>
+      <tr><td class="left"> * @param      thr_params  Linux helper thread parameters</td><td> </td><td class="right"> * @param      thr_params  Linux helper thread parameters</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l3" /><small>skipping to change at</small><em> line 127</em></th><th> </th><th><a name="part-r3" /><small>skipping to change at</small><em> line 170</em></th></tr>
+      <tr><td class="left"> * Waits for a number of child processes to terminate. Records process stat
+e</td><td> </td><td class="right"> * Waits for a number of child processes to terminate. Records process stat
+e</td></tr>
+      <tr><td class="left"> * change status into the process state info structure.</td><td> </td><td class="right"> * change status into the process state info structure.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @param proc_tbl      Process state info table (previously filled by fork
+)</td><td> </td><td class="right"> * @param proc_tbl      Process state info table (previously filled by fork
+)</td></tr>
+      <tr><td class="left"> * @param num           Number of processes to wait</td><td> </td><td class="right"> * @param num           Number of processes to wait</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return 0 on success, -1 on failure</td><td> </td><td class="right"> * @return 0 on success, -1 on failure</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">int odph_linux_process_wait_n(odph_linux_process_t *proc_tbl, int num);</td><td> </td><td class="right">int odph_linux_process_wait_n(odph_linux_process_t *proc_tbl, int num);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Creates and launches odpthreads (as linux threads or processes)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Creates, pins and launches threads to separate CPU's based on the cpumas</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">k.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param thread_tbl    Thread table</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param mask          CPU mask</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param thr_params    ODP thread parameters</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @return Number of threads created</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">int odph_odpthreads_create(odph_odpthread_t *thread_tbl,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                          const odp_cpumask_t *mask,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                          const odph_odpthread_params_t *thr_params);</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Waits odpthreads (as linux threads or processes) to exit.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Returns when all odpthreads have terminated.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param thread_tbl    Thread table</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @return The number of joined threads or -1 on error.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * (error occurs if any of the start_routine return non-zero or if</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *  the thread join/process wait itself failed -e.g. as the result of a kil</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">l)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">int odph_odpthreads_join(odph_odpthread_t *thread_tbl);</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Set CPU affinity of the current odp thread</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * CPU affinity determines the CPU core on which the thread is</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * eligible to run.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param cpu           The affinity CPU core</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @return 0 on success, -1 on failure</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">int odph_odpthread_setaffinity(const int cpu);</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Get CPU affinity of the current odp thread</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * CPU affinity determines the CPU core on which the thread is</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * eligible to run.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @return positive cpu ID on success, -1 on failure</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">int odph_odpthread_getaffinity(void);</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Merge getopt options</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Given two sets of getopt options (each containing possibly both short</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * options -a string- and long options -a option array-) this function</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * return a single set (i.e. a string for short and an array for long)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * being the concatenation of the two given sets.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Due to the fact that the size of these arrays is unknown at compilation</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * time, this function actually mallocs the the resulting arrays.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * The fourth and fith parameters are actually pointers where these malloc'</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">ed</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * areas are returned.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * This means that the caller of this function has to free the two returned</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * areas!</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param shortopts1 first set of short options (a string)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param shortopts2 second set of short options (a string)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param longopts1  first set of long options (a getopt option array)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param longopts2  second set of long options (a getopt option array)</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param shortopts  a pointer where the address of the short options list</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                  (a string) is returned. It contains the concatenation o</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">f</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                  the two given short option strings.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param longopts   a pointer where the address of the long options list</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                  (a getopt option array) is returned.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                  It contains the concatenation of the two given long</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                  option arrays.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * if any of shortopts1, shortopts2, longopts1, longopts2 is NULL, the</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * corresponding list as assumed to be empty.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * if any of shortopts, longopts is NULL, the corresponding malloc is not</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * performed.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @return On success: 0 : both shortopts and longopts are returned (assumi</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">ng</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                        the given pointer where not null), possibly</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                        pointing to an empty string or an empty option ar</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">ray.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                        On success, the caller is due to free these areas</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *        On failure: -1: Nothing is malloc'ed.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">int odph_merge_getopt_options(const char *shortopts1,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                             const char *shortopts2,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                             const struct option *longopts1,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                             const struct option *longopts2,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                             char **shortopts,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                             struct option **longopts);</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Parse linux helper options</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * Parse the command line options. Pick up options meant for the helper its</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">elf.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * If the caller is also having a set of option to parse, it should include</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * their description here (shortopts desribes the short options and longopt</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">s</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * describes the long options, as for getopt_long()).</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * This function will issue errors on unknown arguments, so callers failing</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * to pass their own command line options description here will see their</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * options rejected.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * (the caller wants to set opterr to zero when parsing its own stuff</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * with getopts to avoid reacting on helper's options).</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param argc argument count</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param argv argument values</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param caller_shortopts caller's set of short options (string). or NULL.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @param caller_longopts  caller's set of long options (getopt option arra</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">y).</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                        or NULL.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @return On success: 0</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *        On failure: -1 failure occurs if a value passed for a helper</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *                       option is invalid, or on meeting unknown options.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">int odph_parse_options(int argc, char *argv[],</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                      const char *caller_shortopts,</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">                      const struct option *caller_longopts);</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"></span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @}</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 4 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>0 lines changed or deleted</i></th><th><i> </i></th><th><i>183 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;strong_types.h (1.10.0.0)&nbsp;</th><th> </th><th>&nbsp;strong_types.h (1.10.1.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 17</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 17</em></th></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @file</td><td> </td><td class="right"> * @file</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * ODP Strong Types. Common macros for implementing strong typing</td><td> </td><td class="right"> * ODP Strong Types. Common macros for implementing strong typing</td></tr>
+      <tr><td class="left"> * for ODP abstract data types</td><td> </td><td class="right"> * for ODP abstract data types</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODPH_STRONG_TYPES_H_</td><td> </td><td class="right">#ifndef ODPH_STRONG_TYPES_H_</td></tr>
+      <tr><td class="left">#define ODPH_STRONG_TYPES_H_</td><td> </td><td class="right">#define ODPH_STRONG_TYPES_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/** @addtogroup odph_strong_types ODPH STRONG TYPES</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *  @{</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">/** Use strong typing for ODP types */</td><td> </td><td class="right">/** Use strong typing for ODP types */</td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">#define ODPH_HANDLE_T(type) struct _##type { uint8_t unused_dummy_var; } *t
+ype</td><td> </td><td class="right">#define ODPH_HANDLE_T(type) struct _##type { uint8_t unused_dummy_var; } *t
+ype</td></tr>
+      <tr><td class="left">#else</td><td> </td><td class="right">#else</td></tr>
+      <tr><td class="left">#define odph_handle_t struct { uint8_t unused_dummy_var; } *</td><td> </td><td class="right">#define odph_handle_t struct { uint8_t unused_dummy_var; } *</td></tr>
+      <tr><td class="left">/** C/C++ helper macro for strong typing */</td><td> </td><td class="right">/** C/C++ helper macro for strong typing */</td></tr>
+      <tr><td class="left">#define ODPH_HANDLE_T(type) odph_handle_t type</td><td> </td><td class="right">#define ODPH_HANDLE_T(type) odph_handle_t type</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Internal macro to get value of an ODP handle */</td><td> </td><td class="right">/** Internal macro to get value of an ODP handle */</td></tr>
+      <tr><td class="left">#define _odph_typeval(handle) ((uint32_t)(uintptr_t)(handle))</td><td> </td><td class="right">#define _odph_typeval(handle) ((uint32_t)(uintptr_t)(handle))</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Internal macro to get printable value of an ODP handle */</td><td> </td><td class="right">/** Internal macro to get printable value of an ODP handle */</td></tr>
+      <tr><td class="left">#define _odph_pri(handle) ((uint64_t)_odph_typeval(handle))</td><td> </td><td class="right">#define _odph_pri(handle) ((uint64_t)_odph_typeval(handle))</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Internal macro to convert a scalar to a typed handle */</td><td> </td><td class="right">/** Internal macro to convert a scalar to a typed handle */</td></tr>
+      <tr><td class="left">#define _odph_cast_scalar(type, val) ((type)(uintptr_t)(val))</td><td> </td><td class="right">#define _odph_cast_scalar(type, val) ((type)(uintptr_t)(val))</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/**</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * @}</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>0 lines changed or deleted</i></th><th><i> </i></th><th><i>8 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><div style='width:100%;' align='left' class='small'>This html diff was produced by rfcdiff 1.41.The latest version is available from <a href='http://tools.ietf.org/tools/rfcdiff/'>http://tools.ietf.org/tools/rfcdiff/</a></div>
+</td></tr></table>
+</body>
+</html>

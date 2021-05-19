@@ -1,0 +1,1417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, current, changes, changelog" />
+    <meta name="description" content="Log of changes in the package" />
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/changelog.css" />
+    
+    
+    <title>
+        ODP current: changelog
+    </title>
+    
+    </head>
+
+<body>
+<table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Changelog from Git</h1><br/><br/>
+<div class='changelog'>
+<pre class='wrap'>commit c8b15d01b14d729e0efe3b059a58fe22163e27b7
+Author: Ashwin Sekhar T K &lt;asekhar@marvell.com&gt;
+Date:   2021-05-10 09:48:54 +0530
+
+    example: ipfragreass: fix packet length adjustment during reassembly
+    
+    At the time of fragmentation, packet length is increased using
+    odp_packet_extend_head() to make room for header in the fragments.
+    
+    So during re-assembly, odp_packet_trunc_head() needs to be used
+    instead of odp_packet_pull_head() to strip off the header to
+    handle possible packet segmentation that may happen inside
+    odp_packet_extend_head().
+    
+    Signed-off-by: Ashwin Sekhar T K &lt;asekhar@marvell.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit 8ee42ff84ce5987c7b8c5f4cccb171ef976b0827
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-05-12 12:43:06 +0300
+
+    validation: scheduler: add check for max_flow_id default value
+    
+    The default value for odp_schedule_config_t.max_flow_id should be zero.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 27b2ec29dd30b024d6775b5dcde4a4b446cea9fe
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-05-12 14:33:20 +0300
+
+    github_ci: abi compatibility is disabled by default
+    
+    ABI compatibility default value has been changed to disabled, so modify the
+    arm64 test cases accordingly. Most of the test cases are now run with ABI
+    compatibility disabled, as this is more common with real word applications.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 261ffb568ff81b51cb8361975e1091d38ccef374
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-05-07 17:49:57 +0300
+
+    linux-gen: ipsec: ignore dest_queue SA parameter in sync mode
+    
+    In sync mode the dest_queue SA parameter should be ignored but the current
+    code looks at it to determine whether running in sync or async mode. This
+    can result in incorrect behavior or crash if an application touches the
+    dest_queue of a sync SA after odp_ipsec_sa_param_init(). Fix the problem
+    by clearing the internal dest_queue SA field in sync mode.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit bfc30d18d3ba29cfc811cf1e350b7410027ed16d
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-05-07 17:49:52 +0300
+
+    linux-gen: ipsec: make mtu atomic and remove unneeded synchronization
+    
+    Change the mtu field of an SA to an atomic variable since it may get
+    modified and accessed simultaneously by different threads. Use relaxed
+    atomic operations as having a delay in the visibility of the updated MTU
+    is probably not a big problem.
+    
+    Also, get rid of the unneeded SA use count increment and decrement
+    around the mtu field update. An ODP application may not call the function
+    if it is trying to destroy the SA at the same time.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit ee664e38f7cac740a9ae21ef5c962fcb7768ae41
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-05-07 17:49:48 +0300
+
+    linux-gen: ipsec: remove unnecessary SA use count updating
+    
+    SA use count is needed for blocking the completion of the SA disable
+    operation when the SA is being used by other threads. It is needed when
+    an SA is found through the inbound SA lookup offload because the ODP
+    application may invoke odp_ipsec_sa_disable() for the same SA in another
+    thread at the same time.
+    
+    SA use count does not need to be increased for the duration of IPsec
+    processing when the SA was provided explicitly by an application. ODP API
+    specifies that an application must stop providing the SA as a parameter
+    to IPsec operations before calling odp_ipsec_sa_disable(). This requires
+    inter-thread synchronization in the application and guarantees that
+    IPsec packet processing with that SA (with the SA explicitly given) has
+    completed before odp_ipsec_sa_disable() gets called. Therefore SA use
+    count updating is unnecessary in this case.
+    
+    Remove the unnecessary SA use case updating from the inbound processing
+    path as it can cause undesired cache line transfers between cores.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 2b84189a0cb8f707da35824a342ffa3970735625
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-05-07 17:49:39 +0300
+
+    linux-gen: ipsec: simplify and describe SA states
+    
+    Now that free SAs are allocated from a freelist, there is no need for
+    the reserved state anymore. A free SA taken away from the list cannot
+    be allocated by any other thread and will change state to active when
+    published at the end of SA creation.
+    
+    Get rid of the reserved state, define the existing active state
+    explicitly, get rid of state value dependent trickery and describe
+    the states better.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 72d719e4dc0ccc11c58ad3ece26c9c28e0a901ca
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-05-07 17:49:29 +0300
+
+    linux-gen: ipsec: speed up SA creation by using SA freelist
+    
+    Put free SAs in a freelist to get rid of linear search in SA creation.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 6aedaadeae6dadc478493cc6635585f803f4b631
+Author: Vijay Ram Inavolu &lt;vinavolu@marvell.com&gt;
+Date:   2021-04-20 08:01:42 +0000
+
+    test: performance: ipsec: Fix for ipsec schedule mode to work
+    
+    Do not invoke odp_queue_deq() for a scheduled queue when waiting for SA
+    disable status event. This fix changes that so that -s option can be
+    now used for this test app
+    
+    Signed-off-by: Vijay Ram Inavolu &lt;vinavolu@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 33d5dc1e54e39ac7417ce34962f3ec4cb234cff3
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-05-05 13:40:37 +0300
+
+    github_ci: sync test naming scheme with arm64 workflow
+    
+    There is no need to repeat x86_64 in test names since the whole workflow
+    is only run on x86. Also, shorter test names won't get cut as easily in the
+    GitHub UI.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 5f7e3e705edf0bbc818e84243a943aae867d0a52
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-05-07 12:54:16 +0300
+
+    shippable: remove service
+    
+    Shippable service has been discontinued.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 13d13a62f5f53d184b9bd17034fbf4505eb915a4
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-05-07 12:53:40 +0300
+
+    travis: remove configuration file
+    
+    Travis CI is no longer used by the project.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit f87aee3a765c749717a80a9c8de401b2942c1aff
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-05-05 13:12:58 +0300
+
+    helper: cli: add command "call odp_queue_print_all"
+    
+    Add a CLI command, which calls the new odp_queue_print_all() API
+    function.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 341ebb9fcfb54a09bbad60eafb9c29b8473d2a08
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-29 20:27:20 +0300
+
+    helper: cli: add command "call odp_cls_print_all"
+    
+    Add a CLI command, which calls the new odp_cls_print_all() API
+    function.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit fd93e9806862f6168f2665521f207beec46a3355
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-05-05 13:48:25 +0300
+
+    helper: cli: remove "show" commands
+    
+    "call odp_sys_info_print" command provides the same information as
+    "show cpu" and "show version" commands. Remove the redundant "show"
+    commands.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit ea58b568b2335acc8c354aad8bc73e9b0b169f8a
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-29 19:16:47 +0300
+
+    helper: cli: fix odph_cli_start() error handling
+    
+    When encountering an error in odph_cli_start(), close only file
+    descriptors that are open, and free shm.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 5006c1738715aded3a5306d22028b38b54bf4ed4
+Author: Aakash Sasidharan &lt;asasidharan@marvell.com&gt;
+Date:   2021-05-03 18:21:51 +0530
+
+    helper: ipsec: fix capability API usage
+    
+    Currently, the alg check function uses odp_crypto_*_capability
+    API to get the number of capability entries for a specific algorithm.
+    This is incorrect. Replacing the use of crypto capability APIs with
+    the correct IPsec APIs.
+    
+    Signed-off-by: Aakash Sasidharan &lt;asasidharan@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit fdc2f44ac74fce663a29c793e2898fa3a24398ab
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-05-03 13:45:21 +0300
+
+    github_ci: run tests with debug build too
+    
+    Run tests with debug build too to catch issues that e.g. trigger
+    asserts in the ODP implementation. Add debug build flag in the existing
+    --enable-deprecated test configuration to avoid increasing the number
+    of test runs.
+    
+    The coverage test does already use debug build, but this change makes
+    the debug build explicitly part of the common test run and makes
+    possible error reports hopefully more clear.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit 47f428d76228dba24d9366c23a72ee58794ea602
+Author: Dean Arnold &lt;dean.arnold@arm.com&gt;
+Date:   2021-04-30 14:05:48 +0100
+
+    github_ci: enable native arm64 ci jobs
+    
+    To enable the arm64 CI, ci-pipeline-arm64.yaml file has been added
+    with approximately 40+ jobs. Some of the CI scripts were also
+    modified to add an ARCH environment variable for allowing native
+    arm64 builds for the jobs.
+    
+    Jobs have been restricted to only run when the repo is owned by
+    OpenDataPlane. This is to prevent the CI triggering on forks of the
+    project where Graviton2 self-hosted runners are not available.
+    
+    Signed-off-by: Dean Arnold &lt;dean.arnold@arm.com&gt;
+    Signed-off-by: Malvika Gupta &lt;Malvika.Gupta@arm.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit f5beb3931b062ac8679558dd3a7b440e50d71c42
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-05-03 11:20:04 +0300
+
+    api: increment ODP API version to 1.29.0.0
+    
+    Increment API version number to reflect the following changes:
+    
+    Backward incompatible:
+    - Modified packet IO statistics counters (odp_pktio_stats_t) definitions
+    - Deprecated packet IO statistics field odp_pktio_stats_t.in_unknown_protos
+    
+    Backward compatible:
+    - New APIs for inline IP reassembly offload for packet input and IPsec
+    - New odp_log_thread_fn_set() function for setting a thread specific log
+      function
+    - New packet IO statistics counters
+      odp_pktio_stats_t.in_packets/out_packets
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 63ccee62084319c2ce61e019676b36c3e3327967
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-27 15:33:21 +0300
+
+    validation: pktio: test new statistics counters
+    
+    Refactored existing statistics counters test code and added tests for the
+    new odp_pktio_stats_t.in_packets/out_packets fields.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 2faec6c3321dc2bd74f275bbeaa90e74fb06b02b
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-27 09:43:19 +0300
+
+    linux-gen: pktio: implement in_packets/out_packets counters
+    
+    Implement new odp_pktio_stats_t.in_packets/out_packets packet IO statistics
+    counters.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit c1b462a18533ccd9ff4253416c966a63688c539c
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-26 12:58:46 +0300
+
+    api: pktio: statistics: add in_packets/out_packets counters
+    
+    Add odp_pktio_stats_t.in_packets/out_packets fields for counting
+    successfully received and transmitted packets.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Yuri Tolstov &lt;ytolstov@marvell.com&gt;
+
+commit 64b208c4ff710f98ba28ffc5e1452c39399160ae
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-26 12:58:35 +0300
+
+    api: pktio: statistics: simplify counter definitions
+    
+    Remove references to the MIB RFCs to make the API more flexible and easier
+    to support with different HW. The documentation for
+    in_ucast_pkts/out_ucast_pkts now states that the packets were successfully
+    received/transmitted.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Yuri Tolstov &lt;ytolstov@marvell.com&gt;
+
+commit 8b601af93bf948ca3156c30518f34c09e17c4798
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-26 10:50:43 +0300
+
+    api: pktio: statistics: deprecate odp_pktio_stats_t.in_unknown_protos field
+    
+    Deprecate odp_pktio_stats_t.in_unknown_protos statistics counter.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Yuri Tolstov &lt;ytolstov@marvell.com&gt;
+
+commit 17e83673bfa2705cc748f21ea5265f5b7ae7239a
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-26 10:42:44 +0300
+
+    api: pktio: statistics: file clean-up
+    
+    Documentation syntax and wording clean-up.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Yuri Tolstov &lt;ytolstov@marvell.com&gt;
+
+commit a56601f11dd1a22420f224da6fc63b43f216756e
+Author: Ashwin Sekhar T K &lt;asekhar@marvell.com&gt;
+Date:   2021-04-29 17:38:27 +0530
+
+    validation: packet: fix packet head/tail pull lengths
+    
+    According to the spec packet pull head/tail may pull up to segment
+    length minus 1 bytes. Fix the tests to align to the spec.
+    
+    Signed-off-by: Ashwin Sekhar T K &lt;asekhar@marvell.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit ab29119cb6b71bb07afdc8022e6a561fcea20098
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-20 16:55:03 +0300
+
+    validation: init: test thread specific log function
+    
+    Test that a thread specific log function is called if and only if it
+    is set.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit c054a02ccb9a6c3db8e320b13477526e82326713
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-13 17:38:22 +0300
+
+    helper: cli: direct prints to the CLI client instead of the log
+    
+    Use the odp_log_thread_fn_set() API to direct prints from API calls to
+    the CLI client.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 5ea3992620a5c29b0018fc0dd534c456ddd1ac61
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-07 11:32:22 +0300
+
+    linux-gen: implement odp_thread_set_log_fn()
+    
+    Implement the odp_thread_set_log_fn() API function.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit a1d95ebee3269bb1105d7f769d68eedd9b783669
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-13 17:42:28 +0300
+
+    api: introduce thread specific log function
+    
+    The odp_log_thread_fn_set() API allows the caller to set a thread
+    specific log function. This log function is called to do output when
+    the thread calls other API functions.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 769982d958b5487d0f44edf0a8a2f0c15f613df0
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-22 17:57:05 +0300
+
+    linux-gen: thread: in global termination, check number of active threads
+    
+    In global termination, check the number of threads that have not
+    called odp_term_local(), and make a debug log if it's not zero.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit e86f6215acefe820395bfac55b88dcbd80701a43
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-22 16:29:42 +0300
+
+    linux-gen: init: fix odp_term_local() return value
+    
+    In odp_term_local(), when other threads still remain, instead of the
+    number of remaining threads, return 1 as the API specifies.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 43a88e0421d7123b31d704217914461f792661e0
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-22 15:53:38 +0300
+
+    helper: test: linux: process: add missing odp_term_local() calls
+    
+    When created with odph_linux_process_fork*(), the child does not call
+    odp_init_local(), but must remember to call odp_term_local().
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 1b143992013dcc63e89cffa9ec07d426b2c0f5fd
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-04-21 12:00:44 +0300
+
+    linux-gen: thread: set _odp_this_thread to NULL in term_local
+    
+    Set _odp_this_thread to NULL in _odp_thread_term_local(), in order to
+    not leave behind a dangling reference.
+    
+    In development of thread specific log function (in a future commit), a
+    segmentation fault occurred in _odp_fdserver_term_global(). This was
+    caused by _odp_this_thread being dereferenced (to check for thread
+    specific log function) after _odp_thread_term_global(), which frees
+    the shm that _odp_this_thread points to.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 057a52f1ead1c0b2bc2aefc603c69ac844891774
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2021-02-10 18:52:54 +0530
+
+    validation: ipsec: add test cases for reassembly of IPv6 pkts
+    
+    Add test cases to handle reassembly of IPv6 packets.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Signed-off-by: Subrahmanyam Nilla &lt;snilla@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 9dee565e2a1ceb23f33f3dd2bfa0b5206b6b24ab
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2021-03-08 10:28:52 +0000
+
+    validation: ipsec: add test cases for reassembly of IPv4 pkts
+    
+    Add test cases to verify IPsec reassembly. The tests cases would work on
+    large packets which are fragmented.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Signed-off-by: Sachin Yaligar &lt;syaligar@marvell.com&gt;
+    Signed-off-by: Subrahmanyam Nilla &lt;snilla@marvell.com&gt;
+    Signed-off-by: Vidya Sagar Velumuri &lt;vvelumuri@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 28863bfc18c9948d7209dede54a6faab145bff34
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2021-04-19 16:20:56 +0530
+
+    validation: ipsec: handle parts without pkts to receive
+    
+    Update ipsec_check_in_one path to handle test parts without
+    pkts to receive.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 2fb1886ebb0a7fef6688d0ffbecc9d51336c0c6c
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2021-03-27 07:02:21 +0000
+
+    validation: ipsec: add reassembly handling in recv_pkts_inline
+    
+    Update internal function such that it would handle reassembled packets
+    as well.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 5cd09224492a6c99b6d0f4fc521f913941693cf8
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2020-11-24 05:12:27 +0000
+
+    validation: ipsec: add test vectors for reassembly
+    
+    The header file contains a collection of plain and fragmented
+    test vectors based on IPv6 and IPv4. These vectors can be used to test
+    the reassembly functionality
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Signed-off-by: Sachin Yaligar &lt;syaligar@marvell.com&gt;
+    Signed-off-by: Subrahmanyam Nilla &lt;snilla@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit b81a6a2e0feb1ad867bf241c9338b1485eb8be4b
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2021-03-26 11:25:50 +0000
+
+    validation: ipsec: move several code fragments to separate functions
+    
+    Clean up the code and improve reusability by moving several code
+    fragments to their own functions. This commit does not make any
+    functional changes.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 9ad17ef53468495881cc8d88398551db33f1d7f4
+Author: Vidya Sagar Velumuri &lt;vvelumuri@marvell.com&gt;
+Date:   2021-02-16 05:49:30 +0000
+
+    linux-gen: reass: add minimal support for reassembly API
+    
+    Add minimal API implementation for reassembly. Declare capabilities
+    as unsupported.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Signed-off-by: Vidya Sagar Velumuri &lt;vvelumuri@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 84f50189b4b4c8d1fcf58c103d572a99a6e50e09
+Author: Anoob Joseph &lt;anoobj@marvell.com&gt;
+Date:   2020-06-05 20:53:14 +0530
+
+    api: reassembly: add reassembly offload
+    
+    Add support for inline fragmentation reassembly offload in PKTIN
+    and IPSEC.
+    
+    When the offload is enabled in pktin, reassembly would be attempted for
+    packets received on the pktio interface. When the offload is enabled in
+    IPSEC, reassembly would be attempted after IPSEC processing of inbound
+    packets. Support for this offload can be verified using corresponding
+    capability.
+    
+    Application would be allowed to configure the below options,
+    1. Enable/disable the offload
+    2. Maximum wait time for reassembly
+    3. Maximum number of fragments
+    
+    In case of success, the reassembled packet would be a regular ODP packet
+    thereby eliminating the need to have reassembly in the application.
+    
+    For incomplete reassembly case, the partial reassembled fragments need
+    to be retrieved. An odp_packet_t with status as
+    'ODP_PACKET_REASS_INCOMPLETE' can be passed to
+    odp_packet_reass_partial_state() for getting the partial reassembled
+    fragments. In addition to retrieving fragments, the API returns
+    additional information from the reassembly attempt, including the time
+    spent by the fragments in IPSEC/PKTIO waiting for reassembly. This
+    allows application to track reassembly timeouts more accurately, when
+    attempting reassembly on such packets.
+    
+    Signed-off-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit edf40d0470a6dd911170775e8185a5458914a372
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-04-21 17:02:09 +0300
+
+    linux-gen: ipsec: add event type assertion in odp_ipsec_packet_from_event()
+    
+    Assert that events passed to odp_ipsec_packet_from_event() are of
+    ODP_EVENT_PACKET_IPSEC subtype as the API spec mandates.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 9cf47eb08035147bfb7f91b3fdc0fd22dcb19c82
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-04-21 17:01:42 +0300
+
+    validation: ipsec: fix event-to-packet conversion of non-IPsec events
+    
+    Use odp_packet_from_event() instead of odp_ipsec_packet_from_event() when
+    converting plain packet events to packets. odp_ipsec_packet_from_event()
+    may be called only for events of IPsec subtype.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit b646359e0a5785bb1a90f5e917749f2014735171
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-20 10:54:52 +0300
+
+    shippable: abi compatibility is disabled by default
+    
+    ABI compatibility default value has been changed to disabled, so modify the
+    test configuration accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 7be1fa8500a454355673c56c6f8a1fb7bf175fd7
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-20 10:15:36 +0300
+
+    github_ci: abi compatibility is disabled by default
+    
+    ABI compatibility default value has been changed to disabled, so modify the
+    test cases accordingly. Most of the test cases are now run with ABI
+    compatibility disabled, as this is more common with real word applications.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 742a6b8ef68d80b898a13bed42a4afcb4d8311cf
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-20 09:50:45 +0300
+
+    configure: change abi compatibility default value to disabled
+    
+    Disable ABI compatibility by default. This way the ODP implementation will
+    offer the best available performance without the user having to change the
+    default configuration.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit a91e02d6a217bbcfbb1e971894e7376f3f956b14
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-19 14:28:23 +0300
+
+    test: queue_perf: add process mode support
+    
+    Allocate global memory using SHM and add odph_parse_options() call to
+    enable running the application in process mode (--odph_proc or
+    ODPH_PROC_MODE set). The application memory model is set accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 7c7d8553db693b83f6115d8692f5f37b41612d30
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-19 14:24:20 +0300
+
+    test: pool_perf: add process mode support
+    
+    Allocate global memory using SHM and add odph_parse_options() call to
+    enable running the application in process mode (--odph_proc or
+    ODPH_PROC_MODE set). The application memory model is set accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 303a429c2c7dc24e597f947af69bdb492df7bdf0
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-19 13:01:03 +0300
+
+    test: sched_perf: add process mode support
+    
+    Allocate global memory using SHM and add odph_parse_options() call to
+    enable running the application in process mode (--odph_proc or
+    ODPH_PROC_MODE set). The application memory model is set accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit df68583e2d5c0e583855123357799f5e416094e8
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-19 12:55:31 +0300
+
+    test: mem_perf: add process mode support
+    
+    Allocate global memory using SHM and add odph_parse_options() call to
+    enable running the application in process mode (--odph_proc or
+    ODPH_PROC_MODE set). The application memory model is set accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit b64fb45634d5620f5f170f3dc7bff3796ebab38a
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-19 12:47:45 +0300
+
+    test: timer_perf: add process mode support
+    
+    Allocate global memory using SHM and add odph_parse_options() call to
+    enable running the application in process mode (--odph_proc or
+    ODPH_PROC_MODE set). The application memory model is set accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 4c38177e454804725abe2e65d83092c065a80b97
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-19 12:48:48 +0300
+
+    test: performance: enable running applications in process mode
+    
+    Add odph_parse_options() calls to enable running the test applications in
+    process mode (--odph_proc or ODPH_PROC_MODE set). The application memory
+    model is set accordingly.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 1c8d7a54b3fb545233bfe6371068082397c4303a
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-16 16:12:06 +0300
+
+    linux-gen: sched: use odp_global_rw for storing scheduler config status
+    
+    In process mode the value of_odp_schedule_configured was not synchronized
+    to forked processes.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit caba676d4a13b6aa60a209c4236f2fd64c7375d5
+Author: Ashwin Sekhar T K &lt;asekhar@marvell.com&gt;
+Date:   2021-03-30 18:03:23 +0530
+
+    test: pool_perf: add option to set cache size
+    
+    Add an option to set cache size in pool perf test.
+    
+    Signed-off-by: Ashwin Sekhar T K &lt;asekhar@marvell.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit 994c22698fa9617ca918f904684066096858f287
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-14 13:34:28 +0300
+
+    validation: hash: add Ethernet frame CRC tests
+    
+    Test odp_hash_crc32() correctness with Ethernet test packets
+    that include a correct Ethernet FCS at the end of the packet
+    (last 4 bytes). When CRC32 calculation includes FCS, the
+    result (0xdebb20e3) is common for all packets.
+    
+    Verify CRC32 calculation also in odd data alignment.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 6f50e77074fa5c42cb60bfd55be882efcbffccc9
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-14 14:00:53 +0300
+
+    validation: common: add IPv4 test packets with CRC
+    
+    Added new test packet file which contains IPv4/UDP packets
+    with Ethernet FCS at the end. Test packets in other files do
+    not contain FCS. This is used for CRC32 API testing.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit d772453adbde43ee45974cdc5753cf643b350665
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-14 14:58:41 +0300
+
+    validation: common: split test packet header file
+    
+    Split test_packet_parser.h file into protocol specific header
+    files. It's easier find and maintain test packets when those
+    are sorted per protocol.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+
+commit 50fdac45f35e83b183419eb7671df9686645afec
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-03-26 16:53:01 +0200
+
+    linux-gen: detect cpu cache line size during configure
+    
+    Detect CPU cache line size automatically on aarch64 systems when abi-
+    compatibility is disabled. Automatic cache line size detection is disabled
+    when cross-compiling.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 5b72b4ea91837dc50abd11d5fb3bcaea264d6207
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-03-29 17:19:21 +0300
+
+    linux-gen: sysinfo: enable detecting cpu cache line size on arm hosts
+    
+    CPU cache line size can be read also with some ARM CPUs from
+    /sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size.
+    
+    In ABI-compatible mode the ODP_CACHE_LINE_SIZE define and system cache line
+    size may be different, so don't fail system info init.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit b7745ac72670d56c83bdf3e1f42dfb2d4e17b073
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-04-14 12:37:08 +0300
+
+    validation: system: modify cache line size test
+    
+    On some systems the value of ODP_CACHE_LINE_SIZE may be different than what
+    is returned at runtime by odp_sys_cache_line_size() (in ABI compat mode).
+    Remove a test that checked that the values are equal and print a warning
+    instead. Also, check that cache line size is a power of two.
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 19ec29b30b311558da1de4b1a6f28fc7d061ee2f
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-07 15:10:38 +0300
+
+    linux-gen: pktio: update LSO capabilities
+    
+    Increase max_segments capability to 64 segments. LSO implementation
+    does not have a limit, but is limited by number free packets
+    in the pool. Picked a large enough number that LSO capability
+    does not limit segmentation of a maximum size IP packet.
+    
+    Increase max_payload_len capability to be closer to MTU. Subtract
+    min header size (only Ethernet header) from MTU, instead of the
+    maximum supported header size.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 16079c05ddc71bc15dc0bd3567a6a3a1f6cf117d
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-07 12:15:46 +0300
+
+    linux-gen: pktio: check function return value
+    
+    Add missing function return value check.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 90a9952616cec177b4f9df1e9a3443dd8f699ec1
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-07 11:52:14 +0300
+
+    linux-gen: tm: check function return value
+    
+    Add missing function return value checks.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit 4ef6808992011615551936198def770f334f6600
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-06 17:39:00 +0300
+
+    linux-gen: libconfig: suppress tmpfile usage warning
+    
+    Temp file is used for printing. Predictable file name is not
+    a security issue here.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit fb6cd2a891af7ff6db3a2c9b5836b2e8d029ec5f
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-04-06 17:27:14 +0300
+
+    linux-gen: init: remove unused RANDOM_INIT stage
+    
+    Remove RANDOM_INIT stage from init and term global functions as
+    it is empty on both.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+
+commit eec5790f5cc947eb203446fce294ac044e44195c
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-03-15 13:20:10 +0200
+
+    test: perf: implement crc throughput test
+    
+    This test measures megabytes per second throughput of the
+    odp_hash_crc32() and odp_hash_crc32c() API functions.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit f4dffdf0badcc8340540aaf6b248a5030a13fd36
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-03-23 20:38:33 +0200
+
+    linux-gen: hash: use x86 crc32 instructions
+    
+    Use x86 SSE 4.2 crc32 instructions via gcc builtin functions, if
+    available. These instructions support crc32c only.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 8e0e67e3ed4af071056ac48545ffb82cbb4bf283
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:59 +0200
+
+    validation: ipsec: separate test case flags from framework code
+    
+    Move test case specific flags from ipsec_test_param to their own
+    structure so that the generic framework code for input and output
+    IPsec operations does not have to see them.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit d866311352aae17f6b11887e34a0ce60021abfd5
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:54 +0200
+
+    validation: ipsec: remove the now redundant UDP encaps checks
+    
+    Remove the UDP encapsulation specific L4 protocol checks. They
+    are now redundant since the generic code checks the L4 protocol
+    of processed packets.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit a660d1648222a77ad48ca9acdd554363966ca5c3
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:50 +0200
+
+    validation: ipsec: always check packet type after ipsec output
+    
+    The L3 and L4 type of an outbound IPsec processed packet is not
+    checked if the packet cannot be compared with an expected result
+    packet (there are no expected result packets in combined output+input
+    tests nor in TFC dummy tests).
+    
+    Improve testing by checking outbound processed packet against
+    expected L3 and L4 types when there is no expected result packet.
+    Set correct expected L3 and L4 types in output test parameters of
+    various tests that did not have them.
+    
+    Fix the ethertype of the ethernet header of outbound inline processed
+    packets so that parsing the packet for the L3 and L4 types works.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit 7e344e84a70b2b07a8004b7933ba6d6f23ff16b6
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:47 +0200
+
+    validation: ipsec: check for invalid packet handles early enough
+    
+    Some assertions for valid packet handles are made after the packet
+    handles have already been used. Move the assertions up in the call
+    chain so that they are done early enough.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit af42de5a0a8109c202ca7d9ce9c867ccbc5d2011
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:43 +0200
+
+    validation: ipsec: clean up user pointer checking logic
+    
+    User pointer of the result packet is null after outbound inline
+    IPsec operation only if the operation is successful in which case the
+    result packet goes through the loop interface before getting checked.
+    In case the operation fails (as it does for some negative tests),
+    the result packet is the original packet that gets delivered directly
+    as an event, without the loop interface being involved. In this case
+    the user pointer has the original non-NULL value. The current code does
+    not take this into account, although the check is not currently done
+    in cases where it would incorrectly fail.
+    
+    Fix the user pointer checking logic and move the checking up in the
+    chain so that it is done for all packets.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit 7fa8b1953c89c762ad0afd9d5dafda755f6e10cb
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:39 +0200
+
+    validation: ipsec: use ipsec_test_part for one operation only
+    
+    Clean up the code by using ipsec_test_part for one IPsec operation
+    only so that the outbound and inbound phases of combined out+in tests
+    become separate. One ipsec_test_part will contain single input packet
+    to an (outbound or inbound) IPsec operation and the expected output.
+    
+    This makes the code clearer and brings it closer to the original design.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit 6fba5c596f501455fb9f3704bdb612e7c91ce384
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:36 +0200
+
+    validation: ipsec: move combined out+in test code away from the infra
+    
+    Move ipsec_check_out_in_one() from the generic framework file to a
+    test case file where it better belongs.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit bef1a06087cb520bb55bd1073826716620a63780
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:33 +0200
+
+    validation: ipsec: verify outbound result packets better
+    
+    Make the combined out+in test code reuse the packet checking code
+    of the regular outbound tests. This improves the verification of outbound
+    processed packets in the combined tests and cleans up the code a bit.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit cff69f39449175ed7526f6cc30fef18d63dd1163
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:29 +0200
+
+    validation: ipsec: do not pass bogus expected result packet
+    
+    Many test functions pass the original input packet (e.g. ICMP) as the
+    expected result packet when the expected result is not known in detail
+    (like in the middle of combined output+input tests). In reality the
+    result packet is an IPsec-transformed packet (e.g.  ESP), but that is
+    not currently always checked.
+    
+    Clean up the code by not passing any expected result packet to the test
+    routines when the expected result packet is not known beforehand.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit 1cff5a434422db01eabe43e020e443619a3f3082
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:24 +0200
+
+    validation: ipsec: reduce code duplication in TFC tests
+    
+    Combine the common part of the two dummy TFC packet tunneling tests.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit be429f2f63c0ab746d1e7e5635e9056ac30d6b71
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:17 +0200
+
+    linux-gen: ipsec: remove unnecessary setting of l4 offset
+    
+    According to the IPsec API, outbound IPsec operations produce
+    packets which have valid L3 offsets but which do not necessarily
+    have valid L4 offsets. Remove the unnecessary setting of L4
+    offset from outbound IPsec processing. Applications cannot rely
+    on it and the IPsec implementation itself does not make use of it.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit 6bbda08633477970b25c227bacd31ecf0ed2c946
+Author: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+Date:   2021-03-27 11:58:12 +0200
+
+    validation: ipsec: do not assume that l4 offset is always set
+    
+    Fix the incorrect assumption that l4 offset is set in the output
+    packets of odp_ipsec_out() and odp_ipsec_out_enq(). Parse the output
+    packets to set the l4 offset.
+    
+    Signed-off-by: Janne Peltonen &lt;janne.peltonen@nokia.com&gt;
+    Reviewed-by: Anoob Joseph &lt;anoobj@marvell.com&gt;
+
+commit 3b8ce4a6a6d6de8b0a025e815152b0cfb139dc9e
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-31 17:20:57 +0300
+
+    test: sched_perf: check function return value
+    
+    Check queue enqueue return value. Drop event if enqueue failed.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit cab6899faa97388d3256d6a307302469b550db00
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-31 17:14:27 +0300
+
+    example: timer: check function return value
+    
+    Check timer capability return value and exit on failure.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit dc00a1fe3ce167c15d9e1f7c64541712ade0c902
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-31 17:06:59 +0300
+
+    test: packet_gen: check function return value
+    
+    Check IP address parse function return value.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit d258bb6298adcdd18b9efbf088209af7426f9521
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-31 16:54:57 +0300
+
+    test: cpp: check function return value
+    
+    Check ODP init/term return values and exit on failure.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit 639f4d5831927a2e10670ebb8f36481a5db1093c
+Author: Matias Elo &lt;matias.elo@nokia.com&gt;
+Date:   2021-03-31 13:02:53 +0300
+
+    api: increment ODP API version to 1.28.0
+    
+    Increment API version number to reflect the following changes:
+    
+    Backward-incompatible:
+    - New crypto capabilities for defining if a queue type (scheduled/plain)
+      can be used as a crypto completion event destination
+    
+    Backward-compatible:
+    - New packet TX completion event type and related functions
+    - New packet APIs for requesting packet TX completion events
+    - New packet APIS for requesting packet TX drop based on packet age
+    - New odp_cls_print_all() function for printing implementation specific
+      debug information about all classifier rules
+    - New enumerations for ARMv8.7-A, ARMv9.0-A, ARMv9.1-A, and ARMv9.2-A ISA
+      versions
+    
+    Signed-off-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit b4bccb825234ce9d3d116cfb4446076fb514b408
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-15 17:19:08 +0200
+
+    validation: system: detect new ARMv8 and v9 ISAs
+    
+    Added support for ARMv8.7, ARMv9.0, ARMv9.1 and
+    ARMv9.2 enumeration.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit 7a959eaba985795d6ce6ba5334d1c08358b61fcc
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-15 17:15:19 +0200
+
+    example: sysinfo: detect new ARMv8 and v9 ISAs
+    
+    Added support for ARMv8.7, ARMv9.0, ARMv9.1 and
+    ARMv9.2 enumeration.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit cf85059a840ea3a4dac17d872ac848c387cb2487
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-15 17:10:12 +0200
+
+    linux-gen: sysinfo: add new ARMv8 and v9 enumerations
+    
+    Added support for ARM ISA versions: ARMv8.7-A, ARMv9.0-A,
+    ARMv9.1-A and ARMv9.2-A.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit cafab576ca865cf67c75ae90bc997d0101cfc43a
+Author: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+Date:   2021-03-15 17:04:45 +0200
+
+    api: sysinfo: add new ARMv8 and v9 enumerations
+    
+    Added enumerations for ARM ISA versions: ARMv8.7-A,
+    ARMv9.0-A, ARMv9.1-A and ARMv9.2-A.
+    
+    Signed-off-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Matias Elo &lt;matias.elo@nokia.com&gt;
+
+commit 6f4a2f3edde00ca9b6189a749e5a54c3ed443736
+Author: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+Date:   2021-03-22 22:53:57 +0530
+
+    validation: pktio: add test case for pktout tx completion
+    
+    Add test case for testing pktout tx completion event feature.
+    
+    Signed-off-by: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 92a96ca77f2c5496b7024ecb532e69221da4d050
+Author: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+Date:   2021-03-24 19:00:47 +0530
+
+    linux-gen: add stub implementation for pktout tx completion
+    
+    Add stub implementation for pktout tx completion feature.
+    
+    Signed-off-by: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 3caaa662631300878d5343fc025ef31ed7084389
+Author: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+Date:   2021-02-11 13:55:34 +0530
+
+    api: pktio: add support for pktout tx completion event
+    
+    Add support for pktout tx completion event. Tx completion event is
+    generated and posted. Tx completion event should be requested on
+    per-packet basis with by default it being disabled.
+    
+    Signed-off-by: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 2f2a749af15722c41f6d3bff18726d2c2a0d5293
+Author: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+Date:   2021-02-12 14:22:22 +0530
+
+    api: event: introduce packet Tx completion event
+    
+    Introduce packet Tx completion event which indicates a packet's
+    Tx completion. It also holds a user defined context pointer.
+    
+    This patch also adds odp_packet_tx_compl_t type handling functions to
+    free the compl to platform, and to get user context pointer
+    from odp_packet_tx_compl_t event.
+    
+    Signed-off-by: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 58e81f7547a039231330b37644fd1a1de7d38fc7
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-03-09 17:27:01 +0200
+
+    example: classifier: use odp_cls_print_all
+    
+    Call the new classifier debug print function.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+
+commit 4b813782ccc98cac7776946eb33223362d11a29d
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-03-09 17:26:05 +0200
+
+    validation: classification: test odp_cls_print_all
+    
+    Call the new classifier debug print function from validation test.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+
+commit 8b2ac4804fb200b352ca1c6688e8512a22178e3e
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-03-09 17:23:53 +0200
+
+    linux-gen: classification: implement odp_cls_print_all
+    
+    Implement the new classifier debug print function.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+
+commit 2ac2341ec4c48791d7e9e9e5ce3238b0702a22dd
+Author: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+Date:   2021-03-09 17:19:04 +0200
+
+    api: classification: print debug info for all classifier rules
+    
+    Add odp_cls_print_all(), which prints implementation specific debug
+    information for all classifier rules.
+    
+    Signed-off-by: Jere Leppänen &lt;jere.leppanen@nokia.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+    Reviewed-by: Jerin Jacob &lt;jerinj@marvell.com&gt;
+
+commit 0236da9fe33fdea26477b2d7dad38b05d355d943
+Author: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+Date:   2021-03-23 21:53:06 +0530
+
+    validation: pktio: add pktout aging timeout test
+    
+    Add test to validation pktout aging timeout feature.
+    
+    Signed-off-by: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+commit 5488df66191d66640fda6810822433253985f26b
+Author: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+Date:   2021-03-24 18:36:31 +0530
+
+    linux-gen: add stub implementation for packet aging API
+    
+    Add stub implementation for packet aging support.
+    
+    Signed-off-by: Nithin Dabilpuram &lt;ndabilpuram@marvell.com&gt;
+    Reviewed-by: Petri Savolainen &lt;petri.savolainen@nokia.com&gt;
+
+...</pre></div>
+
+</body>
+</html>

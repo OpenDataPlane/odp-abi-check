@@ -1,0 +1,873 @@
+<!-- verdict:incompatible;affected:0.4;added:7;removed:0;type_problems_high:0;type_problems_medium:7;type_problems_low:5;interface_problems_high:0;interface_problems_medium:0;interface_problems_low:11;changed_constants:0;tool_version:2.2 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="libodp-linux, binary compatibility, API, report" />
+<meta name="description" content="Binary compatibility report for the libodp-linux object between 1.12.0.0 and 1.13.0.0 versions on x86_64" />
+<title>libodp-linux: 1.12.0.0 to 1.13.0.0 binary compatibility report</title>
+<style type="text/css">
+body {
+    font-family:Arial, sans-serif;
+    background-color:White;
+    color:Black;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.625em;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.25em;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:0.3125em;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:1.65em;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:3em;
+    font-size:1em;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.sect_aff {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:#cc3300;
+}
+span.sect_info {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:Black;
+}
+span.ext {
+    font-weight:normal;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:0.875em;
+    font-weight:bold;
+}
+div.h_list, div.lib_list {
+    font-size:0.94em;
+    padding-left:0.4em;
+}
+span.ns {
+    color:#408080;
+    font-size:0.94em;
+}
+span.lib_name {
+    color:Green;
+    font-size:0.875em;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    color:#003E69;
+    margin-left:0.3125em;
+}
+span.iname_b {
+    font-weight:bold;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:0.94em;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+span.sym_pd {
+    white-space:normal;
+}
+span.sym_p span, span.sym_pd span {
+    white-space:nowrap;
+}
+div.affect {
+    padding-left:1em;
+    padding-bottom:10px;
+    font-size:0.87em;
+    font-style:italic;
+    line-height:0.9em;
+}
+div.affected {
+    padding-left:1.9em;
+    padding-top:10px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:0.95em;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:56.25em;
+}
+table.ptable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    text-align:left;
+    vertical-align:top;
+    max-width:28em;
+    word-wrap:break-word;
+}
+table.ptable th.pn {
+    width:2%;
+}
+table.ptable th.chg {
+    width:47%;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:1.9em;
+    margin-top:0.7em;
+}
+table.vtable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    vertical-align:top;
+    max-width:450px;
+    word-wrap:break-word;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:0.875em;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding:3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:normal;
+    text-align:left;
+    font-size:0.94em;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px;
+}
+table.summary td {
+    text-align:right;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px 5px 3px 10px;
+}
+span.mngl {
+    padding-left:1em;
+    font-size:0.875em;
+    cursor:text;
+    color:#444444;
+    font-weight:bold;
+}
+span.pleft {
+    padding-left:2.5em;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:normal;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.p {
+    font-style:italic;
+}
+span.fp {
+    font-style:italic;
+    background-color:#DCDCDC;
+}
+span.ttype {
+    font-weight:normal;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    font-weight:bold;
+}
+.passed {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.warning {
+    background-color:#F4F4AF;
+    font-weight:normal;
+}
+.failed {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.new {
+    background-color:#C6DEFF;
+    font-weight:normal;
+}
+.compatible {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.almost_compatible {
+    background-color:#FFDAA3;
+    font-weight:normal;
+}
+.incompatible {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.gray {
+    background-color:#DCDCDC;
+    font-weight:normal;
+}
+.top_ref {
+    font-size:0.69em;
+}
+.footer {
+    font-size:0.75em;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+-->
+</script>
+</head>
+
+<body>
+<div><a name='Top'></a>
+<h1>Binary compatibility report for the <span style='color:Blue;'>libodp-linux.so</span> object between <span style='color:Red;'>1.12.0.0</span> and <span style='color:Red;'>1.13.0.0</span> versions on <span style='color:Blue;'>x86_64</span></h1>
+
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Module Name</th><td>libodp-linux</td></tr>
+<tr><th>Version #1</th><td>1.12.0.0</td></tr>
+<tr><th>Version #2</th><td>1.13.0.0</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>4.8.4</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>62</a></td></tr>
+<tr><th>Total Source Files</th><td><a href='#Sources' style='color:Blue;'>34</a></td></tr>
+<tr><th>Total Objects</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>514 / 212</td></tr>
+<tr><th>Compatibility</th>
+<td class='warning'>99.6%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Added' style='color:Blue;'>7</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td class='failed'><a href='#Type_Problems_Medium' style='color:Blue;'>7</a></td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Type_Problems_Low' style='color:Blue;'>5</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Symbol_Problems_Low' style='color:Blue;'>11</a></td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+</table>
+
+<a name='Added'></a><h2>Added Symbols <span class='new'>&nbsp;7&nbsp;</span></h2><hr/>
+<span class='h_name'>crypto.h</span>, <span class='lib_name'>libodp-linux.so.113.0.0</span><br/>
+<span class="iname">odp_crypto_auth_capability&#160;<span class='sym_p'><span>(&#160;enum odp_auth_alg_t <span class='color_p'>auth</span></span>, <span>odp_crypto_auth_capability_t* <span class='color_p'>dst</span></span>, <span>int <span class='color_p'>num_copy</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_crypto_cipher_capability&#160;<span class='sym_p'><span>(&#160;enum odp_cipher_alg_t <span class='color_p'>cipher</span></span>, <span>odp_crypto_cipher_capability_t* <span class='color_p'>dst</span></span>, <span>int <span class='color_p'>num_copy</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>pool.h</span>, <span class='lib_name'>libodp-linux.so.113.0.0</span><br/>
+<span class="iname">odp_pool_to_u64&#160;<span class='sym_p'><span>(&#160;odp_pool_t <span class='color_p'>hdl</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>random.h</span>, <span class='lib_name'>libodp-linux.so.113.0.0</span><br/>
+<span class="iname">odp_random_max_kind&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">odp_random_test_data&#160;<span class='sym_p'><span>(&#160;uint8_t* <span class='color_p'>buf</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>uint64_t* <span class='color_p'>seed</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>shared_memory.h</span>, <span class='lib_name'>libodp-linux.so.113.0.0</span><br/>
+<span class="iname">odp_shm_import&#160;<span class='sym_p'><span>(&#160;char const* <span class='color_p'>remote_name</span></span>, <span>odp_instance_t <span class='color_p'>odp_inst</span></span>, <span>char const* <span class='color_p'>local_name</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Medium_Risk_Problems'></a><a name='Type_Problems_Medium'></a>
+<h2>Problems with Data Types, Medium Severity <span class='failed'>&nbsp;7&nbsp;</span></h2><hr/>
+<span class='h_name'>crypto.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-crypto.h-126 <span class='failed'>&nbsp;3&nbsp;</span></span>
+<br/>
+<div id="c_1" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>aes_gcm</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>md5_hmac</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Field <b>sha256_hmac</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_2')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_2" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_capability&#160;<span class='sym_p'><span>(&#160;odp_crypto_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.auths.bit&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-crypto.h-126&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_3')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-crypto.h-97 <span class='failed'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_3" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>aes_cbc</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>aes_gcm</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_4')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_4" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_capability&#160;<span class='sym_p'><span>(&#160;odp_crypto_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.ciphers.bit&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-crypto.h-97&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>pool.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_5')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-pool.h-181 <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_5" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>max_len</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_6')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_6" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0.pkt&#39; in 2nd parameter &#39;params&#39; (pointer) is of type &#39;anon-struct-pool.h-181&#39;.</div>
+<span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.params.unnamed0.pkt&#39; in 2nd parameter &#39;info&#39; (pointer) is of type &#39;anon-struct-pool.h-181&#39;.</div>
+<span class='iname_a'>odp_pool_param_init&#160;<span class='sym_p'><span>(&#160;odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0.pkt&#39; in 1st parameter &#39;params&#39; (pointer) is of type &#39;anon-struct-pool.h-181&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_7')">
+<span class='ext'>[+]</span> <span class='ttype'>union</span> anon-union-pool.h-167 <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_7" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of field <b>pkt</b> has been changed from <b>16</b> bytes to <b>20</b> bytes.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Previous accesses of applications and library functions to this field may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_8')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_8" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0&#39; in 2nd parameter &#39;params&#39; (pointer) is of type &#39;anon-union-pool.h-167&#39;.</div>
+<span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.params.unnamed0&#39; in 2nd parameter &#39;info&#39; (pointer) is of type &#39;anon-union-pool.h-167&#39;.</div>
+<span class='iname_a'>odp_pool_param_init&#160;<span class='sym_p'><span>(&#160;odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0&#39; in 1st parameter &#39;params&#39; (pointer) is of type &#39;anon-union-pool.h-167&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Low_Risk_Problems'></a><a name='Type_Problems_Low'></a>
+<h2>Problems with Data Types, Low Severity <span class='warning'>&nbsp;5&nbsp;</span></h2><hr/>
+<span class='h_name'>pool.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_9')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-pool.h-181 <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_9" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>16</b> bytes to <b>20</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_10')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_10" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0.pkt&#39; in 2nd parameter &#39;params&#39; (pointer) is of type &#39;anon-struct-pool.h-181&#39;.</div>
+<span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.params.unnamed0.pkt&#39; in 2nd parameter &#39;info&#39; (pointer) is of type &#39;anon-struct-pool.h-181&#39;.</div>
+<span class='iname_a'>odp_pool_param_init&#160;<span class='sym_p'><span>(&#160;odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0.pkt&#39; in 1st parameter &#39;params&#39; (pointer) is of type &#39;anon-struct-pool.h-181&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_11')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_info_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_11" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of field <b>params</b> has been changed from <b>20</b> bytes to <b>24</b> bytes.</td>
+<td>Previous accesses of applications and library functions to this field may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_12')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_12" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_pool_info_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_13')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_param_t <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_13" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>20</b> bytes to <b>24</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Size of field <b>unnamed0</b> has been changed from <b>16</b> bytes to <b>20</b> bytes.</td>
+<td>Size of the inclusive type has been changed.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_14')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_14" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;params&#39; (pointer) has base type &#39;struct odp_pool_param_t&#39;.</div>
+<span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.params&#39; in 2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_pool_param_t&#39;.</div>
+<span class='iname_a'>odp_pool_param_init&#160;<span class='sym_p'><span>(&#160;odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;params&#39; (pointer) has base type &#39;struct odp_pool_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_15')">
+<span class='ext'>[+]</span> <span class='ttype'>union</span> anon-union-pool.h-167 <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_15" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>16</b> bytes to <b>20</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_16')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_16" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0&#39; in 2nd parameter &#39;params&#39; (pointer) is of type &#39;anon-union-pool.h-167&#39;.</div>
+<span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.params.unnamed0&#39; in 2nd parameter &#39;info&#39; (pointer) is of type &#39;anon-union-pool.h-167&#39;.</div>
+<span class='iname_a'>odp_pool_param_init&#160;<span class='sym_p'><span>(&#160;odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;params.unnamed0&#39; in 1st parameter &#39;params&#39; (pointer) is of type &#39;anon-union-pool.h-167&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Symbol_Problems_Low'></a><a name='Interface_Problems_Low'></a>
+<h2>Problems with Symbols, Low Severity <span class='warning'>&nbsp;11&nbsp;</span></h2><hr/>
+<span class='h_name'>classification.h</span>, <span class='lib_name'>libodp-linux.so.112.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_17')">
+<span class='ext'>[+]</span> odp_cls_cos_pool_set&#160;<span class='sym_p'><span>(&#160;odp_cos_t <span class='color_p'>cos_id</span></span>, <span>odp_pool_t <span class='color_p'>pool_id</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_17" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_cls_cos_pool_set&#160;<span class='sym_p'><span>(&#160;odp_cos_t <span class='color_p'>cos_id</span></span>, <span>odp_pool_t <span class='color_p'>pool</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>2nd</b> parameter <b>pool_id</b> has been renamed to <b>pool</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<span class='h_name'>crypto.h</span>, <span class='lib_name'>libodp-linux.so.112.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_18')">
+<span class='ext'>[+]</span> odp_crypto_operation&#160;<span class='sym_p'><span>(&#160;odp_crypto_op_params_t* <span class='color_p'>params</span></span>, <span>odp_bool_t* <span class='color_p'>posted</span></span>, <span>odp_crypto_op_result_t* <span class='color_p'>result</span></span>&#160;)</span> <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_18" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_crypto_operation&#160;<span class='sym_p'><span>(&#160;odp_crypto_op_param_t* <span class='color_p'>param</span></span>, <span>odp_bool_t* <span class='color_p'>posted</span></span>, <span>odp_crypto_op_result_t* <span class='color_p'>result</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Base type of <b>1st</b> parameter <b>params</b> has been changed from <span class='value'>struct odp_crypto_op_params</span> to <span class='value'>struct odp_crypto_op_param_t</span>.</td>
+<td>Replacement of parameter base type may indicate a change in its semantic meaning.</td>
+</tr>
+<tr>
+<th>2</th>
+<td><b>1st</b> parameter <b>params</b> has been renamed to <b>param</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_19')">
+<span class='ext'>[+]</span> odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_params_t* <span class='color_p'>params</span></span>, <span>odp_crypto_session_t* <span class='color_p'>session_out</span></span>, <span>odp_crypto_ses_create_err_t* <span class='color_p'>status</span></span>&#160;)</span> <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_19" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='color_p'>param</span></span>, <span>odp_crypto_session_t* <span class='color_p'>session_out</span></span>, <span>odp_crypto_ses_create_err_t* <span class='color_p'>status</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Base type of <b>1st</b> parameter <b>params</b> has been changed from <span class='value'>struct odp_crypto_session_params</span> to <span class='value'>struct odp_crypto_session_param_t</span>.</td>
+<td>Replacement of parameter base type may indicate a change in its semantic meaning.</td>
+</tr>
+<tr>
+<th>2</th>
+<td><b>1st</b> parameter <b>params</b> has been renamed to <b>param</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<span class='h_name'>packet.h</span>, <span class='lib_name'>libodp-linux.so.112.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_20')">
+<span class='ext'>[+]</span> odp_packet_alloc_multi&#160;<span class='sym_p'><span>(&#160;odp_pool_t <span class='color_p'>pool_hdl</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>odp_packet_t* <span class='color_p'>pkt</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_20" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_packet_alloc_multi&#160;<span class='sym_p'><span>(&#160;odp_pool_t <span class='color_p'>pool_hdl</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>odp_packet_t* <span class='color_p'>pkt</span></span>, <span>int <span class='color_p'>max_num</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>4th</b> parameter <b>num</b> has been renamed to <b>max_num</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_21')">
+<span class='ext'>[+]</span> odp_packet_extend_tail&#160;<span class='sym_p'><span>(&#160;odp_packet_t* <span class='color_p'>pkt</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>void** <span class='color_p'>data_ptr</span></span>, <span>uint32_t* <span class='color_p'>seg_len</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_21" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_packet_extend_tail&#160;<span class='sym_p'><span>(&#160;odp_packet_t* <span class='color_p'>pkt</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>void** <span class='color_p'>data_ptr</span></span>, <span>uint32_t* <span class='color_p'>seg_len_out</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>4th</b> parameter <b>seg_len</b> has been renamed to <b>seg_len_out</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_22')">
+<span class='ext'>[+]</span> odp_packet_trunc_head&#160;<span class='sym_p'><span>(&#160;odp_packet_t* <span class='color_p'>pkt</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>void** <span class='color_p'>data_ptr</span></span>, <span>uint32_t* <span class='color_p'>seg_len</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_22" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_packet_trunc_head&#160;<span class='sym_p'><span>(&#160;odp_packet_t* <span class='color_p'>pkt</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>void** <span class='color_p'>data_ptr</span></span>, <span>uint32_t* <span class='color_p'>seg_len_out</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>4th</b> parameter <b>seg_len</b> has been renamed to <b>seg_len_out</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<span class='h_name'>random.h</span>, <span class='lib_name'>libodp-linux.so.112.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_23')">
+<span class='ext'>[+]</span> odp_random_data&#160;<span class='sym_p'><span>(&#160;uint8_t* <span class='color_p'>buf</span></span>, <span>int32_t <span class='color_p'>len</span></span>, <span>odp_bool_t <span class='color_p'>use_entropy</span></span>&#160;)</span> <span class='warning'>&nbsp;3&nbsp;</span></span>
+<br/>
+<div id="c_23" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_random_data&#160;<span class='sym_p'><span>(&#160;uint8_t* <span class='color_p'>buf</span></span>, <span>uint32_t <span class='color_p'>len</span></span>, <span>enum odp_random_kind_t <span class='color_p'>kind</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Type of <b>2nd</b> parameter <b>len</b> has been changed from <b>int32_t</b> to <b>uint32_t</b>.</td>
+<td>Replacement of parameter data type may indicate a change in its semantic meaning.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Type of <b>3rd</b> parameter <b>use_entropy</b> has been changed from <b>odp_bool_t</b> to <span class='value'>enum odp_random_kind_t</span>.</td>
+<td>Replacement of parameter data type may indicate a change in its semantic meaning.</td>
+</tr>
+<tr>
+<th>3</th>
+<td><b>3rd</b> parameter <b>use_entropy</b> has been renamed to <b>kind</b>.</td>
+<td>Renaming of a parameter may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;62&nbsp;</span></h2><hr/>
+<div class='h_list'>
+atomic.h<br/>
+atomic_inlines.h<br/>
+atomic_types.h<br/>
+barrier.h<br/>
+barrier_types.h<br/>
+buffer.h<br/>
+buffer_types.h<br/>
+byteorder_inlines.h<br/>
+byteorder_types.h<br/>
+chksum.h<br/>
+classification.h<br/>
+classification_types.h<br/>
+cpu.h<br/>
+cpumask.h<br/>
+cpumask_types.h<br/>
+crypto.h<br/>
+crypto_types.h<br/>
+errno.h<br/>
+event.h<br/>
+event_types.h<br/>
+hash.h<br/>
+init.h<br/>
+init_types.h<br/>
+packet.h<br/>
+packet_flags.h<br/>
+packet_io.h<br/>
+packet_io_stats.h<br/>
+packet_io_types.h<br/>
+packet_types.h<br/>
+pool.h<br/>
+pool_types.h<br/>
+queue.h<br/>
+queue_types.h<br/>
+random.h<br/>
+rwlock.h<br/>
+rwlock_recursive.h<br/>
+rwlock_recursive_types.h<br/>
+rwlock_types.h<br/>
+schedule.h<br/>
+schedule_types.h<br/>
+shared_memory.h<br/>
+shared_memory_types.h<br/>
+spinlock.h<br/>
+spinlock_recursive.h<br/>
+spinlock_recursive_types.h<br/>
+spinlock_types.h<br/>
+std_clib_inlines.h<br/>
+std_types.h<br/>
+sync_inlines.h<br/>
+system_info.h<br/>
+thread.h<br/>
+thrmask.h<br/>
+thrmask_types.h<br/>
+ticketlock.h<br/>
+ticketlock_types.h<br/>
+time.h<br/>
+time_types.h<br/>
+timer.h<br/>
+timer_types.h<br/>
+traffic_mngr.h<br/>
+traffic_mngr_types.h<br/>
+version.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Sources'></a><h2>Source Files <span class='gray'>&nbsp;34&nbsp;</span></h2><hr/>
+<div class='h_list'>
+odp_atomic.c<br/>
+odp_barrier.c<br/>
+odp_buffer.c<br/>
+odp_classification.c<br/>
+odp_cpu.c<br/>
+odp_cpu_arch.c<br/>
+odp_cpumask.c<br/>
+odp_cpumask_task.c<br/>
+odp_crypto.c<br/>
+odp_errno.c<br/>
+odp_event.c<br/>
+odp_hash.c<br/>
+odp_impl.c<br/>
+odp_init.c<br/>
+odp_packet.c<br/>
+odp_packet_flags.c<br/>
+odp_packet_io.c<br/>
+odp_pool.c<br/>
+odp_queue.c<br/>
+odp_rwlock.c<br/>
+odp_rwlock_recursive.c<br/>
+odp_schedule_if.c<br/>
+odp_shared_memory.c<br/>
+odp_spinlock.c<br/>
+odp_spinlock_recursive.c<br/>
+odp_system_info.c<br/>
+odp_thread.c<br/>
+odp_thrmask.c<br/>
+odp_ticketlock.c<br/>
+odp_time.c<br/>
+odp_timer.c<br/>
+odp_traffic_mngr.c<br/>
+odp_version.c<br/>
+odp_weak.c<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Objects <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libodp-linux.so.112.0.0<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+</div>
+<br/><br/><br/>
+<hr/>
+<div class='footer' align='right'><i>Generated by <a href='https://github.com/lvc/abi-compliance-checker'>ABI Compliance Checker</a> 2.2 &#160;</i>
+</div>
+<br/>
+
+</body></html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, 1.15.0.0, changes, changelog" />
+    <meta name="description" content="Log of changes in the package" />
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/changelog.css" />
+    
+    
+    <title>
+        ODP 1.15.0.0: changelog
+    </title>
+    
+    </head>
+
+<body>
+<table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Changelog for <span class='version'>1.15.0.0</span> version</h1><br/><br/>
+<div class='changelog'>
+<pre class='wrap'>== OpenDataPlane (1.15.0.0)
+=== New Features
+ODP v1.15.0.0 continues the preview of Tiger Moth, introducing new APIs and
+extensions, as well as numerous bug fixes and functional improvements.
+
+==== Deprecation Framework
+To permit smoother evolution of the ODP API specification, a deprecation
+framework is introduced to permit controlled deprecation.
+
+When an ODP API or defined struct parameter is deprecated, ODP validation
+tests will be updated to no longer use that API and instead use the
+replacement API. By default, attempts to compile with the older API/feature
+will fail and applications wishing to move to the new ODP release should be
+updated to use the replacement API. To permit evaluation of new ODP
+releases in advance of such updating, however, ODP supports the `configure`
+option `--enable-deprecated`, which makes the obsolete APIs visible again.
+
+This feature will be used on a case-by-case basis and documented in the
+release notes for each release that introduces replacement API(s). In general
+the deprecated forms will not be maintained for more than a single release
+cycle. After that they will no longer be present in the API specification and
+the replacement forms must be used to compile with that level of the API
+specification.
+
+==== APIs
+A number of new and refined APIs are introduced in crypto, packet parsing,
+and queue configuration:
+
+===== Crypto Enhancements
+The ODP crypto APIs receive several enhancements in this release:
+
+====== New Authentication Algorithms
+Additional enumerations added for HMAC-SHA-1 and HMAC-SHA-512 authentication.
+
+====== Deprecated Cipher/Authentication Algorithms
+The following cipher/authentication algorithms have been deprecated in favor
+of newer replacement algorithms:
+
+* `ODP_CIPHER_ALG_AES128_CBC` is replaced by `ODP_CIPHER_ALG_AES_CBC`
+* `ODP_CIPHER_ALG_AES128_GCM` is replaced by `ODP_CIPHER_ALG_AES_GCM`
+* `ODP_AUTH_ALG_MD5_96` is replaced by `ODP_AUTH_ALG_MD5_HMAC`
+* `ODP_AUTH_ALG_SHA256_128` is replaced by `ODP_AUTH_ALG_SHA256_HMAC`
+* `ODP_AUTH_ALG_AES128_GCM1 is replaced by `ODP_AUTH_ALG_AES_GCM`
+
+====== Deprecated Name for Crypto Parameter struct
+`odp_crypto_op_params_t` is deprecated in favor of `odp_crypto_op_param_t`
+for consistency with other ODP `param` structs.
+
+====== Digest Length Session Parameter
+`odp_crypto_session_param_t` adds the field `auth_digest_len` to permit
+specification of the authentication digest length to be used for this
+session. The `odp_crypto_auth_capability()` API returns the list of
+supported digest lengths.
+
+====== Additional Authentication Data (AAD)
+The `odp_crypto_op_param_t` struct adds an optional pointer and length for
+AAD information. This allows applications to specify AAD information from
+the list of supported lengths provided by `odp_crypto_auth_capability()`.
+
+===== Packet Range Data
+The former `odp_crypto_data_range_t` type is deprecated and renamed to
+`odp_packet_data_range_t` since it can be used to specify ranges for other
+than crypto purposes.
+
+===== Parser Configuration
+Applications may now specify the maximum packet layer of interest. For
+example, a router may not care about anything beyond ISO Layer 3 in packets.
+This can be used by ODP implementations to control the depth of packet
+parsing needed by the application and may allow greater efficiency,
+especially in software implementations.
+
+This is controlled by a new `odp_pktio_parser_layer_t` enum that is
+part of the new `odp_pktio_parser_config_t` struct that is added to the
+`odp_pktio_config_t` struct used by the `odp_pktio_config()` API. The
+supported parser layers are also returned in this struct as part of the
+`odp_pktio_capability_t` struct returned by the `odp_pktio_capability()` API.
+
+===== Queue Size Parameter
+The `odp_queue_capability_t` struct returned by the `odp_queue_capability()`
+API is enhanced as follows:
+* The `max_queues` field is now defined to return the maximum number of event
+queues of any type.
+* New sub-structs (`plain` and `sched`) are added that detail the `max_num` of
+queues of that type supported as well as the new field `max_size` that
+specifies the maximum number of elements that each queue of this type can
+store. A value of zero for `max_num` indicates no fixed limit.
+
+In addition, the `odp_queue_param_t` passed to `odp_queue_create()` now adds
+a `size` field to allow applications to specify the minimum number of events
+that this queue should be able to store. A value of zero specified requests that
+the implementation default limits be used.
+
+The ODP examples have been updated to show this configuration, for example,
+the `l2fwd_simple` example does Layer 2 forwarding and hence doesn't need
+packets to be parsed beyond Layer 2. So prior to opening an interface via
+`odp_pktio_open()` the configuration processing now includes code of the form:
+[source,c]
+-----
+odp_pktio_config_init(&amp;config);
+config.parser.layer = ODP_PKTIO_PARSER_LAYER_L2;
+odp_pktio_config(pktio, &amp;config);
+-----
+This serves as a hint to the ODP implementation that parsing beyond Layer 2
+is not required on this interface.
+
+===== Removal of `odp_time_to_u64()` API
+The `odp_time_to_u64()` API is removed without deprecation in this release.
+This is redundant since the `odp_time_to_ns()` API already returns a `uint64_t`
+value for `odp_time_t` and can be used for the same purpose.
+
+===== New `odp_sys_info_print()` API
+For debugging / diagnostic use, the `odp_sys_info_print()` API is added.
+This prints implementation defined information about the system and ODP
+environment and may contain information about CPUs, memory, and other
+hardware configuration.
+
+=== Helpers
+==== Linux Helpers
+ODP helper functions fall into two categories: system-independent, and those
+that rely on Linux. For backwards compatibility, these have been
+reorganized into a new `helper/linux` directory that is installed only when
+the `--enable-helper-linux` `configure` option is specified.
+
+=== `odp-linux` Performance
+==== Scheduler Improvements
+The default scheduler is streamlined by using precomputed weight tables and
+separated priority queues for different scheduling groups. This improves
+both latency and scalability.
+
+Also included in this change, the default number of scheduling groups is
+lowered from 256 to 32, which experience has shown is sufficient for most
+applications.
+
+The scheduler fairness checks are also enhanced to avoid low priority event
+starvation if `CONFIG_BURST_SIZE` is set to 1.
+
+=== `odp_linux` Crypto Improvements
+* Errors in implicit packet copy operations performed during crypto operation
+are now handled properly.
+* If `odp_crypto_session_create()` fails, proper cleanup is now performed to
+avoid memory leaks.
+* The auth digest len is now used when calculating HMACs, and full-length
+digests are now added to supported SHA capabilities.
+* Numerous crypto functions have been rewritten to use the OpenSSL `EVP_`
+functions for improved efficiency and accuracy.
+
+=== `odp-linux` Packet Improvements
+* The packet parser now recognizes ICMPv6 packets in addition to ICMPv4.
+
+=== `odp-linux` PktIO Improvements
+* The `ethtool` and `socket` drivers add additional initializations to avoid
+valgrind warnings.
+* The `dpdk` driver is upgraded to DPDK 17.02 and is now also built with the
+`--whole-archive` option, which means that PMDs no longer need to be linked
+individually but are automatically included in builds that make use of DPDK
+pktio support.
+
+=== `odp-linux` Time Improvements
+* The ODP Time APIs are now more efficiently handled by replacing the previous
+Linux timespec with simple nanoseconds (ns) and using native hardware time
+counters in x86 and ARM environments, when available.
+
+=== `odp-linux` Traffic Manager Improvements
+* Weighting is now handled properly when weight=1 is specified. Previously
+this caused an overflow that distorted packet priorities.
+
+=== Miscellaneous Fixes and Improvements
+==== Native Clang build on ARMv8
+ARMv8 compilation now works properly when using the clang compiler.
+
+==== Test Improvements
+* The `odp_scheduling` performance test now handles dequeueing from
+potentially concurrent queues properly.
+* The traffic manager and time tests are now invoked via scripts to better
+account for load-sensitivity when running regressions in CI environments.
+* The l2fwd test now supports an additional parameter to specify the number
+of scheduling groups to use in the test.
+* The `odp_sched_latency` performance test now handles queue draining in
+a robust manner.
+* The crypto validation tests now properly check and validate message digests,
+and include negative tests to verify that incorrect digests are properly
+flagged. Note that this may expose omissions in other ODP implementations that
+had previously passed this validation test.
+* The crypto validation test now adds an explicit test for the NULL cipher,
+as well as HMAC-SHA-1 and HMAC-SHA-512.
+* The pktio_ipc test now properly cleans up only its own temp files.
+
+==== Examples Improvements
+* The `odp_generator` example now properly honors stop criteria based on
+number of packets sent.
+* The `odp_generator` example now properly flushes output messages
+* The `odp_generator` example now supports port configuration.
+
+=== Bug Fixes
+==== https://bugs.linaro.org/show_bug.cgi?id=2416[Bug 2416]
+example/generator/odp_generator.c contains todo items
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2779[Bug 2779]
+Error handling issues (CHECKED_RETURN)
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2826[Bug 2826]
+Unchecked return in pool.c
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2831[Bug 2831]
+Unchecked return in mmap_unmap_sock()
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2852[Bug 2852]
+ODP_STATIC_ASSERT() fails when used by C++
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2872[Bug 2872]
+odp_pktio_ordered_run.sh: line 34: integer expression expected
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2881[Bug 2881]
+load sensitive tests fail on CI
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2895[Bug 2895]
+The `odp_crypto_operation()` routine does not work with multi-segment packets.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2908[Bug 2908]
+Packet validation test fails if implementation does not limit packet length
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2910[Bug 2910]
+odph_iplookup_table_put_value() uses overlapping pointer addresses
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2933[Bug 2933]
+Miss to call unlock if there are some errors happen in loopback_send() function
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2940[Bug 2940]
+`odp_packet_seg_t` fails ABI compatibility between odp-linux and odp-dpdk
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2942[Bug 2942]
+Compilation fails using clang 4.0.0
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2952[Bug 2952]
+doxygen errors and travis does not catch them
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2969[Bug 2969]
+TM validation test does find traffic_mngr_main
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2974[Bug 2974]
+`odp_rwlock_read_trylock()` fails if lock is already held for read access
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3002[Bug 3002]
+Packet order lost when enqueuing to pktout queue
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3003[Bug 3003]
+AES-GCM returns 'valid' tag when checking invalid tag
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3013[Bug 3013]
+Various failures if CONFIG_PACKET_MAX_SEGS is set to 1
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3017[Bug 3017]
+Travis: time main test out of boundaries
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3027[Bug 3027]
+Compilation failures using GCC 7 series
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3039[Bug 3039]
+Socket pktio recv fails on large number of packet
+
+=== Known Issues
+==== https://bugs.linaro.org/show_bug.cgi?id=3024[Bug 3024]
+odp_traffic_mngr example is broken
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3026[Bug 3026]
+pktio_ips_run test can fail due to segfault
+
+== OpenDataPlane (1.14.0.0)
+=== New Features
+==== APIs
+ODP v1.14.0.0 represents another preview of the Tiger Moth release series and
+introduces new APIs and extensions.
+
+===== Packet References
+Packet references are a lightweight mechanism to allow applications to create
+and manipulate different "views" of packets. These views consist of shared
+bytes common to all references created on the same `odp_packet_t`, possibly
+prefixed with unique headers that are private to each reference. Five new APIs
+are introduced to enable this feature:
+
+`odp_packet_ref_static()`::
+Static references allow a single packet to have multiple "aliases", all of
+which must be treated as read only. This is useful, for example, to retain
+a reference to a packet being transmitted to support retransmit processing,
+since the actual storage represented by a packet is not released until all
+references to it have been freed via `odp_packet_free()` calls.
+
+`odp_packet_ref()`::
+Dynamic references differ from static references is that they permit the
+individual `odp_packet_t` handles to have unique prefixes created via
+`odp_packet_push_head()` or `odp_packet_extend_head()` calls. This can be
+used, for example, to support multicasting packets to different destinations
+by creating packets that consist of unique headers followed by a common shared
+payload.
+
+`odp_packet_ref_pkt()`::
+Similar to `odp_packet_ref()`, but creates a dynamic reference by prepending a
+preexisting header onto another packet.
+
+`odp_packet_has_ref()`::
+Returns a boolean indicator of whether a given `odp_packet_t` has other
+references that share bytes with this packet.
+
+`odp_packet_unshared_len()`::
+Returns the number of unshared bytes accessible through a given `odp_packet_t`
+handle. These are the only bytes that should be changed. All other bytes
+in the packet should be treated as read only as they are shared with other
+`odp_packet_t` handles.
+
+Note that while the packet reference APIs and associated validation tests are
+present in this release, the `odp-linux` reference implementation currently
+implements references via packet copying. A zero-copy implementation of packet
+references is planned to be part of the ODP v1.15.0.0 release.
+
+==== ABI Specification
+ODP has supported an Application Binary Interface (ABI) that permits
+applications to be generated that are binary portable between select ODP
+implementations. This is now formalized with the addition of structures that
+permit ABI specifications to be defined that are shared between ODP
+implementations. ODP provides a default ABI specification that is the same as
+was provided before. This change means that additional ABIs may be defined
+that are optimized to collections of platforms that share an Instruction Set
+Architecture (ISA) and subscribe to them.
+
+ABI specifications live in the `include/odp/arch/...` directory.
+
+==== Instance Query (iQuery) Scheduler
+Adding to the range of scheduler implementations supported by `odp-linux`, a
+new scheduler, the instance query scheduler, is available by specifying
+`--enable-schedule-iquery` at `configure` time.
+
+This scheduler uses sparse bitmaps and offers scalability advantages when
+dealing with large numbers of schedule queues. It otherwise offers performance
+comparable to the default ODP scheduler implementation.
+
+=== Helpers
+Helpers have been reorganized to provide better independence from odp-linux
+and to make them more useful with other ODP implementations. These
+reorganizations are functionally transparent to ODP users but should
+simplifying packaging and porting to other ODP implementations. This includes
+adding the "umbrella" include file `odph_api.h` which can be used to include
+all helper API definitions in an application.
+
+=== Classifier Improvements
+The `odp-linux` reference implementation now supports Pattern Matching Rules
+(PMRs) for IPv6 addresses, inner and outer VLAN IDs, and inner and outer
+Ethernet types.
+
+=== Performance
+
+==== Improved inlining for embedded applications
+The `odp-linux` reference implementation now offers improved inlining support
+for ODP APIs for applications compiled against ODP configured with the
+`--enable-abi-compat=no` option, meaning they wish to forego binary
+compatibility in exchange for improved performance. These applications remain
+source portable to other ODP implementations.
+
+==== Native `odp_cpu_pause()` for ARM processors
+A native implementation of the `odp_cpu_pause()` API has been added for ARMv7
+and ARMv8 processors.
+
+==== New Microbenchmark
+The `odp_packet_bench` microbenchmark application has been added to the
+test performance directory to allow implementations to measure and calibrate
+the performance of individual ODP packet APIs.
+
+==== Ordered PktIO Test
+The `odp_pktio_ordered` application has been added to the test performance
+directory to provide stress-testing of packet ordering features of ODP.
+
+=== Documentation
+In addition to expanded documentation related to the new packet reference APIs,
+a section on applicatin portability has been added that discusses the types
+of portability offered by ODP and the tradeoffs that application writers should
+consider when using ODP.
+
+=== Bug Fixes
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2806[Bug 2806]
+The `hello.c` application can now run properly if Core 0 is not
+available (any available core will be used).
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2827[Bug 2827]
+Provide proper return code checking within _ishm.c
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2829[Bug 2829]
+Remove unused variables in iplookuptable helper routine.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2830[Bug 2830]
+Avoid memory leaks on error paths in the cuckoo table helper functions.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2834[Bug 2834]
+Fixes a race condition in shared memory allocation.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2842[Bug 2842]
+Provide proper fallback for shared memory when hugepages are not available.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2862[Bug 2862]
+Avoid null pointer dereference in the iplookuptable helper routine.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2865[Bug 2865]
+Missing doxygen documentation for helper table functions are added.
+
+=== Known Issues
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2852[Bug 2852]
+C++ programs fail to compile if they attempt to include the ODP helper APIs.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2895[Bug 2895]
+The `odp_crypto_operation()` routine does not work with multi-segment packets.
+
+== OpenDataPlane (1.13.0.0)
+
+=== New Features
+
+==== APIs
+ODP v1.13.0.0 represents the initial preview of the Tiger Moth release series
+and as such introduces new APIs and extensions that will be built on as this
+release matures.
+
+===== Crypto Parameter Normalization
+Many ODP APIs take parameter structs of type `odp_xxx_param_t`. The crypto APIs,
+for historical reasons, failed to follow this convention, using instead structs
+of type `odp_crypto_params_t`, etc. These pluralized names are now deprecated
+and their singular forms are introduced as the preferred names for these
+structs. The old names are retained (for now) to ease migration, however
+applications should convert to the new forms at their convenience as these
+deprecated forms will be removed in the final Tiger Moth release.
+
+The changes introduced for this include:
+
+* `odp_crypto_op_params_t` =&gt; `odp_crypto_op_param_t`
+* `odp_crypto_session_params_t` =&gt; `odp_crypto_session_param_t`
+
+===== Crypto Decouple Key Length from Algorithm Specification
+To provide a more flexible programming for handling all possible
+key/digest/iv length combinations, the enums used for crypto specification
+are split to decouple lengths from algorithm names. The only exception
+is the SHA-2 family of hash routines, which have well-established naming
+conventions that incorporate digest lengths (SHA-224, SHA-256, etc.)
+
+Changes included with this restructure include:
+
+* The `odp_crypto_capability_t` structure returned by the
+`odp_crypto_capability()` API contains streamlined `odp_crypto_cipher_algos_t`
+and `odp_crypto_auth_algos_t` substructures.
+* A new `odp_crypto_cipher_capability()` API is added to return detailed
+information about available cipher capabilities.
+* A new `odp_crypto_auth_capability()` API is added to return detailed
+information about available authentication capabilities.
+
+===== `odp_crypto_session_param_init()` API
+For completeness the `odp_crypto_session_param_init()` API is provided to
+enable platform-independent initialization of the `odp_crypto_session_param_t`
+structure used as input to `odp_crypto_session_create()`.
+
+===== Bitfield and Byteorder Cleanup
+The `ODP_BITFIELD_ORDER` define is added to the ODP specification to parallel
+the existing `ODP_BYTEFIELD_ORDER` define. This will be set to the value
+`ODP_BIG_ENDIAN_BITFIELD` or `ODP_LITTLE_ENDIAN_BITFIELD`. This also addresses
+https://bugs.linaro.org/show_bug.cgi?id=2402[Bug 2402], however since fixing
+this required a small API change this was deferred until an API release
+boundary.
+
+===== Improved Name Argument Definitions in `odp_xxx_create()` Functions
+The use of name arguments to the various resource creation APIs has
+been standardized and documentation improved to clarify that unique
+names are not required and that these may be specified as NULL for
+anonymous resource creation. When non-unique resource names are used, it is
+unspecified which of these are returned by a corresponding lookup API.
+
+===== Pool Parameters for Packet Pools
+The `odp_pool_param_t` structure adds the new field `max_len` to be used in
+packet pools to advise the implementation of the maximum sized packet that
+the application will allocate with a single `odp_packet_alloc()` call. This
+may enable storage pool optimization.
+
+===== Packet Clarifications
+API documentation for `odp_packet_concat()` and `odp_packet_copy_from_pkt()`
+is clarified to specify that the source and destination packets supplied to
+these APIs should not refer to the same packet.
+
+===== Packet Allocation Length Clarification
+API documentation for `odp_packet_alloc()` is clarified to specify that
+the supplied length for requested packet allocation should be greater
+than zero.
+
+===== Random API Changes
+The APIs provided for working with random data have been revised. The third
+parameter to `odp_random_data()` is now of type `odp_random_kind_t`, which is
+an `enum` that is used to specify the quality of random data required. The
+kinds of random data defined are:
+
+`ODP_RANDOM_BASIC`::
+No specific quality guarantees. This is assumed to be pseudo-random data
+generated by software where speed of generation is more important than the
+quality of the results.This is the lowest kind of random.
+
+`ODP_RANDOM_CRYPTO`::
+Random data suitable for use in cryptographic operations.
+
+`ODP_RANDOM_TRUE`::
+True random data generated from a hardware entropy source. This is the
+highest kind of random.
+
+The `odp_random_max_kind()` API is provided that returns the highest kind of
+data available on this implementation. Requests for higher kinds than can be
+supplied will fail.
+
+For testing purposes it is often desirable to generate "random" sequences that
+are repeatable. To support this use case, the `odp_random_test_data()` API is
+introduced. This always returns BASIC random data but uses a user-supplied
+64-byte seed parameter that is update for each call and can be used to
+repeat the same sequence as needed.
+
+===== Shared Memory Improvements
+The `odp_shm_reserve()` API adds two new additional flags to support external
+memory.
+
+* `ODP_SHM_SINGLE_VA` guarantees that all ODP threads sharing this memory
+will see the block at the same virtual address regardless of whether threads
+are implemented as pthreads or processes and when `fork()` calls are made to
+create them.
+
+* `ODP_SHM_EXPORT` allows the memory block to be visible to other ODP
+instances. Other ODP instances can retrieve this block via the new
+`odp_shm_import()` API.
+
+===== Classification Clarifications
+The relationship between classification and queue configuration in the
+`odp_pktin_queue_param_t` structure is clarified to emphasize that
+classification subsumes queue-based I/O processing. This is an API
+documentation change only.
+
+=== Helpers
+New helper APIs are introduced for IP table lookup support for longest prefix
+matching as well as cuckoo hash tables. These are designed to provide analogs
+to functions available in DPDK to assist applications being ported to ODP.
+
+=== Performance Improvements
+The odp-linux reference implementation includes a number of improvements to
+make it more suitable for production use on platforms that rely on software
+implementations of key ODP APIs.
+
+==== Ring-based Pool Implementation
+Storage pools used for buffers and packets are now implemented via lockless
+ring structures that support burst mode read/writes to local caches for
+significantly improved multi-core scalability
+
+==== Buffer/Packet Header Optimizations
+The layout of the structs used to support buffers and packets has been
+optimized to reduce cache footprint and minimize path lengths in pack
+...</pre></div>
+
+</body>
+</html>

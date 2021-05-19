@@ -1,0 +1,780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, header, diff" />
+    <meta name="description" content="Diff for header files between 1.11.0.1 and 1.12.0.0 versions of ODP" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/headers_diff.css" />
+    
+    
+    <title>
+        ODP: headers diff between 1.11.0.1 and 1.12.0.0 versions
+    </title>
+    
+    </head>
+
+<body>
+<table width='100%' cellpadding='0' cellspacing='0'><tr><td><table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Headers diff: <span class='version'>1.11.0.1</span> vs <span class='version'>1.12.0.0</span></h1><br/><br/> 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;atomic.h (1.11.0.1)&nbsp;</th><th> </th><th>&nbsp;atomic.h (1.12.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 27</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 27</em></th></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/align.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/align.h&gt;</td></tr>
+      <tr><td class="left">#include &lt;odp/api/plat/atomic_types.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/plat/atomic_types.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @ingroup odp_atomic</td><td> </td><td class="right">/** @ingroup odp_atomic</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_init_u32(odp_atomic_u32_t *atom, uint32_t val</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/static_inline.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock">#if <span class="insert">ODP_ABI_COMPAT ==</span> 0</td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/atomic_inlines.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_store_n(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_load_u32(odp_atomic_u32_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_load_n(&amp;atom-&gt;v, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_store_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                       uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_store_n(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_fetch_add_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                               uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_add(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_add_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                     uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_add(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_fetch_sub_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                               uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_sub(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_sub_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                     uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_sub(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_fetch_inc_u32(odp_atomic_u32_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_add(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_inc_u32(odp_atomic_u32_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_add(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_fetch_dec_u32(odp_atomic_u32_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_sub(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_dec_u32(odp_atomic_u32_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_sub(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_u32(odp_atomic_u32_t *atom, uint32_t *old_</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                    uint32_t new_val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_xchg_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          uint32_t new_val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_exchange_n(&amp;atom-&gt;v, new_val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_max_u32(odp_atomic_u32_t *atom, uint32_t new_</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">max)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       uint32_t old_val;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       old_val = odp_atomic_load_u32(atom);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       while (new_max &gt; old_val) {</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">               if (odp_atomic_cas_u32(atom, &amp;old_val, new_max))</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                       break;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       }</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_min_u32(odp_atomic_u32_t *atom, uint32_t new_</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">min)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       uint32_t old_val;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       old_val = odp_atomic_load_u32(atom);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       while (new_min &lt; old_val) {</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">               if (odp_atomic_cas_u32(atom, &amp;old_val, new_min))</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                       break;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       }</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_init_u64(odp_atomic_u64_t *atom, uint64_t val</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       atom-&gt;v = val;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_clear(&amp;atom-&gt;lock, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_load_u64(odp_atomic_u64_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, (void)0);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_load_n(&amp;atom-&gt;v, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_store_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                       uint64_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v = val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_store_n(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_fetch_add_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                               uint64_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, atom-&gt;v += val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_add(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_add_u64(odp_atomic_u64_t *atom, uint64_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v += val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_add(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_fetch_sub_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                               uint64_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, atom-&gt;v -= val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_sub(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_sub_u64(odp_atomic_u64_t *atom, uint64_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v -= val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_sub(&amp;atom-&gt;v, val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_fetch_inc_u64(odp_atomic_u64_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, atom-&gt;v++);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_add(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_inc_u64(odp_atomic_u64_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v++);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_add(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_fetch_dec_u64(odp_atomic_u64_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, atom-&gt;v--);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_fetch_sub(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_dec_u64(odp_atomic_u64_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v--);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_sub(&amp;atom-&gt;v, 1, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_u64(odp_atomic_u64_t *atom, uint64_t *old_</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                    uint64_t new_val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       int ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       *old_val = ATOMIC_OP(atom, ATOMIC_CAS_OP(&amp;ret, *old_val, new_val));</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_xchg_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          uint64_t new_val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, atom-&gt;v = new_val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_exchange_n(&amp;atom-&gt;v, new_val, __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_max_u64(odp_atomic_u64_t *atom, uint64_t new_</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">max)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       uint64_t old_val;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       old_val = odp_atomic_load_u64(atom);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       while (new_max &gt; old_val) {</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">               if (odp_atomic_cas_u64(atom, &amp;old_val, new_max))</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                       break;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       }</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_min_u64(odp_atomic_u64_t *atom, uint64_t new_</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">min)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       uint64_t old_val;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       old_val = odp_atomic_load_u64(atom);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       while (new_min &lt; old_val) {</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">               if (odp_atomic_cas_u64(atom, &amp;old_val, new_min))</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                       break;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       }</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_atomic_load_acq_u32(odp_atomic_u32_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_load_n(&amp;atom-&gt;v, __ATOMIC_ACQUIRE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_store_rel_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                           uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_store_n(&amp;atom-&gt;v, val, __ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_add_rel_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                         uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_add(&amp;atom-&gt;v, val, __ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_sub_rel_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                         uint32_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_sub(&amp;atom-&gt;v, val, __ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_acq_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                        uint32_t *old_val, uint32_t new_val</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_ACQUIRE,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_rel_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                        uint32_t *old_val, uint32_t new_val</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELEASE,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_acq_rel_u32(odp_atomic_u32_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                            uint32_t *old_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                            uint32_t new_val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_ACQ_REL,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_atomic_load_acq_u64(odp_atomic_u64_t *atom)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ATOMIC_OP(atom, (void)0);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_load_n(&amp;atom-&gt;v, __ATOMIC_ACQUIRE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_store_rel_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                           uint64_t val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v = val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_store_n(&amp;atom-&gt;v, val, __ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_add_rel_u64(odp_atomic_u64_t *atom, uint64_t </span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v += val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_add(&amp;atom-&gt;v, val, __ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_atomic_sub_rel_u64(odp_atomic_u64_t *atom, uint64_t </span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)ATOMIC_OP(atom, atom-&gt;v -= val);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       (void)__atomic_fetch_sub(&amp;atom-&gt;v, val, __ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_acq_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                        uint64_t *old_val, uint64_t new_val</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       int ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       *old_val = ATOMIC_OP(atom, ATOMIC_CAS_OP(&amp;ret, *old_val, new_val));</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_ACQUIRE,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_rel_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                        uint64_t *old_val, uint64_t new_val</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       int ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       *old_val = ATOMIC_OP(atom, ATOMIC_CAS_OP(&amp;ret, *old_val, new_val));</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          0 /* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELEASE,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_atomic_cas_acq_rel_u64(odp_atomic_u64_t *atom,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                            uint64_t *old_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                            uint64_t new_val)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">#if <span class="delete">__GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       int ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       *old_val = ATOMIC_OP(atom, ATOMIC_CAS_OP(&amp;ret, *old_val, new_val));</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return ret;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __atomic_compare_exchange_n(&amp;atom-&gt;v, old_val, new_val,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">                                          0 <span class="delete">/* strong */,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_ACQ_REL,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                                          __ATOMIC_RELAXED);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/atomic.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/atomic.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>395 lines changed or deleted</i></th><th><i> </i></th><th><i>3 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;byteorder.h (1.11.0.1)&nbsp;</th><th> </th><th>&nbsp;byteorder.h (1.12.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 20</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 20</em></th></tr>
+      <tr><td class="left"> * ODP byteorder</td><td> </td><td class="right"> * ODP byteorder</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_BYTEORDER_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_BYTEORDER_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_BYTEORDER_H_</td><td> </td><td class="right">#define ODP_PLAT_BYTEORDER_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;odp/api/plat/byteorder_types.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/std_types.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/std_types.h&gt;</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/byteorder_types.h&gt;</span></td></tr>
+      <tr><td class="left">#include &lt;odp/api/compiler.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/compiler.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @ingroup odp_compiler_optim</td><td> </td><td class="right">/** @ingroup odp_compiler_optim</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint16_t odp_be_to_cpu_16(odp_u16be_t be16)</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/static_inline.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock">#if <span class="insert">ODP_ABI_COMPAT</span> == <span class="insert">0</span></td></tr>
+      <tr><td class="lblock">#if <span class="delete">ODP_BYTE_ORDER</span> == <span class="delete">ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/byteorder_inlines.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __odp_builtin_bswap16((__odp_force uint16_t)be16);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force uint16_t)be16;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_be_to_cpu_32(odp_u32be_t be32)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __builtin_bswap32((__odp_force uint32_t)be32);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force uint32_t)be32;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_be_to_cpu_64(odp_u64be_t be64)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __builtin_bswap64((__odp_force uint64_t)be64);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force uint64_t)be64;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline odp_u16be_t odp_cpu_to_be_16(uint16_t cpu16)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u16be_t)__odp_builtin_bswap16(cpu16);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u16be_t)cpu16;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline odp_u32be_t odp_cpu_to_be_32(uint32_t cpu32)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u32be_t)__builtin_bswap32(cpu32);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u32be_t)cpu32;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline odp_u64be_t odp_cpu_to_be_64(uint64_t cpu64)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u64be_t)__builtin_bswap64(cpu64);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u64be_t)cpu64;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint16_t odp_le_to_cpu_16(odp_u16le_t le16)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force uint16_t)le16;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __odp_builtin_bswap16((__odp_force uint16_t)le16);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint32_t odp_le_to_cpu_32(odp_u32le_t le32)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force uint32_t)le32;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __builtin_bswap32((__odp_force uint32_t)le32);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline uint64_t odp_le_to_cpu_64(odp_u64le_t le64)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force uint64_t)le64;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return __builtin_bswap64((__odp_force uint64_t)le64);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline odp_u16le_t odp_cpu_to_le_16(uint16_t cpu16)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u16le_t)cpu16;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u16le_t)__odp_builtin_bswap16(cpu16);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline odp_u32le_t odp_cpu_to_le_32(uint32_t cpu32)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u32le_t)cpu32;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u32le_t)__builtin_bswap32(cpu32);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline odp_u64le_t odp_cpu_to_le_64(uint64_t cpu64)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if ODP_BYTE_ORDER == ODP_LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u64le_t)cpu64;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#else</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return (__odp_force odp_u64le_t)__builtin_bswap64(cpu64);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/byteorder.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/byteorder.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 4 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>107 lines changed or deleted</i></th><th><i> </i></th><th><i>4 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;atomic_types.h (1.11.0.1)&nbsp;</th><th> </th><th>&nbsp;atomic_types.h (1.12.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 34</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 34</em></th></tr>
+      <tr><td class="left"> * @internal</td><td> </td><td class="right"> * @internal</td></tr>
+      <tr><td class="left"> * Atomic 64-bit unsigned integer</td><td> </td><td class="right"> * Atomic 64-bit unsigned integer</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">struct odp_atomic_u64_s {</td><td> </td><td class="right">struct odp_atomic_u64_s {</td></tr>
+      <tr><td class="left">       uint64_t v; /**&lt; Actual storage for the atomic variable */</td><td> </td><td class="right">       uint64_t v; /**&lt; Actual storage for the atomic variable */</td></tr>
+      <tr><td class="left">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</td><td> </td><td class="right">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</td></tr>
+      <tr><td class="left">       /* Some architectures do not support lock-free operations on 64-bit</td><td> </td><td class="right">       /* Some architectures do not support lock-free operations on 64-bit</td></tr>
+      <tr><td class="left">        * data types. We use a spin lock to ensure atomicity. */</td><td> </td><td class="right">        * data types. We use a spin lock to ensure atomicity. */</td></tr>
+      <tr><td class="left">       char lock; /**&lt; Spin lock (if needed) used to ensure atomic access *
+/</td><td> </td><td class="right">       char lock; /**&lt; Spin lock (if needed) used to ensure atomic access *
+/</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">} ODP_ALIGNED(sizeof(uint64_t)); /* Enforce alignement! */<span class="delete">;</span></td><td> </td><td class="rblock">} ODP_ALIGNED(sizeof(uint64_t)); /* Enforce alignement! */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @internal</td><td> </td><td class="right"> * @internal</td></tr>
+      <tr><td class="left"> * Atomic 32-bit unsigned integer</td><td> </td><td class="right"> * Atomic 32-bit unsigned integer</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">struct odp_atomic_u32_s {</td><td> </td><td class="right">struct odp_atomic_u32_s {</td></tr>
+      <tr><td class="left">       uint32_t v; /**&lt; Actual storage for the atomic variable */</td><td> </td><td class="right">       uint32_t v; /**&lt; Actual storage for the atomic variable */</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock">} ODP_ALIGNED(sizeof(uint32_t)); /* Enforce alignement! */<span class="delete">;</span></td><td> </td><td class="rblock">} ODP_ALIGNED(sizeof(uint32_t)); /* Enforce alignement! */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</td><td> </td><td class="right">#if __GCC_ATOMIC_LLONG_LOCK_FREE &lt; 2</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @internal</td><td> </td><td class="right"> * @internal</td></tr>
+      <tr><td class="left"> * CAS operation expression for the ATOMIC_OP macro</td><td> </td><td class="right"> * CAS operation expression for the ATOMIC_OP macro</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ATOMIC_CAS_OP(ret_ptr, old_val, new_val) \</td><td> </td><td class="right">#define ATOMIC_CAS_OP(ret_ptr, old_val, new_val) \</td></tr>
+      <tr><td class="left">({ \</td><td> </td><td class="right">({ \</td></tr>
+      <tr><td class="left">       if (atom-&gt;v == (old_val)) { \</td><td> </td><td class="right">       if (atom-&gt;v == (old_val)) { \</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>2 lines changed or deleted</i></th><th><i> </i></th><th><i>2 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;version.h (1.11.0.1)&nbsp;</th><th> </th><th>&nbsp;version.h (1.12.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 47</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 47</em></th></tr>
+      <tr><td class="left"> * versions are likely not backward compatible.</td><td> </td><td class="right"> * versions are likely not backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_VERSION_API_GENERATION 1</td><td> </td><td class="right">#define ODP_VERSION_API_GENERATION 1</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API major version</td><td> </td><td class="right"> * ODP API major version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Introduction of major new features or changes. APIs with different major</td><td> </td><td class="right"> * Introduction of major new features or changes. APIs with different major</td></tr>
+      <tr><td class="left"> * versions are likely not backward compatible.</td><td> </td><td class="right"> * versions are likely not backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">#define  ODP_VERSION_API_MAJOR 1<span class="delete">1</span></td><td> </td><td class="rblock">#define  ODP_VERSION_API_MAJOR 1<span class="insert">2</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API minor version</td><td> </td><td class="right"> * ODP API minor version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Minor version is incremented when introducing backward compatible change
+s</td><td> </td><td class="right"> * Minor version is incremented when introducing backward compatible change
+s</td></tr>
+      <tr><td class="left"> * to the API. For an API with common generation and major version, but wit
+h</td><td> </td><td class="right"> * to the API. For an API with common generation and major version, but wit
+h</td></tr>
+      <tr><td class="left"> * different minor numbers the two versions are backward compatible.</td><td> </td><td class="right"> * different minor numbers the two versions are backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_VERSION_API_MINOR 0</td><td> </td><td class="right">#define ODP_VERSION_API_MINOR 0</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;std_clib.h (1.11.0.1)&nbsp;</th><th> </th><th>&nbsp;std_clib.h (1.12.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 17</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 17</em></th></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_STD_CLIB_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_STD_CLIB_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_STD_CLIB_H_</td><td> </td><td class="right">#define ODP_PLAT_STD_CLIB_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/std_types.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/std_types.h&gt;</td></tr>
+      <tr><td class="left">#include &lt;string.h&gt;</td><td> </td><td class="right">#include &lt;string.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void *odp_memcpy(void *dst, const void *src, size_t num)</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/static_inline.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"><span class="insert">#if ODP_ABI_COMPAT == 0</span></td></tr>
+      <tr><td class="lblock"><span class="delete">       return memcpy(dst, src, num);</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/std_clib_inlines.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"><span class="insert">#endif</span></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void *odp_memset(void *ptr, int value, size_t num)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return memset(ptr, value, num);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline int odp_memcmp(const void *ptr1, const void *ptr2, size_t num</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/spec/std_clib.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       return memcmp(ptr1, ptr2, num);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>14 lines changed or deleted</i></th><th><i> </i></th><th><i>5 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;sync.h (1.11.0.1)&nbsp;</th><th> </th><th>&nbsp;sync.h (1.12.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 24</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 24</em></th></tr>
+      <tr><td class="left">#define ODP_PLAT_SYNC_H_</td><td> </td><td class="right">#define ODP_PLAT_SYNC_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @ingroup odp_barrier</td><td> </td><td class="right">/** @ingroup odp_barrier</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_mb_release(void)</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/static_inline.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"><span class="insert">#if ODP_ABI_COMPAT == 0</span></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_thread_fence(__ATOMIC_RELEASE);</span></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/plat/sync_inlines.h&gt;</span></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"><span class="insert">#endif</span></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_mb_acquire(void)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_thread_fence(__ATOMIC_ACQUIRE);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_mb_full(void)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __atomic_thread_fence(__ATOMIC_SEQ_CST);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/sync.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/sync.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>14 lines changed or deleted</i></th><th><i> </i></th><th><i>4 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><div style='width:100%;' align='left' class='small'>This html diff was produced by rfcdiff 1.41.The latest version is available from <a href='http://tools.ietf.org/tools/rfcdiff/'>http://tools.ietf.org/tools/rfcdiff/</a></div>
+</td></tr></table>
+</body>
+</html>

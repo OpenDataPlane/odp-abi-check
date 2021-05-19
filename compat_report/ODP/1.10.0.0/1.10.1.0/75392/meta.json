@@ -1,0 +1,8 @@
+{
+  "Affected": "0",
+  "Added": 6,
+  "Removed": 0,
+  "TotalProblems": 0,
+  "Object1": "lib/libodphelper-linux.so.110.0.0",
+  "Object2": "lib/libodphelper-linux.so.110.0.1"
+}

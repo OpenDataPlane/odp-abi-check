@@ -1,0 +1,662 @@
+$VAR1 = {
+          'ABI_DUMPER_VERSION' => '1.1',
+          'ABI_DUMP_VERSION' => '3.5',
+          'Arch' => 'x86_64',
+          'GccVersion' => '4.8.4',
+          'Headers' => {
+                         'cpumask_types.h' => 1,
+                         'eth.h' => 1,
+                         'init_types.h' => 1,
+                         'ip.h' => 1,
+                         'linux.h' => 1,
+                         'thread.h' => 1
+                       },
+          'Language' => 'C',
+          'LibraryName' => 'libodphelper-linux.so.109.0.0',
+          'LibraryVersion' => '1.9.0.0',
+          'NameSpaces' => {},
+          'Needed' => {
+                        'libc.so.6' => 1,
+                        'libpthread.so.0' => 1
+                      },
+          'PublicABI' => '1',
+          'Sources' => {
+                         'eth.c' => 1,
+                         'ip.c' => 1,
+                         'linux.c' => 1
+                       },
+          'SymbolInfo' => {
+                            '1797' => {
+                                        'Header' => 'ip.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'ip_addr',
+                                                              'type' => '1995'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'str',
+                                                              'type' => '181'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi'
+                                                 },
+                                        'Return' => '87',
+                                        'ShortName' => 'odph_ipv4_addr_parse',
+                                        'Source' => 'ip.c',
+                                        'SourceLine' => '12'
+                                      },
+                            '4056' => {
+                                        'Header' => 'linux.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'pthread_tbl',
+                                                              'type' => '4828'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'mask',
+                                                              'type' => '3197'
+                                                            },
+                                                     '2' => {
+                                                              'name' => 'thr_params',
+                                                              'type' => '4834'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi',
+                                                   '2' => 'rdx'
+                                                 },
+                                        'Return' => '87',
+                                        'ShortName' => 'odph_linux_pthread_create',
+                                        'Source' => 'linux.c',
+                                        'SourceLine' => '45'
+                                      },
+                            '4866' => {
+                                        'Header' => 'linux.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'thread_tbl',
+                                                              'type' => '4828'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'num',
+                                                              'type' => '87'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi'
+                                                 },
+                                        'Return' => '1',
+                                        'ShortName' => 'odph_linux_pthread_join',
+                                        'Source' => 'linux.c',
+                                        'SourceLine' => '101'
+                                      },
+                            '5136' => {
+                                        'Header' => 'linux.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'proc_tbl',
+                                                              'type' => '6127'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'mask',
+                                                              'type' => '3197'
+                                                            },
+                                                     '2' => {
+                                                              'name' => 'thr_params',
+                                                              'type' => '4834'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi',
+                                                   '2' => 'rdx'
+                                                 },
+                                        'Return' => '87',
+                                        'ShortName' => 'odph_linux_process_fork_n',
+                                        'Source' => 'linux.c',
+                                        'SourceLine' => '117'
+                                      },
+                            '6138' => {
+                                        'Header' => 'linux.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'proc',
+                                                              'type' => '6127'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'cpu',
+                                                              'type' => '87'
+                                                            },
+                                                     '2' => {
+                                                              'name' => 'thr_params',
+                                                              'type' => '4834'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi',
+                                                   '2' => 'rdx'
+                                                 },
+                                        'Return' => '87',
+                                        'ShortName' => 'odph_linux_process_fork',
+                                        'Source' => 'linux.c',
+                                        'SourceLine' => '186'
+                                      },
+                            '6318' => {
+                                        'Header' => 'linux.h',
+                                        'Param' => {
+                                                     '0' => {
+                                                              'name' => 'proc_tbl',
+                                                              'type' => '6127'
+                                                            },
+                                                     '1' => {
+                                                              'name' => 'num',
+                                                              'type' => '87'
+                                                            }
+                                                   },
+                                        'Reg' => {
+                                                   '0' => 'rdi',
+                                                   '1' => 'rsi'
+                                                 },
+                                        'Return' => '87',
+                                        'ShortName' => 'odph_linux_process_wait_n',
+                                        'Source' => 'linux.c',
+                                        'SourceLine' => '196'
+                                      },
+                            '780' => {
+                                       'Header' => 'eth.h',
+                                       'Param' => {
+                                                    '0' => {
+                                                             'name' => 'mac',
+                                                             'type' => '992'
+                                                           },
+                                                    '1' => {
+                                                             'name' => 'str',
+                                                             'type' => '181'
+                                                           }
+                                                  },
+                                       'Reg' => {
+                                                  '0' => 'rdi',
+                                                  '1' => 'rsi'
+                                                },
+                                       'Return' => '87',
+                                       'ShortName' => 'odph_eth_addr_parse',
+                                       'Source' => 'eth.c',
+                                       'SourceLine' => '12'
+                                     }
+                          },
+          'SymbolVersion' => {},
+          'Symbols' => {
+                         'libodphelper-linux.so.109.0.0' => {
+                                                              '_fini' => 1,
+                                                              '_init' => 1,
+                                                              'odp_hashnode_give' => 1,
+                                                              'odp_hashnode_take' => 1,
+                                                              'odp_key_hash' => 1,
+                                                              'odph_eth_addr_parse' => 1,
+                                                              'odph_hash_get_value' => 1,
+                                                              'odph_hash_put_value' => 1,
+                                                              'odph_hash_remove_value' => 1,
+                                                              'odph_hash_table_create' => 1,
+                                                              'odph_hash_table_destroy' => 1,
+                                                              'odph_hash_table_lookup' => 1,
+                                                              'odph_hash_table_ops' => -48,
+                                                              'odph_ipv4_addr_parse' => 1,
+                                                              'odph_linear_table_create' => 1,
+                                                              'odph_linear_table_destroy' => 1,
+                                                              'odph_linear_table_lookup' => 1,
+                                                              'odph_linear_table_ops' => -48,
+                                                              'odph_lineartable_get_value' => 1,
+                                                              'odph_lineartable_put_value' => 1,
+                                                              'odph_linux_process_fork' => 1,
+                                                              'odph_linux_process_fork_n' => 1,
+                                                              'odph_linux_process_wait_n' => 1,
+                                                              'odph_linux_pthread_create' => 1,
+                                                              'odph_linux_pthread_join' => 1
+                                                            }
+                       },
+          'Target' => 'unix',
+          'TypeInfo' => {
+                          '1' => {
+                                   'Name' => 'void',
+                                   'Type' => 'Intrinsic'
+                                 },
+                          '1235' => {
+                                      'BaseType' => '59',
+                                      'Header' => 'stdint.h',
+                                      'Line' => '51',
+                                      'Name' => 'uint32_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '4',
+                                      'Type' => 'Typedef'
+                                    },
+                          '130' => {
+                                     'BaseType' => '1',
+                                     'Name' => 'void*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   },
+                          '138' => {
+                                     'Name' => 'char',
+                                     'Size' => '1',
+                                     'Type' => 'Intrinsic'
+                                   },
+                          '170' => {
+                                     'BaseType' => '45',
+                                     'Header' => 'stdint.h',
+                                     'Line' => '48',
+                                     'Name' => 'uint8_t',
+                                     'PrivateABI' => 1,
+                                     'Size' => '1',
+                                     'Type' => 'Typedef'
+                                   },
+                          '181' => {
+                                     'BaseType' => '187',
+                                     'Name' => 'char const*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   },
+                          '187' => {
+                                     'BaseType' => '138',
+                                     'Name' => 'char const',
+                                     'Size' => '1',
+                                     'Type' => 'Const'
+                                   },
+                          '1995' => {
+                                      'BaseType' => '1235',
+                                      'Name' => 'uint32_t*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '213' => {
+                                     'BaseType' => '170',
+                                     'Name' => 'uint8_t[6]',
+                                     'Size' => '6',
+                                     'Type' => 'Array'
+                                   },
+                          '2191' => {
+                                      'BaseType' => '87',
+                                      'Header' => 'types.h',
+                                      'Line' => '133',
+                                      'Name' => '__pid_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '4',
+                                      'Type' => 'Typedef'
+                                    },
+                          '2235' => {
+                                      'BaseType' => '2191',
+                                      'Header' => 'sched.h',
+                                      'Line' => '35',
+                                      'Name' => 'pid_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '4',
+                                      'Type' => 'Typedef'
+                                    },
+                          '2246' => {
+                                      'BaseType' => '66',
+                                      'Header' => 'sched.h',
+                                      'Line' => '118',
+                                      'Name' => '__cpu_mask',
+                                      'PrivateABI' => 1,
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '2278' => {
+                                      'BaseType' => '2246',
+                                      'Name' => '__cpu_mask[16]',
+                                      'Size' => '128',
+                                      'Type' => 'Array'
+                                    },
+                          '229' => {
+                                     'Header' => 'eth.h',
+                                     'Line' => '40',
+                                     'Memb' => {
+                                                 '0' => {
+                                                          'name' => 'addr',
+                                                          'offset' => '0',
+                                                          'type' => '213'
+                                                        }
+                                               },
+                                     'Name' => 'struct odph_ethaddr_t',
+                                     'Size' => '6',
+                                     'Type' => 'Struct'
+                                   },
+                          '2294' => {
+                                      'Header' => 'sched.h',
+                                      'Line' => '128',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => '__bits',
+                                                           'offset' => '0',
+                                                           'type' => '2278'
+                                                         }
+                                                },
+                                      'Name' => 'struct cpu_set_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '128',
+                                      'Type' => 'Struct'
+                                    },
+                          '2305' => {
+                                      'BaseType' => '66',
+                                      'Header' => 'pthreadtypes.h',
+                                      'Line' => '60',
+                                      'Name' => 'pthread_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '2316' => {
+                                      'Header' => 'pthreadtypes.h',
+                                      'Line' => '63',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => '__size',
+                                                           'offset' => '0',
+                                                           'type' => '2351'
+                                                         },
+                                                  '1' => {
+                                                           'name' => '__align',
+                                                           'offset' => '0',
+                                                           'type' => '94'
+                                                         }
+                                                },
+                                      'Name' => 'union pthread_attr_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '56',
+                                      'Type' => 'Union'
+                                    },
+                          '2351' => {
+                                      'BaseType' => '138',
+                                      'Name' => 'char[56]',
+                                      'Size' => '56',
+                                      'Type' => 'Array'
+                                    },
+                          '2367' => {
+                                      'BaseType' => '2316',
+                                      'Header' => 'pthreadtypes.h',
+                                      'Line' => '69',
+                                      'Name' => 'pthread_attr_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '56',
+                                      'Type' => 'Typedef'
+                                    },
+                          '3103' => {
+                                      'BaseType' => '66',
+                                      'Header' => 'stdint.h',
+                                      'Line' => '55',
+                                      'Name' => 'uint64_t',
+                                      'PrivateABI' => 1,
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '3114' => {
+                                      'Header' => 'cpumask_types.h',
+                                      'Line' => '36',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'set',
+                                                           'offset' => '0',
+                                                           'type' => '2294'
+                                                         }
+                                                },
+                                      'Name' => 'struct odp_cpumask_t',
+                                      'Size' => '128',
+                                      'Type' => 'Struct'
+                                    },
+                          '3139' => {
+                                      'BaseType' => '3114',
+                                      'Header' => 'cpumask_types.h',
+                                      'Line' => '38',
+                                      'Name' => 'odp_cpumask_t',
+                                      'Size' => '128',
+                                      'Type' => 'Typedef'
+                                    },
+                          '3150' => {
+                                      'BaseType' => '3103',
+                                      'Header' => 'init_types.h',
+                                      'Line' => '22',
+                                      'Name' => 'odp_instance_t',
+                                      'Size' => '8',
+                                      'Type' => 'Typedef'
+                                    },
+                          '3161' => {
+                                      'Header' => 'thread.h',
+                                      'Line' => '36',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'ODP_THREAD_WORKER',
+                                                           'value' => '0'
+                                                         },
+                                                  '1' => {
+                                                           'name' => 'ODP_THREAD_CONTROL',
+                                                           'value' => '1'
+                                                         }
+                                                },
+                                      'Name' => 'enum odp_thread_type_e',
+                                      'Size' => '4',
+                                      'Type' => 'Enum'
+                                    },
+                          '3186' => {
+                                      'BaseType' => '3161',
+                                      'Header' => 'thread.h',
+                                      'Line' => '58',
+                                      'Name' => 'odp_thread_type_t',
+                                      'Size' => '4',
+                                      'Type' => 'Typedef'
+                                    },
+                          '3197' => {
+                                      'BaseType' => '3203',
+                                      'Name' => 'odp_cpumask_t const*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '3203' => {
+                                      'BaseType' => '3139',
+                                      'Name' => 'odp_cpumask_t const',
+                                      'Size' => '128',
+                                      'Type' => 'Const'
+                                    },
+                          '3280' => {
+                                      'Name' => 'void*(*)(void*)',
+                                      'Param' => {
+                                                   '0' => {
+                                                            'type' => '130'
+                                                          }
+                                                 },
+                                      'Return' => '130',
+                                      'Size' => '8',
+                                      'Type' => 'FuncPtr'
+                                    },
+                          '3286' => {
+                                      'Header' => 'linux.h',
+                                      'Line' => '36',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'start',
+                                                           'offset' => '0',
+                                                           'type' => '3280'
+                                                         },
+                                                  '1' => {
+                                                           'name' => 'arg',
+                                                           'offset' => '8',
+                                                           'type' => '130'
+                                                         },
+                                                  '2' => {
+                                                           'name' => 'thr_type',
+                                                           'offset' => '16',
+                                                           'type' => '3186'
+                                                         },
+                                                  '3' => {
+                                                           'name' => 'instance',
+                                                           'offset' => '24',
+                                                           'type' => '3150'
+                                                         }
+                                                },
+                                      'Name' => 'struct odph_linux_thr_params_t',
+                                      'Size' => '32',
+                                      'Type' => 'Struct'
+                                    },
+                          '3354' => {
+                                      'Header' => 'linux.h',
+                                      'Line' => '45',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'thread',
+                                                           'offset' => '0',
+                                                           'type' => '2305'
+                                                         },
+                                                  '1' => {
+                                                           'name' => 'attr',
+                                                           'offset' => '8',
+                                                           'type' => '2367'
+                                                         },
+                                                  '2' => {
+                                                           'name' => 'cpu',
+                                                           'offset' => '64',
+                                                           'type' => '87'
+                                                         },
+                                                  '3' => {
+                                                           'name' => 'thr_params',
+                                                           'offset' => '72',
+                                                           'type' => '3286'
+                                                         }
+                                                },
+                                      'Name' => 'struct odph_linux_pthread_t',
+                                      'Size' => '104',
+                                      'Type' => 'Struct'
+                                    },
+                          '3410' => {
+                                      'Header' => 'linux.h',
+                                      'Line' => '53',
+                                      'Memb' => {
+                                                  '0' => {
+                                                           'name' => 'pid',
+                                                           'offset' => '0',
+                                                           'type' => '2235'
+                                                         },
+                                                  '1' => {
+                                                           'name' => 'cpu',
+                                                           'offset' => '4',
+                                                           'type' => '87'
+                                                         },
+                                                  '2' => {
+                                                           'name' => 'status',
+                                                           'offset' => '8',
+                                                           'type' => '87'
+                                                         }
+                                                },
+                                      'Name' => 'struct odph_linux_process_t',
+                                      'Size' => '12',
+                                      'Type' => 'Struct'
+                                    },
+                          '45' => {
+                                    'Name' => 'unsigned char',
+                                    'Size' => '1',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '4828' => {
+                                      'BaseType' => '3354',
+                                      'Name' => 'odph_linux_pthread_t*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '4834' => {
+                                      'BaseType' => '4840',
+                                      'Name' => 'odph_linux_thr_params_t const*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '4840' => {
+                                      'BaseType' => '3286',
+                                      'Name' => 'odph_linux_thr_params_t const',
+                                      'Size' => '32',
+                                      'Type' => 'Const'
+                                    },
+                          '59' => {
+                                    'Name' => 'unsigned int',
+                                    'Size' => '4',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '6127' => {
+                                      'BaseType' => '3410',
+                                      'Name' => 'odph_linux_process_t*',
+                                      'Size' => '8',
+                                      'Type' => 'Pointer'
+                                    },
+                          '66' => {
+                                    'Name' => 'unsigned long',
+                                    'Size' => '8',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '87' => {
+                                    'Name' => 'int',
+                                    'Size' => '4',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '94' => {
+                                    'Name' => 'long',
+                                    'Size' => '8',
+                                    'Type' => 'Intrinsic'
+                                  },
+                          '992' => {
+                                     'BaseType' => '229',
+                                     'Name' => 'odph_ethaddr_t*',
+                                     'Size' => '8',
+                                     'Type' => 'Pointer'
+                                   }
+                        },
+          'UndefinedSymbols' => {
+                                  'libodphelper-linux.so.109.0.0' => {
+                                                                       '_ITM_deregisterTMCloneTable' => 0,
+                                                                       '_ITM_registerTMCloneTable' => 0,
+                                                                       '_Jv_RegisterClasses' => 0,
+                                                                       '__cxa_finalize@GLIBC_2.2.5' => 0,
+                                                                       '__fprintf_chk@GLIBC_2.3.4' => 0,
+                                                                       '__gmon_start__' => 0,
+                                                                       '__isoc99_sscanf@GLIBC_2.7' => 0,
+                                                                       '__printf_chk@GLIBC_2.3.4' => 0,
+                                                                       'fork@GLIBC_2.2.5' => 0,
+                                                                       'getpid@GLIBC_2.2.5' => 0,
+                                                                       'getppid@GLIBC_2.2.5' => 0,
+                                                                       'kill@GLIBC_2.2.5' => 0,
+                                                                       'memcmp@GLIBC_2.2.5' => 0,
+                                                                       'memcpy@GLIBC_2.14' => 0,
+                                                                       'memset@GLIBC_2.2.5' => 0,
+                                                                       'odp_cpu_count' => 0,
+                                                                       'odp_cpumask_count' => 0,
+                                                                       'odp_cpumask_first' => 0,
+                                                                       'odp_cpumask_next' => 0,
+                                                                       'odp_cpumask_set' => 0,
+                                                                       'odp_cpumask_zero' => 0,
+                                                                       'odp_init_local' => 0,
+                                                                       'odp_rwlock_init' => 0,
+                                                                       'odp_rwlock_read_lock' => 0,
+                                                                       'odp_rwlock_read_unlock' => 0,
+                                                                       'odp_rwlock_write_lock' => 0,
+                                                                       'odp_rwlock_write_unlock' => 0,
+                                                                       'odp_shm_addr' => 0,
+                                                                       'odp_shm_free' => 0,
+                                                                       'odp_shm_lookup' => 0,
+                                                                       'odp_shm_reserve' => 0,
+                                                                       'odp_term_global' => 0,
+                                                                       'odp_term_local' => 0,
+                                                                       'prctl@GLIBC_2.2.5' => 0,
+                                                                       'pthread_attr_destroy@GLIBC_2.2.5' => 0,
+                                                                       'pthread_attr_init@GLIBC_2.2.5' => 0,
+                                                                       'pthread_attr_setaffinity_np@GLIBC_2.3.4' => 0,
+                                                                       'pthread_create@GLIBC_2.2.5' => 0,
+                                                                       'pthread_join@GLIBC_2.2.5' => 0,
+                                                                       'sched_setaffinity@GLIBC_2.3.4' => 0,
+                                                                       'stderr@GLIBC_2.2.5' => 0,
+                                                                       'strcmp@GLIBC_2.2.5' => 0,
+                                                                       'strncpy@GLIBC_2.2.5' => 0,
+                                                                       'strsignal@GLIBC_2.2.5' => 0,
+                                                                       'wait@GLIBC_2.2.5' => 0
+                                                                     }
+                                },
+          'WordSize' => '8'
+        };

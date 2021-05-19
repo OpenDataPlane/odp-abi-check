@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, 1.19.0.2, changes, changelog" />
+    <meta name="description" content="Log of changes in the package" />
+    <link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/changelog.css" />
+    
+    
+    <title>
+        ODP 1.19.0.2: changelog
+    </title>
+    
+    </head>
+
+<body>
+<table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Changelog for <span class='version'>1.19.0.2</span> version</h1><br/><br/>
+<div class='changelog'>
+<pre class='wrap'>== OpenDataPlane (1.19.0.2)
+=== Summary of Changes
+ODP v1.19.0.2 is the second service update for the Tiger Moth release. It
+incorporates a number of corrections and enhancements that further improve the
+quality and testability of ODP.
+
+==== APIs
+There are no API changes in this release.
+
+==== DPDK Service Release Sync
+ODP is now paired with DPDK 17.11.3 for its DPDK-related support. This is the
+current service level for the DPDK 17.11 LTS package used by ODP Tiger Moth.
+
+=== Implementation Improvements
+This release incorporates several improvements in the `odp-linux` reference
+implementation of ODP.
+
+==== Enhanced Inlining
+ODP supports inlining of functions in embedded environments when ABI
+compatibility is not needed. ODP itself now makes use of inlined functions for
+all relevant internal use of its APIs, leading to improved performance.
+
+==== Completion of CRC API Implementation
+The `odp_hash_crc_gen64()` API is now properly implemented and appropriate
+validation tests added to support it.
+
+In addition, a streamlined table-based implementation of the basic CRC
+functions eliminates the previous dependency on `zlib`.
+
+==== PktIO-Specific Parsing
+To better integrate with DPDK parsing capabilities, ODP packet parsing has
+been restructured to operate at the PktIO level. This permits DPDK PktIO types
+to exploit the native DPDK packet parser and checksum facilities, leading
+to better integration.
+
+==== PktIO Internal Cleanup and Restructure
+The PktIO functions have been streamlined and refactored in a number of ways
+to provide better long-term maintainability of these functions. This includes
+moving per-PktIO data into individual files rather than sharing a common file,
+as well as better placement for I/O statistics.
+
+==== Checksum Validation Support
+Loop PktIO interfaces now add the capability to validate packet L3 and L4
+checksums as part of receive processing. The existing `odp_pktio_capability()`
+API now reports that checksum validation is available for these interfaces.
+
+==== Single Producer / Single Consumer Queue Performance Optimizations
+When defining lock free queues that have only a single producer and consumer,
+a streamlined implementation offers significant speedup.
+
+==== Fast PCAPng Packet Capture
+Fast pcap capture is now provided in `odp-linux` to capture packets on any
+interface. This is enabled via the `--enable-pcapng-support` configuration
+option. Once enabled, packets can be captured using a sequence such as:
+-----
+sudo mkdir /var/run/odp/
+start ODP application that reads/writes to the interface of interest
+start the ODP application
+sudo dd if=/var/run/odp/&lt;pid&gt;-&lt;ifname&gt;-flow-&lt;queue#&gt; of=~/test.pcap
+
+cntrl^c to end capture
+wireshark ~/test.pcap to view capture
+-----
+
+Interfaces of interest are identified by a string consisting of the
+application process ID, the interface name, and the queue number of interest,
+if the interface supports multiple queues.
+
+==== Removal of GPL M4 Macros
+A number of autotools/autoconf M4 macros used in configuring `odp-linux` have
+been rewritten to avoid potential GPL licensing concerns. These macros are
+used only during ODP configuration processing and have no role in ODP
+or ODP application use.
+
+=== Validation Test Improvements
+==== Queue Pair Validation Tests
+The validation test suite for queue API testing is enhanced to now test
+operation on queue pairs properly. This enables the various enqueue/dequeue
+modes defined by the ODP specification to be more fully exercised, leading
+to improved API conformance.
+
+==== Scheduling Test Improvements
+The scheduling validation tests now better use the various capability APIs to
+ensure that implementations are only tested for advertised capabilities.
+
+=== Crypto Test Improvements
+The crypto validation tests now better use the various capability APIs to
+ensure that implementations are tested across advertised crypto capabilities.
+
+=== Performance Test Improvements
+==== New Performance Test
+A new `odp_queue_perf` test has been added to test plain (non-scheduled)
+queue performance in various modes.
+
+=== Helper Changes
+* The `getopt` library calls are no longer used to avoid packaging conflicts
+that can arise with this use. There are no changes to helper functionality.
+This change simply improves packaging.
+
+=== Examples Improvements
+* The `odp_generator` example adds UDP port range support.
+
+==== CI Improvements
+Numerous changes to Travis integration are added to improve the quality and
+reliability of Continuous Integration (CI) testing.
+
+=== Bug Fixes
+==== https://bugs.linaro.org/show_bug.cgi?id=3787[Bug 3787]
+Timeout accuracy breaks down with odd resolution requests
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3867[Bug 3867]
+timer validation test fails when using 1GB huge pages
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3879[Bug 3879]
+example/l2fwd_simple fails on some systems when using 1GB huge pages
+
+=== Unnumbered Bug Fixes
+* Corrected the handling of timeout events in the scalable scheduler.
+* Fixed IPsec link order to streamline builds.
+* Fixed scaling issues with scheduler support for large core count systems.
+
+=== Known Issues
+==== https://bugs.linaro.org/show_bug.cgi?id=3774[Bug 3774]
+Shmem validation test runs indefinitely with 1GB huge pages
+
+==== Running ODP on Systems with more than 64 Cores
+There are several issues that seem to arise when running ODP applications on
+platforms with more than 64 cores. While the most critical of these, which
+affected the scheduler, have been fixed in this release, there are others
+that are still under investigation. These will be addressed in the next
+release of ODP.
+
+== OpenDataPlane (1.19.0.1)
+=== Summary of Changes
+ODP v1.19.0.1 is the first service update for the Tiger Moth release. It
+incorporates a number of corrections and enhancements that improve the quality
+and testability of ODP.
+
+==== APIs
+There are no API changes in this release.
+
+==== DPDK Service Release Sync
+ODP is now paired with DPDK 17.11.2 for it's DPDK-related support. This is the
+current service level for the DPDK 17.11 LTS package used by ODP Tiger Moth
+and incorporates a number of important bug fixes.
+
+=== Implementation Improvements
+The ODP reference implementation has been improved in a number of areas.
+
+==== GCC 8 Support
+The GCC 8 series of compilers provides additional warnings about possible
+string truncation. A few ODP modules were changed to avoid misleading
+warnings when compiling with this level of GCC.
+
+==== Linking with `libnuma`
+The `libnuma` library is used for DPDK pktios to provide proper memory
+allocation on NUMA-aware systems. Linking with this library is improved to
+avoid extraneous error messages at build time.
+
+==== Packet metadata reorganization
+Packet metadata is reorganized to reduce the cache footprint used by the ODP
+reference implementation, resulting in performance improvements.
+
+==== Random split from crypto module
+The `odp_random_xxx()` family of APIs was moved to a separate module
+(`odp_random.c`) for modularity and better isolation from planned crypto
+enhancements.
+
+==== Shmem improvements
+Unnecessary locking is removed from the `odp_fdserver` module, streamlining
+operations on shared memory.
+
+==== Timer pools
+The default number of timer pools supported by the ODP reference
+implementation has been reduced from 255 to 32. This lower number remains
+generously adequate for most applications and meaningfully reduces memory
+footprint, giving better performance.
+
+==== Timer resolution
+During initialization ODP normally measures timer resolution to set the
+reported `highest_res_ns`. When such measurement is not able to be performed,
+this is not limited to 500ns to avoid bounds errors with overly precise
+resolutions.
+
+=== Validation Improvements
+The ODP validation test suite has been improved in a number of areas.
+
+==== Crypto validation test
+The validation test now correctly handles corner cases when the implementation
+under test fails to process any test packets. It also includes the
+previously missing `ODP_CIPHER_ALG_AES_CTR` name.
+
+Additionally, since individual implementations indicate which crypto/hash
+algorithms are supported via the `odp_crypto_capability()` API, the crypto
+validation test now properly uses this information and only tests those
+algorithms that the implementation reports as supported. The list of
+unsupported algorithms is also reported as part of the test results.
+
+==== `odp_sched_pktio` test improvements
+The number of input/output queues used by this test can now be specified,
+providing additional controls for test flexibility. In addition, pktout
+queues are now selected based on input queue rather than worker id, thus
+ensuring packet order flow is maintained.
+
+Finally, an inactivity timer is added that allows the test to report when
+packets were handled due to timeout rather than I/O activity.
+
+==== Timer validation test
+The validation test for the ODP timer APIs has been reorganized to better
+characterize an implementation's conformance to the ODP Timer API
+specification.  Since implementations can have widely differing timer accuracy
+levels, particularly when running in virtualized environments, the test also
+relaxes its bounds checking and enforcement somewhat to better avoid false
+negative test results.
+
+Additionally, a timer pool create/destroy test was added as this area was
+not adequately covered previously.
+
+=== Documentation Improvements
+The `EXTRA_ASCIIDOC_FLAGS` environment variable may now be used to supply
+additional build flags for Asciidoctor, which can be used to override
+icons and/or fonts for distribution or other needs.
+
+=== Bug Fixes
+==== https://bugs.linaro.org/show_bug.cgi?id=3657[Bug 3657]
+PktIO does not work with Mellanox Interfaces
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3685[Bug 3685]
+RX UDP checksum offload drops valid UDP packets with Niantic
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3686[Bug 3686]
+IP header checksum not inserted if L4 offset not set
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3690[Bug 3690]
+fdserver process interferes with signal handling
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3763[Bug 3763]
+tests should fail if odp_crypto_op/op_enq process 0 packets
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3764[Bug 3764]
+IPsec code can occasionally damage packets
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3772[Bug 3772]
+Timer segfaults when creating and destroying multiple timer pools
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3788[Bug 3788]
+linux-gen: ipc test fails to reserve memory
+
+=== Known Issues
+==== https://bugs.linaro.org/show_bug.cgi?id=3774[Bug 3774]
+Shmem validation test runs indefinitely with 1GB huge pages
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3787[Bug 3787]
+Timeout accuracy breaks down with odd resolution requests
+
+
+== OpenDataPlane (1.19.0.0)
+=== Summary of Changes
+ODP v1.19.0.0 is the official Tiger Moth final release. It incorporates final
+implementation changes and bug fixes and completes the Tiger Moth ODP
+development cycle.
+
+==== APIs
+No functional changes for this release. The Tiger Moth API was frozen in ODP
+v1.18.0.0.
+
+===== API Documentation Update
+The specification for the `odp_packet_l4_chksum_status()` API has been
+clarified to reflect that in IPv4 UDP checksums are optional. As a result, a
+zero (nonexistent) checksum will be reported as `ODP_PACKET_CHKSUM_OK`.
+
+==== C++ Test Improvements
+The {cpp} test included in the ODP validation suite now uses `cout` instead
+of `printf()` to ensure that {cpp} is being used to compile it.
+
+==== Queue and Scheduler Configuration
+For the ODP Reference Implementation, The `config/odp-linux-generic.conf` file
+is extended with sections to control the default and maximum sizes for basic
+queues, and the priority spread used by the scheduler for scheduled queues.
+
+The configuration file is a template named `platform/odp-$platform.conf` so
+this can be easily inherited by other ODP implementations.
+
+==== Runtime Default `config` File Read Order Improvements
+For the ODP Reference Implementation, the default values of the
+application-provided `config` file (if used) override the values provided by
+the built-in `config/odp-linux-generic.conf` file.
+
+=== Implementation Improvements
+The `odp-linux` reference implementation is improved in a number of areas:
+
+==== Netmap Ring Configuration for VALE
+PktIO netmap support now uses the ODP config file to allow rings used for VALE
+processing to be specified. The supplied defaults provide optimal performance
+in typical settings.
+
+==== AES-XCBC-MAC and SHA384-HMAC
+These crypto/authentication algorithms are now implemented.
+
+==== Packet Checksum Validation and Insertion
+Proper packet checksum validation and insertion, in conformance with the
+relevant ODP APIs, is now provided.
+
+=== Dependency Changes
+
+==== DPDK 17.11 Support
+The Tiger Moth LTS release is synchronized with the most recent DPDK LTS
+release for DPDK pktio support.
+
+==== Removal of dependency on `xxd` package.
+This dependency is removed. The Reference Implementation build tools now use
+the standard `od` tool rather than the optional `xxd` package.
+
+=== Performance Tests
+
+==== `odp_sched_pktio`
+A new test has been added to test the performance of PktIO operations in
+scheduled mode. Scheduled PktIO is inherently more scalable and simpler from
+an application standpoint than direct (polled) I/O, but depending on the
+efficiency of the scheduler implementation can incur additional levels of
+overhead. This test can give insight into a given platform's scheduler
+efficiency. For the `odp-linux` reference implementation, this test has shown
+scheduled I/O to be within 10% of rates achievable via direct I/O, meaning
+that for many applications the simplicity and scalability of the event model
+is preferable.
+
+==== `odp_ipsec`
+A new test has been added that measures outbound (TX) IPsec performance with
+a variety of cipher and authentication algorithms.
+
+=== Example Changes
+
+==== `l2fwd` Example
+The `README` file associated with this example has been clarified to explain
+that this example is a throughput test and as a result does not preserve
+packet order under all conditions.
+
+=== Bug Fixes
+==== https://bugs.linaro.org/show_bug.cgi?id=3611[Bug 3611]
+ODP linux-generic fails on AArch64 in non-ABI-compat mode.
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3657[Bug 3657]
+PktIO does not work with Mellanox Interfaces
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3685[Bug 3685]
+RX UDP checksum offload drops valid UDP packets with Niantic
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3686[Bug 3686]
+IP header checksum not inserted if L4 offset not set
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3690[Bug 3690]
+fdserver process interferes with signal handling
+
+==== https://bugs.linaro.org/show_bug.cgi?id=3736[Bug 3736]
+return value not checked for some fdserver interface functions
+
+=== Known Issues
+
+==== https://bugs.linaro.org/show_bug.cgi?id=2988[Bug 2988]
+ODP exposes symbols outside of odp*/_odp* namespace
+
+== OpenDataPlane (1.18.0.1)
+=== Summary of Changes
+ODP v1.18.0.1 is a fix level for Tiger Moth Release Candidate 2 (RC 2).
+It incorporates fixes and performance / serviceability enhancements but no
+API changes.
+
+==== APIs
+No changes for this release.
+
+==== Corrected Crypto Functionality
+This release corrects a merge issue with crypto functionality that resulted in
+incorrect crypto operation for certain cipher suites.
+
+==== Runtime Configuration
+Introduces a runtime configuration file that can be used by applications to
+set selected ODP configuration parameters dynamically at runtime rather than
+at `configure` time. At present this is used to configure parameters needed
+by DPDK PMDs when using PktIO interfaces in the DPDK class. The intention is
+to expand the use of this file over time to allow more dynamic control
+of other aspect of ODP runtime configuration.
+
+For the ODP Reference Implementation, a template configuration file is
+provided in `config/odp-linux.conf`. Introduction of this support generates
+an additional dependency on the `libconfig` package, which must be present to
+build ODP.
+
+==== IPsec Traffic Flow Confidentiality (TFC) Corrections
+A few missing implementation features associated with TFC packet generation
+have been added in this fix level. This support is now functionally complete in
+the ODP Reference Implementation.
+
+==== Debug Print Improvements
+The information provided in debug builds of the Reference Implementation is
+improved to print the interface name on open, start, stop, and close calls.
+The driver name and number of queues are also printed to ease verification of
+correct configuration.
+
+==== Default Scheduler Performance Improvements
+The performance of the default scheduler in the Reference Implementation is
+significantly improved in providing scheduled access to PktIO queues. Scheduled
+I/O now operates within 10% of the performance achievable using Direct I/O,
+while providing incomparably better scalability in multicore environments.
+
+==== `.so` Numbering Changes
+In preparation for the Tiger Moth official release, ODP has adopted a
+simplified `.so` naming scheme, which is introduced here. ODP `.so` numbers
+are now tied to the ODP release number since ODP does not promise backward
+compatibility across release boundaries.
+
+== OpenDataPlane (1.18.0.0)
+=== New Features
+ODP v1.18.0.0 is Tiger Moth Release Candidate 2 (RC 2). It completes the new
+APIs that are part of the Tiger Moth Long Term Support (LTS) release of ODP
+as well as various performance refinements and bug fixes. As of RC2 the ODP
+API is now frozen for the Tiger Moth development series.
+
+==== APIs
+The following new and changed APIs are included in this release:
+
+===== Addition of Shared Memory (SHM) Initialization Parameters
+The `odp_init_t` struct used as the argument to the `odp_init_global()` API
+has been expanded to include a `max_memory` field that specifies the maximum
+amount of shared memory (shm) that the application will use. This is to
+better enable ODP implementations to optimize their use of shared memory in
+support of the application. If left as (or defaulted) to 0, the implementation
+may choose a default limit for the application.
+
+===== Crypto Changes
+A number of crypto refinements are included in this release:
+
+* The single initialization vector (`iv`) in the `odp_crypto_session_param_t`
+is replaced by a separate `cipher_iv` and `auth_iv` fields.
+
+* The single initialization vector (`override_iv_ptr`) in the
+`odp_crypto_op_param_t` is replaced by a separate `cipher_iv_ptr` and
+`auth_iv_ptr` fields.
+
+* The special nature of GCM and GMAC authenticated encryption modes is
+clarified in that these ciphers always combine ciphering with authentication
+and hence require both to be specified when used. This is simply a
+documentation change as this requirement has always existed.
+
+* Enumerations for AES_CCM (`ODP_CIPHER_ALG_AES_CCM` and
+`ODP_AUTH_ALG_AES_CCM`) authenticated encryption modes are added.
+
+* Enumeration for the AES_CMAC authenticated encryption mode
+(`ODP_AUTH_ALG_AES_CMAC`) is added.
+
+* Enumerations for the ChaCha20-Poly1305 (`ODP_CIPHER_ALG_CHACHA20_POLY1305`
+and `ODP_AUTH_ALG_CHACHA20_POLY1305`) authenticated encryption modes are
+added.
+
+* Enumeration for the SHA-384 authentication algorithm
+(`ODP_AUTH_ALG_SHA384_HMAC`) is added.
+
+* Enumeration for the AES-XCBC-MAC authentication algorithm
+(`ODP_AUTH_ALG_AES_XCBC_MAC`) is added.
+
+===== Lock-free and block-free queues
+The `odp_nonblocking_t` enums introduced in ODP v1.17.0.0 are now returned
+as separate `odp_queue_capability()` limits for plain and scheduled queues. The
+ODP reference implementations now support `ODP_NONBLOCKING_LF` queues.
+
+===== User pointer initialized to NULL
+The specification for `odp_packet_user_ptr()` is clarified that unless
+overridden by `odp_packet_user_ptr_set()` the value of NULL will be returned.
+
+===== Removal of `ODP_PKTIN_WAIT` option
+The `ODP_PKTIN_WAIT` option on `odp_pktin_recv_tmo()` and
+`odp_pktin_recv_mq_tmo()` is removed. Timeout options now consist of
+`ODP_PKTIN_NO_WAIT` and a user-supplied timeout value. Since this timeout
+value can be specified to be arbitrarily long, there is no need for an
+indefinite wait capability as provision of such a capability proved
+problematic for some ODP implementations.
+
+===== Addition of packet protocol APIs
+The APIs `odp_packet_l2_type()`, `odp_packet_l3_type()`, and
+`odp_packet_l4_type()` are added to return the Layer 2, 3, and 4 protocols,
+respectively, associated with packets that have been parsed to the
+corresponding layer. If the packet was not parsed to the associated layer
+these return `ODP_PROTO_Ln_TYPE_NONE`.
+
+===== Packet addressability improvements
+The documentation of `odp_packet_data()` is clarified to indicated when this
+shortcut may be used safely and a new API, `odp_packet_data_seg_len()`, is
+added that returns both the address of the start of packet data as well
+as the number of bytes addressable from that pointer.
+
+===== Asynchronous ordered locks
+Two new APIs, `odp_schedule_order_lock_start()` and
+`odp_schedule_order_lock_wait()` are added to allow for asynchronous
+ordered lock acquisition in addition to the existing synchronous
+`odp_schedule_order_lock()` API. In some implementations and applications,
+there may be a performance advantage to indicating the intent to acquire an
+ordered lock to allow the implementation to prepare for this while the
+application continues parallel processing and then enter the critical section
+protected by the ordered lock at a later time. In this case ordered lock
+protection is not guaranteed until the `odp_schedule_order_lock_wait()` call
+returns.
+
+===== IPsec API miscellaneous changes and enhancements
+IPsec support is further enhanced with the following:
+
+* The `odp_ipsec_ipv4_param_t` and `odp_ipsec_ipv6_param_t` structures
+are added to formalize the specification of IPv4 and IPv6 options in the
+`odp_ipsec_tunnel_param_t` configuration.
+
+* The `mode` field of the `odp_ipsec_out_t` is renamed to `frag_mode` for
+better clarity. In addition the `flag.frag-mode` option bit in the
+`odp_ipsec_out_opt_t` struct is defined to hold per-operation options for
+the `odp_ipsec_out_param_t` struct.
+
+* The `odp_ipsec_capability_t` struct returned by the `odp_ipsec_capability()`
+API is expanded to include the `odp_proto_chksums_t` available on inbound
+IPsec traffic. This indicates whether and how inbound packet checksums may
+be validated for decrypted IPsec traffic.
+
+===== IPsec Traffic Flow Confidentiality (TFC) support
+Traffic Flow Confidentiality (TFC) allows applications to defend against
+traffic analysis attacks by inserting dummy packets as well as add pad bytes
+to packets traversing IPsec flows.
+
+Dummy packets have an L3 type of `ODP_PROTO_L3_TYPE_NONE` in tunnel mode and
+`ODP_PROTO_L4_TYPE_NO_NEXT` in transport mode. Padded packets have additional
+data suffixed to them that extends beyond the L3 or L4 packet lengths.
+
+For RX processing, inline dummy packets may or may not be dropped from the
+inbound packet stream. For lookaside processing they are always visible. For TX
+processing, the `odp_ipsec_out_opt_t` struct specifies the `tfc_pad` bit if
+the packet is to be padded or the `tfc_dummy` bit if a dummy packet is to
+be inserted. The dummy packet length is specified by the `tfc_pad_len` option.
+
+=== Streamlined ABI Support
+ABI support has been reorganized to make it more modular and to omit headers
+and related ABI files when configure to disable this support.
+
+=== Reference Implementation Fixes and Improvements
+The ODP Reference Implementation corporates a number of improvements that
+result in better code organization as well as improved processing efficiency.
+
+==== Pktio null device support
+In the LNG Reference Implemenations of ODP, the `odp_pktio_open()` API may now
+specify devices of class `null` to indicate the PktIO is treated as a dummy
+device. Null devices behave just like Linux `/dev/null` in that they never
+receive packets and simply discard any packets sent to them.
+
+Note that not all ODP implementations may support this device class. The
+specific device classes supported by each ODP implementation may vary and are
+listed in their own documentation.
+
+==== Runtime Scheduler Selection
+The ODP Reference Implementation offers both a default and a number of
+alternate scheduler implementations. Previously these were selectable only at
+`configure` time. They can now be dynamically selected at runtime by the use
+of the `ODP_SCHEDULER` environment variable. If this environment variable is
+not set, the default (basic) scheduler is used. It can be set to select
+alternate schedulers:
+
+* `ODP_SCHEDULER=basic` Explicitly selects the default scheduler
+* `ODP_SCHEDULER=sp` Selects the strict priority scheduler
+* `ODP_SCHEDULER=iquery` Selects the iQuery scheduler
+* `ODP_SCHEDULER=scalable` Selects the scalable scheduler
+
+==== Streamlined Queue Implementation
+The ODP Reference Implementation now uses a ring model for implementing
+ODP queues. This results in greatly improved efficiency for 
+...</pre></div>
+
+</body>
+</html>

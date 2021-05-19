@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, header, diff" />
+    <meta name="description" content="Diff for header files between 1.19.0.1 and 1.19.0.2 versions of ODP" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/headers_diff.css" />
+    
+    
+    <title>
+        ODP: headers diff between 1.19.0.1 and 1.19.0.2 versions
+    </title>
+    
+    </head>
+
+<body>
+<table width='100%' cellpadding='0' cellspacing='0'><tr><td><table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Headers diff: <span class='version'>1.19.0.1</span> vs <span class='version'>1.19.0.2</span></h1><br/><br/> 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;cpu.h (1.19.0.1)&nbsp;</th><th> </th><th>&nbsp;cpu.h (1.19.0.2)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 16</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 16</em></th></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_API_ABI_CPU_ARCH_H_</td><td> </td><td class="right">#ifndef ODP_API_ABI_CPU_ARCH_H_</td></tr>
+      <tr><td class="left">#define ODP_API_ABI_CPU_ARCH_H_</td><td> </td><td class="right">#define ODP_API_ABI_CPU_ARCH_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_CACHE_LINE_SIZE 64</td><td> </td><td class="right">#define ODP_CACHE_LINE_SIZE 64</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">static inline void odp_cpu_pause(void)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">       __asm__ __volatile__ ("pause");</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">                                                                           </td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>5 lines changed or deleted</i></th><th><i> </i></th><th><i>0 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;cpu.h (1.19.0.1)&nbsp;</th><th> </th><th>&nbsp;cpu.h (1.19.0.2)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 162</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 162</em></th></tr>
+      <tr><td class="left"> * Resolution of CPU cycle count</td><td> </td><td class="right"> * Resolution of CPU cycle count</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * CPU cycle count may advance in steps larger than one. This function retu
+rns</td><td> </td><td class="right"> * CPU cycle count may advance in steps larger than one. This function retu
+rns</td></tr>
+      <tr><td class="left"> * resolution of odp_cpu_cycles() in CPU cycles.</td><td> </td><td class="right"> * resolution of odp_cpu_cycles() in CPU cycles.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return CPU cycle count resolution in CPU cycles</td><td> </td><td class="right"> * @return CPU cycle count resolution in CPU cycles</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">uint64_t odp_cpu_cycles_resolution(void);</td><td> </td><td class="right">uint64_t odp_cpu_cycles_resolution(void);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @def odp_cpu_pause</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> * Pause CPU execution for a short while</td><td> </td><td class="right"> * Pause CPU execution for a short while</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * This call is intended for tight loops which poll a shared resource. A sh
+ort</td><td> </td><td class="right"> * This call is intended for tight loops which poll a shared resource. A sh
+ort</td></tr>
+      <tr><td class="left"> * pause within the loop may save energy and improve system performance as</td><td> </td><td class="right"> * pause within the loop may save energy and improve system performance as</td></tr>
+      <tr><td class="left"> * CPU polling frequency is reduced.</td><td> </td><td class="right"> * CPU polling frequency is reduced.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"><span class="delete">/* void odp_cpu_pause(void); */</span></td><td> </td><td class="rblock"><span class="insert">void odp_cpu_pause(void);</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/visibility_end.h&gt;</td><td> </td><td class="right">#include &lt;odp/visibility_end.h&gt;</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>2 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;threads.h (1.19.0.1)&nbsp;</th><th> </th><th>&nbsp;threads.h (1.19.0.2)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 148</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 148</em></th></tr>
+      <tr><td class="left"> * Get CPU affinity of the current odp thread</td><td> </td><td class="right"> * Get CPU affinity of the current odp thread</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * CPU affinity determines the CPU core on which the thread is</td><td> </td><td class="right"> * CPU affinity determines the CPU core on which the thread is</td></tr>
+      <tr><td class="left"> * eligible to run.</td><td> </td><td class="right"> * eligible to run.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return positive cpu ID on success, -1 on failure</td><td> </td><td class="right"> * @return positive cpu ID on success, -1 on failure</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">int odph_odpthread_getaffinity(void);</td><td> </td><td class="right">int odph_odpthread_getaffinity(void);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"> <span class="delete">* Merge getopt options</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * Given two sets of getopt options (each containing possibly both short</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * options -a string- and long options -a option array-) this function</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * return a single set (i.e. a string for short and an array for long)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * being the concatenation of the two given sets.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * Due to the fact that the size of these arrays is unknown at compilation</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * time, this function actually mallocs the the resulting arrays.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * The fourth and fith parameters are actually pointers where these malloc'</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">ed</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * areas are returned.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * This means that the caller of this function has to free the two returned</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * areas!</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param shortopts1 first set of short options (a string)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param shortopts2 second set of short options (a string)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param longopts1  first set of long options (a getopt option array)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param longopts2  second set of long options (a getopt option array)</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param shortopts  a pointer where the address of the short options list</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                  (a string) is returned. It contains the concatenation o</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">f</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                  the two given short option strings.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param longopts   a pointer where the address of the long options list</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                  (a getopt option array) is returned.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                  It contains the concatenation of the two given long</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                  option arrays.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * if any of shortopts1, shortopts2, longopts1, longopts2 is NULL, the</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * corresponding list as assumed to be empty.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * if any of shortopts, longopts is NULL, the corresponding malloc is not</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * performed.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @return On success: 0 : both shortopts and longopts are returned (assumi</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">ng</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                        the given pointer where not null), possibly</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                        pointing to an empty string or an empty option ar</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">ray.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                        On success, the caller is due to free these areas</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *        On failure: -1: Nothing is malloc'ed.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> */</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">int odph_merge_getopt_options(const char *shortopts1,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                             const char *shortopts2,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                             const struct option *longopts1,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                             const struct option *longopts2,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                             char **shortopts,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                             struct option **longopts);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">/**</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> * Parse linux helper options</td><td> </td><td class="right"> * Parse linux helper options</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"> * Parse the command line options. Pick up options meant for <span class="delete">the helper its</span></td><td> </td><td class="rblock"> * Parse the command line options. Pick up <span class="insert">(--odph_ prefixed)</span> options meant</td></tr>
+      <tr><td class="lblock"><span class="delete">elf.</span></td><td> </td><td class="rblock"> for</td></tr>
+      <tr><td class="lblock"><span class="delete"> * If the caller is also having a set of option to parse, it should include</span></td><td> </td><td class="rblock"> * the <span class="insert">helper itself. When helper</span> options <span class="insert">are found, those are removed from</span></td></tr>
+      <tr><td class="lblock"> * <span class="delete">their description here (shortopts desribes</span> the <span class="delete">short options and longopt</span></td><td> </td><td class="rblock"> * <span class="insert">argv[] and remaining</span> options <span class="insert">are packed</span> to <span class="insert">the beginning of the array.</span></td></tr>
+      <tr><td class="lblock"><span class="delete">s</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * describes the long options, as for getopt_long()).</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * This function will issue errors on unknown arguments, so callers failing</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * to pass their own command line</span> options <span class="delete">description here will see their</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"> * options <span class="delete">rejected.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * (the caller wants</span> to <span class="delete">set opterr to zero when parsing its own stuff</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * with getopts to avoid reacting on helper's options).</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"> * @param argc <span class="delete">argument</span> count</td><td> </td><td class="rblock"> * @param argc   <span class="insert">Argument</span> count</td></tr>
+      <tr><td class="lblock"> * @param argv <span class="delete">argument values</span></td><td> </td><td class="rblock"> * @param argv   <span class="insert">Argument vector</span></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param caller_shortopts caller's set of short options (string). or NULL.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @param caller_longopts  caller's set of long options (getopt option arra</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">y).</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> *                        or NULL.</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock"> * @return <span class="delete">On success: 0</span></td><td> </td><td class="rblock"> * @return <span class="insert">New argument count. Original argument count decremented by</span></td></tr>
+      <tr><td class="lblock"> *        <span class="delete">On failure: -1 failure occurs if a value passed for a</span> helper</td><td> </td><td class="rblock"> *         <span class="insert">the number of removed</span> helper options.</td></tr>
+      <tr><td class="lblock"> <span class="delete">*                       option is invalid, or on meeting unknown</span> options.</td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0005" /></td></tr>
+      <tr><td class="lblock">int odph_parse_options(int argc, char <span class="delete">*argv[],</span></td><td> </td><td class="rblock">int odph_parse_options(int argc, char <span class="insert">*argv[]);</span></td></tr>
+      <tr><td class="lblock"><span class="delete">                      const char *caller_shortopts,</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">                      const struct option *caller_longopts);</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 5 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>71 lines changed or deleted</i></th><th><i> </i></th><th><i>9 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><div style='width:100%;' align='left' class='small'>This html diff was produced by rfcdiff 1.41.The latest version is available from <a href='http://tools.ietf.org/tools/rfcdiff/'>http://tools.ietf.org/tools/rfcdiff/</a></div>
+</td></tr></table>
+</body>
+</html>

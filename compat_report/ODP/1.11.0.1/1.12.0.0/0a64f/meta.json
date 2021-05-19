@@ -1,0 +1,8 @@
+{
+  "Affected": "0",
+  "Added": 62,
+  "Removed": 0,
+  "TotalProblems": 4,
+  "Object1": "lib/libodp-linux.so.111.1.0",
+  "Object2": "lib/libodp-linux.so.112.0.0"
+}

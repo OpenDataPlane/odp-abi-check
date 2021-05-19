@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, header, diff" />
+    <meta name="description" content="Diff for header files between 1.10.1.0 and 1.11.0.0 versions of ODP" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/headers_diff.css" />
+    
+    
+    <title>
+        ODP: headers diff between 1.10.1.0 and 1.11.0.0 versions
+    </title>
+    
+    </head>
+
+<body>
+<table width='100%' cellpadding='0' cellspacing='0'><tr><td><table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Headers diff: <span class='version'>1.10.1.0</span> vs <span class='version'>1.11.0.0</span></h1><br/><br/> 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;align.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;align.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 20</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 20</em></th></tr>
+      <tr><td class="left"> * ODP alignments</td><td> </td><td class="right"> * ODP alignments</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_ALIGN_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_ALIGN_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_ALIGN_H_</td><td> </td><td class="right">#define ODP_PLAT_ALIGN_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/cpu_arch.h&gt;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">/** @ingroup odp_compiler_optim</td><td> </td><td class="right">/** @ingroup odp_compiler_optim</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __GNUC__</td><td> </td><td class="right">#ifdef __GNUC__</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_ALIGNED(x) __attribute__((__aligned__(x)))</td><td> </td><td class="right">#define ODP_ALIGNED(x) __attribute__((__aligned__(x)))</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_PACKED __attribute__((__packed__))</td><td> </td><td class="right">#define ODP_PACKED __attribute__((__packed__))</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_OFFSETOF(type, member) __builtin_offsetof(type, member)</td><td> </td><td class="right">#define ODP_OFFSETOF(type, member) __builtin_offsetof(type, member)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_FIELD_SIZEOF(type, member) sizeof(((type *)0)-&gt;member)</td><td> </td><td class="right">#define ODP_FIELD_SIZEOF(type, member) sizeof(((type *)0)-&gt;member)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#if defined __arm__ || defined __aarch64__</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#define ODP_CACHE_LINE_SIZE 64</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">                                                                           </td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#else</td><td> </td><td class="right">#else</td></tr>
+      <tr><td class="left">#error Non-gcc compatible compiler</td><td> </td><td class="right">#error Non-gcc compatible compiler</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#define ODP_CACHE_LINE_SIZE _ODP_CACHE_LINE_SIZE</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">#define ODP_PAGE_SIZE       4096</td><td> </td><td class="right">#define ODP_PAGE_SIZE       4096</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_ALIGNED_CACHE   ODP_ALIGNED(ODP_CACHE_LINE_SIZE)</td><td> </td><td class="right">#define ODP_ALIGNED_CACHE   ODP_ALIGNED(ODP_CACHE_LINE_SIZE)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_ALIGNED_PAGE    ODP_ALIGNED(ODP_PAGE_SIZE)</td><td> </td><td class="right">#define ODP_ALIGNED_PAGE    ODP_ALIGNED(ODP_PAGE_SIZE)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/align.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/align.h&gt;</td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;odp/api/cpu_arch.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 4 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>7 lines changed or deleted</i></th><th><i> </i></th><th><i>4 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;cpu_arch.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;cpu_arch.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 14</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 14</em></th></tr>
+      <tr><td class="left"> * SPDX-License-Identifier:     BSD-3-Clause</td><td> </td><td class="right"> * SPDX-License-Identifier:     BSD-3-Clause</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_CPU_ARCH_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_CPU_ARCH_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_CPU_ARCH_H_</td><td> </td><td class="right">#define ODP_PLAT_CPU_ARCH_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">/** @ingroup odp_compiler_optim</span></td><td> </td><td class="rblock">#define <span class="insert">_ODP_CACHE_LINE_SIZE</span> 64</td></tr>
+      <tr><td class="lblock"><span class="delete"> *  @{</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> */</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">                                                                           </td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">#define <span class="delete">ODP_CACHE_LINE_SIZE</span> 64</td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">                                                                           </td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">/**</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @}</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> */</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">static inline void odp_cpu_pause(void)</td><td> </td><td class="right">static inline void odp_cpu_pause(void)</td></tr>
+      <tr><td class="left">{</td><td> </td><td class="right">{</td></tr>
+      <tr><td class="left">#ifdef __SSE2__</td><td> </td><td class="right">#ifdef __SSE2__</td></tr>
+      <tr><td class="left">       __asm__ __volatile__ ("pause");</td><td> </td><td class="right">       __asm__ __volatile__ ("pause");</td></tr>
+      <tr><td class="left">#else</td><td> </td><td class="right">#else</td></tr>
+      <tr><td class="left">       __asm__ __volatile__ ("rep; nop");</td><td> </td><td class="right">       __asm__ __volatile__ ("rep; nop");</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>9 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;cpumask.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;cpumask.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 20</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 20</em></th></tr>
+      <tr><td class="left"> * ODP CPU masks and enumeration</td><td> </td><td class="right"> * ODP CPU masks and enumeration</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_CPUMASK_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_CPUMASK_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_CPUMASK_H_</td><td> </td><td class="right">#define ODP_PLAT_CPUMASK_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;string.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;sched.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;odp/api/std_types.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/plat/cpumask_types.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/plat/cpumask_types.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/cpumask.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/cpumask.h&gt;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>4 lines changed or deleted</i></th><th><i> </i></th><th><i>0 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;byteorder_types.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;byteorder_types.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 20</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 20</em></th></tr>
+      <tr><td class="left"> * ODP byteorder</td><td> </td><td class="right"> * ODP byteorder</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_BYTEORDER_TYPES_H_</td><td> </td><td class="right">#ifndef ODP_BYTEORDER_TYPES_H_</td></tr>
+      <tr><td class="left">#define ODP_BYTEORDER_TYPES_H_</td><td> </td><td class="right">#define ODP_BYTEORDER_TYPES_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">#ifndef __BYTE_ORDER</td><td> </td><td class="rblock">#ifndef __BYTE_ORDER<span class="insert">__</span></td></tr>
+      <tr><td class="left">#error __BYTE_ORDER not defined!</td><td> </td><td class="right">#error __BYTE_ORDER not defined!</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock">#ifndef __<span class="delete">BIG_ENDIAN</span></td><td> </td><td class="rblock">#ifndef __<span class="insert">ORDER_BIG_ENDIAN__</span></td></tr>
+      <tr><td class="left">#error __BIG_ENDIAN not defined!</td><td> </td><td class="right">#error __BIG_ENDIAN not defined!</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock">#ifndef __<span class="delete">LITTLE_ENDIAN</span></td><td> </td><td class="rblock">#ifndef __<span class="insert">ORDER_LITTLE_ENDIAN__</span></td></tr>
+      <tr><td class="left">#error __LITTLE_ENDIAN not defined!</td><td> </td><td class="right">#error __LITTLE_ENDIAN not defined!</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/* for use with type checkers such as sparse */</td><td> </td><td class="right">/* for use with type checkers such as sparse */</td></tr>
+      <tr><td class="left">#ifdef __CHECKER__</td><td> </td><td class="right">#ifdef __CHECKER__</td></tr>
+      <tr><td class="left">/** @internal bitwise attribute */</td><td> </td><td class="right">/** @internal bitwise attribute */</td></tr>
+      <tr><td class="left">#define __odp_bitwise  __attribute__((bitwise))</td><td> </td><td class="right">#define __odp_bitwise  __attribute__((bitwise))</td></tr>
+      <tr><td class="left">/** @internal force attribute */</td><td> </td><td class="right">/** @internal force attribute */</td></tr>
+      <tr><td class="left">#define __odp_force     __attribute__((force))</td><td> </td><td class="right">#define __odp_force     __attribute__((force))</td></tr>
+      <tr><td class="left">#else</td><td> </td><td class="right">#else</td></tr>
+      <tr><td class="left">/** @internal bitwise attribute */</td><td> </td><td class="right">/** @internal bitwise attribute */</td></tr>
+      <tr><td class="left">#define __odp_bitwise</td><td> </td><td class="right">#define __odp_bitwise</td></tr>
+      <tr><td class="left">/** @internal force attribute */</td><td> </td><td class="right">/** @internal force attribute */</td></tr>
+      <tr><td class="left">#define __odp_force</td><td> </td><td class="right">#define __odp_force</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @addtogroup odp_compiler_optim</td><td> </td><td class="right">/** @addtogroup odp_compiler_optim</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock">                                                                           </td><td> </td><td class="rblock"><span class="insert">#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__</span></td></tr>
+      <tr><td class="lblock">#define ODP_BIG_ENDIAN    <span class="delete">__BIG_ENDIAN</span></td><td> </td><td class="rblock"><span class="insert">       #define ODP_LITTLE_ENDIAN           1</span></td></tr>
+      <tr><td class="lblock">                                                                           </td><td> </td><td class="rblock">       #define ODP_BIG_ENDIAN              <span class="insert">0</span></td></tr>
+      <tr><td class="lblock">#define ODP_LITTLE_ENDIAN <span class="delete">__LITTLE_ENDIAN</span></td><td> </td><td class="rblock">       #define <span class="insert">ODP_BYTE_ORDER</span>              ODP_LITTLE_ENDIAN</td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock">       #define ODP_LITTLE_ENDIAN_BITFIELD</td></tr>
+      <tr><td class="lblock"><span class="delete">#ifdef __BIG_ENDIAN_BITFIELD</span></td><td> </td><td class="rblock"><span class="insert">#else</span></td></tr>
+      <tr><td class="lblock"><span class="delete">#define ODP_BIG_ENDIAN_BITFIELD</span></td><td> </td><td class="rblock">       #define ODP_LITTLE_ENDIAN           <span class="insert">0</span></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"><span class="insert">       #define ODP_BIG_ENDIAN              1</span></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock">       #define ODP_BYTE_ORDER              ODP_BIG_ENDIAN</td></tr>
+      <tr><td class="lblock"><span class="delete">#ifdef __LITTLE_ENDIAN_BITFIELD</span></td><td> </td><td class="rblock">       <span class="insert">#define ODP_BIG_ENDIAN_BITFIELD</span></td></tr>
+      <tr><td class="lblock">#define ODP_LITTLE_ENDIAN_BITFIELD</td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#endif</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"></span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#if __BYTE_ORDER == __LITTLE_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">#define <span class="delete">ODP_BYTE_ORDER</span> ODP_LITTLE_ENDIAN</td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#elif __BYTE_ORDER == __BIG_ENDIAN</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock">#define ODP_BYTE_ORDER ODP_BIG_ENDIAN</td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef uint16_t __odp_bitwise odp_u16le_t;</td><td> </td><td class="right">typedef uint16_t __odp_bitwise odp_u16le_t;</td></tr>
+      <tr><td class="left">typedef uint16_t __odp_bitwise odp_u16be_t;</td><td> </td><td class="right">typedef uint16_t __odp_bitwise odp_u16be_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef uint32_t __odp_bitwise odp_u32le_t;</td><td> </td><td class="right">typedef uint32_t __odp_bitwise odp_u32le_t;</td></tr>
+      <tr><td class="left">typedef uint32_t __odp_bitwise odp_u32be_t;</td><td> </td><td class="right">typedef uint32_t __odp_bitwise odp_u32be_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef uint64_t __odp_bitwise odp_u64le_t;</td><td> </td><td class="right">typedef uint64_t __odp_bitwise odp_u64le_t;</td></tr>
+      <tr><td class="left">typedef uint64_t __odp_bitwise odp_u64be_t;</td><td> </td><td class="right">typedef uint64_t __odp_bitwise odp_u64be_t;</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 4 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>20 lines changed or deleted</i></th><th><i> </i></th><th><i>13 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;cpumask_types.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;cpumask_types.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 25</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 25</em></th></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @addtogroup odp_cpumask</td><td> </td><td class="right">/** @addtogroup odp_cpumask</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/std_types.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/std_types.h&gt;</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#include &lt;odp/api/align.h&gt;</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_CPUMASK_SIZE 1024</td><td> </td><td class="right">#define ODP_CPUMASK_SIZE 1024</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_CPUMASK_STR_SIZE ((ODP_CPUMASK_SIZE + 3) / 4 + 3)</td><td> </td><td class="right">#define ODP_CPUMASK_STR_SIZE ((ODP_CPUMASK_SIZE + 3) / 4 + 3)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * CPU mask</td><td> </td><td class="right"> * CPU mask</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Don't access directly, use access functions.</td><td> </td><td class="right"> * Don't access directly, use access functions.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct odp_cpumask_t {</td><td> </td><td class="right">typedef struct odp_cpumask_t {</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock">       <span class="delete">cpu_set_t set; /**&lt;</span> @private <span class="delete">Mask*/</span></td><td> </td><td class="rblock">       <span class="insert">/**</span> @private <span class="insert">CPU mask storage</span></td></tr>
+      <tr><td class="lblock">} <span class="delete">odp_cpumask_t;</span></td><td> </td><td class="rblock"><span class="insert">         *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         * This is private to the implementation.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         * Don't access directly, use access functions.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">         */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       uint8_t _u8[ODP_CPUMASK_SIZE / 8];</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">} <span class="insert">odp_cpumask_t ODP_ALIGNED(8);</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>2 lines changed or deleted</i></th><th><i> </i></th><th><i>8 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;timer_types.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;timer_types.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 38</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 38</em></th></tr>
+      <tr><td class="left">typedef struct odp_timer_pool_s *odp_timer_pool_t;</td><td> </td><td class="right">typedef struct odp_timer_pool_s *odp_timer_pool_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_TIMER_POOL_INVALID NULL</td><td> </td><td class="right">#define ODP_TIMER_POOL_INVALID NULL</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef ODP_HANDLE_T(odp_timer_t);</td><td> </td><td class="right">typedef ODP_HANDLE_T(odp_timer_t);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#define ODP_TIMER_INVALID _odp_cast_scalar(odp_timer_t, 0xffffffff)</td><td> </td><td class="right">#define ODP_TIMER_INVALID _odp_cast_scalar(odp_timer_t, 0xffffffff)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef ODP_HANDLE_T(odp_timeout_t);</td><td> </td><td class="right">typedef ODP_HANDLE_T(odp_timeout_t);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">#define ODP_TIMEOUT_INVALID  _odp_cast_scalar(odp_timeout_t, 0)</td><td> </td><td class="rblock">#define ODP_TIMEOUT_INVALID  _odp_cast_scalar(odp_timeout_t, 0<span class="insert">xffffffff</span>)</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;crypto.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;crypto.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 172</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 172</em></th></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Crypto API data range specifier</td><td> </td><td class="right"> * Crypto API data range specifier</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct odp_crypto_data_range {</td><td> </td><td class="right">typedef struct odp_crypto_data_range {</td></tr>
+      <tr><td class="left">       uint32_t offset;  /**&lt; Offset from beginning of buffer (chain) */</td><td> </td><td class="right">       uint32_t offset;  /**&lt; Offset from beginning of buffer (chain) */</td></tr>
+      <tr><td class="left">       uint32_t length;  /**&lt; Length of data to operate on */</td><td> </td><td class="right">       uint32_t length;  /**&lt; Length of data to operate on */</td></tr>
+      <tr><td class="left">} odp_crypto_data_range_t;</td><td> </td><td class="right">} odp_crypto_data_range_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Crypto API session creation parameters</td><td> </td><td class="right"> * Crypto API session creation parameters</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"> <span class="delete">*</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @todo Add "odp_session_proc_info_t"</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct odp_crypto_session_params {</td><td> </td><td class="right">typedef struct odp_crypto_session_params {</td></tr>
+      <tr><td class="left">       odp_crypto_op_t op;                /**&lt; Encode versus decode */</td><td> </td><td class="right">       odp_crypto_op_t op;                /**&lt; Encode versus decode */</td></tr>
+      <tr><td class="left">       odp_bool_t auth_cipher_text;       /**&lt; Authenticate/cipher ordering
+ */</td><td> </td><td class="right">       odp_bool_t auth_cipher_text;       /**&lt; Authenticate/cipher ordering
+ */</td></tr>
+      <tr><td class="left">       odp_crypto_op_mode_t pref_mode;    /**&lt; Preferred sync vs async */</td><td> </td><td class="right">       odp_crypto_op_mode_t pref_mode;    /**&lt; Preferred sync vs async */</td></tr>
+      <tr><td class="left">       odp_cipher_alg_t cipher_alg;       /**&lt; Cipher algorithm */</td><td> </td><td class="right">       odp_cipher_alg_t cipher_alg;       /**&lt; Cipher algorithm */</td></tr>
+      <tr><td class="left">       odp_crypto_key_t cipher_key;       /**&lt; Cipher key */</td><td> </td><td class="right">       odp_crypto_key_t cipher_key;       /**&lt; Cipher key */</td></tr>
+      <tr><td class="left">       odp_crypto_iv_t  iv;               /**&lt; Cipher Initialization Vector
+ (IV) */</td><td> </td><td class="right">       odp_crypto_iv_t  iv;               /**&lt; Cipher Initialization Vector
+ (IV) */</td></tr>
+      <tr><td class="left">       odp_auth_alg_t auth_alg;           /**&lt; Authentication algorithm */</td><td> </td><td class="right">       odp_auth_alg_t auth_alg;           /**&lt; Authentication algorithm */</td></tr>
+      <tr><td class="left">       odp_crypto_key_t auth_key;         /**&lt; Authentication key */</td><td> </td><td class="right">       odp_crypto_key_t auth_key;         /**&lt; Authentication key */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l2" /><small>skipping to change at</small><em> line 212</em></th><th> </th><th><a name="part-r2" /><small>skipping to change at</small><em> line 210</em></th></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @var odp_crypto_session_params_t::output_pool</td><td> </td><td class="right"> * @var odp_crypto_session_params_t::output_pool</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> *   When the output packet is not specified during the call to</td><td> </td><td class="right"> *   When the output packet is not specified during the call to</td></tr>
+      <tr><td class="left"> *   odp_crypto_operation, the output packet buffer will be allocated</td><td> </td><td class="right"> *   odp_crypto_operation, the output packet buffer will be allocated</td></tr>
+      <tr><td class="left"> *   from this pool.</td><td> </td><td class="right"> *   from this pool.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Crypto API per packet operation parameters</td><td> </td><td class="right"> * Crypto API per packet operation parameters</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"> <span class="delete">*</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @todo Clarify who zero's ICV and how this relates to "hash_result_offset</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">"</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct odp_crypto_op_params {</td><td> </td><td class="right">typedef struct odp_crypto_op_params {</td></tr>
+      <tr><td class="left">       odp_crypto_session_t session;   /**&lt; Session handle from creation */</td><td> </td><td class="right">       odp_crypto_session_t session;   /**&lt; Session handle from creation */</td></tr>
+      <tr><td class="left">       void *ctx;                      /**&lt; User context */</td><td> </td><td class="right">       void *ctx;                      /**&lt; User context */</td></tr>
+      <tr><td class="left">       odp_packet_t pkt;               /**&lt; Input packet buffer */</td><td> </td><td class="right">       odp_packet_t pkt;               /**&lt; Input packet buffer */</td></tr>
+      <tr><td class="left">       odp_packet_t out_pkt;           /**&lt; Output packet buffer */</td><td> </td><td class="right">       odp_packet_t out_pkt;           /**&lt; Output packet buffer */</td></tr>
+      <tr><td class="left">       uint8_t *override_iv_ptr;       /**&lt; Override session IV pointer */</td><td> </td><td class="right">       uint8_t *override_iv_ptr;       /**&lt; Override session IV pointer */</td></tr>
+      <tr><td class="left">       uint32_t hash_result_offset;    /**&lt; Offset from start of packet buf
+fer for hash result */</td><td> </td><td class="right">       uint32_t hash_result_offset;    /**&lt; Offset from start of packet buf
+fer for hash result */</td></tr>
+      <tr><td class="left">       odp_crypto_data_range_t cipher_range;   /**&lt; Data range to apply cip
+her */</td><td> </td><td class="right">       odp_crypto_data_range_t cipher_range;   /**&lt; Data range to apply cip
+her */</td></tr>
+      <tr><td class="left">       odp_crypto_data_range_t auth_range;     /**&lt; Data range to authentic
+ate */</td><td> </td><td class="right">       odp_crypto_data_range_t auth_range;     /**&lt; Data range to authentic
+ate */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l3" /><small>skipping to change at</small><em> line 247</em></th><th> </th><th><a name="part-r3" /><small>skipping to change at</small><em> line 243</em></th></tr>
+      <tr><td class="left"> *   modified) and "copy" (the packet is replicated to a new buffer</td><td> </td><td class="right"> *   modified) and "copy" (the packet is replicated to a new buffer</td></tr>
+      <tr><td class="left"> *   which contains the modified data).</td><td> </td><td class="right"> *   which contains the modified data).</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> *   The "in place" mode of operation is indicated by setting @c out_pkt</td><td> </td><td class="right"> *   The "in place" mode of operation is indicated by setting @c out_pkt</td></tr>
+      <tr><td class="left"> *   equal to @c pkt.  For the copy mode of operation, setting @c out_pkt</td><td> </td><td class="right"> *   equal to @c pkt.  For the copy mode of operation, setting @c out_pkt</td></tr>
+      <tr><td class="left"> *   to a valid packet buffer value indicates the caller wishes to specify</td><td> </td><td class="right"> *   to a valid packet buffer value indicates the caller wishes to specify</td></tr>
+      <tr><td class="left"> *   the destination buffer.  Setting @c out_pkt to @c ODP_PACKET_INVALID</td><td> </td><td class="right"> *   the destination buffer.  Setting @c out_pkt to @c ODP_PACKET_INVALID</td></tr>
+      <tr><td class="left"> *   indicates the caller wishes the destination packet buffer be allocated</td><td> </td><td class="right"> *   indicates the caller wishes the destination packet buffer be allocated</td></tr>
+      <tr><td class="left"> *   from the output pool specified during session creation.</td><td> </td><td class="right"> *   from the output pool specified during session creation.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"> <span class="insert">* @var odp_crypto_op_params_t::hash_result_offset</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *   Specifies the offset where the hash result is to be stored. In case of</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *   decode sessions, input hash values will be read from this offset, and</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *   overwritten with hash results. If this offset lies within specified</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *   auth_range, implementation will mute this field before calculating the</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> hash</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *   result.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="left"> *   @sa odp_crypto_session_params_t::output_pool.</td><td> </td><td class="right"> *   @sa odp_crypto_session_params_t::output_pool.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Crypto API session creation return code</td><td> </td><td class="right"> * Crypto API session creation return code</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef enum {</td><td> </td><td class="right">typedef enum {</td></tr>
+      <tr><td class="left">       /** Session created */</td><td> </td><td class="right">       /** Session created */</td></tr>
+      <tr><td class="left">       ODP_CRYPTO_SES_CREATE_ERR_NONE,</td><td> </td><td class="right">       ODP_CRYPTO_SES_CREATE_ERR_NONE,</td></tr>
+      <tr><td class="left">       /** Creation failed, no resources */</td><td> </td><td class="right">       /** Creation failed, no resources */</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 3 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>5 lines changed or deleted</i></th><th><i> </i></th><th><i>9 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;system_info.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;system_info.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 26</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 26</em></th></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @defgroup odp_system ODP SYSTEM</td><td> </td><td class="right">/** @defgroup odp_system ODP SYSTEM</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"> * <span class="delete">H</span>uge page size in bytes</td><td> </td><td class="rblock"> * <span class="insert">Default system h</span>uge page size in bytes</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"> * @return <span class="delete">H</span>uge page size in bytes</td><td> </td><td class="rblock"> * @return <span class="insert">Default h</span>uge page size in bytes</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">uint64_t odp_sys_huge_page_size(void);</td><td> </td><td class="right">uint64_t odp_sys_huge_page_size(void);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Page size in bytes</td><td> </td><td class="right"> * Page size in bytes</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return Page size in bytes</td><td> </td><td class="right"> * @return Page size in bytes</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">uint64_t odp_sys_page_size(void);</td><td> </td><td class="right">uint64_t odp_sys_page_size(void);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>2 lines changed or deleted</i></th><th><i> </i></th><th><i>2 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;traffic_mngr.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;traffic_mngr.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 96</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 96</em></th></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @def ODP_TM_MAX_NUM_TM_NODES</td><td> </td><td class="right"> * @def ODP_TM_MAX_NUM_TM_NODES</td></tr>
+      <tr><td class="left"> * The largest number of tm_nodes that can be in existence for any one TM</td><td> </td><td class="right"> * The largest number of tm_nodes that can be in existence for any one TM</td></tr>
+      <tr><td class="left"> * system.</td><td> </td><td class="right"> * system.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @def ODP_TM_MAX_TM_NODE_FANIN</td><td> </td><td class="right"> * @def ODP_TM_MAX_TM_NODE_FANIN</td></tr>
+      <tr><td class="left"> * The largest number of fan-in "inputs" that can be simultaneously connect
+ed</td><td> </td><td class="right"> * The largest number of fan-in "inputs" that can be simultaneously connect
+ed</td></tr>
+      <tr><td class="left"> * to a single tm_node.</td><td> </td><td class="right"> * to a single tm_node.</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete"> * @todo Does this need to be as large as ODP_TM_MAX_TM_QUEUES?</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @def ODP_TM_MIN_SHAPER_BW</td><td> </td><td class="right"> * @def ODP_TM_MIN_SHAPER_BW</td></tr>
+      <tr><td class="left"> * The largest amount of bandwidth that any shaper's peak or commit rate ca
+n</td><td> </td><td class="right"> * The largest amount of bandwidth that any shaper's peak or commit rate ca
+n</td></tr>
+      <tr><td class="left"> * be set to. It is in units of 1000 bytes/second.</td><td> </td><td class="right"> * be set to. It is in units of 1000 bytes/second.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @def ODP_TM_MAX_SHAPER_BW</td><td> </td><td class="right"> * @def ODP_TM_MAX_SHAPER_BW</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l2" /><small>skipping to change at</small><em> line 273</em></th><th> </th><th><a name="part-r2" /><small>skipping to change at</small><em> line 272</em></th></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       /** max_levels specifies that maximum number of levels of hierarchic
+al</td><td> </td><td class="right">       /** max_levels specifies that maximum number of levels of hierarchic
+al</td></tr>
+      <tr><td class="left">        * scheduling allowed by this TM System.  This is a count of the</td><td> </td><td class="right">        * scheduling allowed by this TM System.  This is a count of the</td></tr>
+      <tr><td class="left">        * tm_node stages and does not include tm_queues or tm_egress object
+s.</td><td> </td><td class="right">        * tm_node stages and does not include tm_queues or tm_egress object
+s.</td></tr>
+      <tr><td class="left">        * Hence any given tm_node will have associated tm_node_level in the</td><td> </td><td class="right">        * Hence any given tm_node will have associated tm_node_level in the</td></tr>
+      <tr><td class="left">        * range 0 to max_levels - 1, where tm_node's at level 0 output's on
+ly</td><td> </td><td class="right">        * range 0 to max_levels - 1, where tm_node's at level 0 output's on
+ly</td></tr>
+      <tr><td class="left">        * go to egress objects and tm_nodes whose level is max_levels - 1</td><td> </td><td class="right">        * go to egress objects and tm_nodes whose level is max_levels - 1</td></tr>
+      <tr><td class="left">        * have their fan_in only from tm_queues. */</td><td> </td><td class="right">        * have their fan_in only from tm_queues. */</td></tr>
+      <tr><td class="left">       uint8_t max_levels;</td><td> </td><td class="right">       uint8_t max_levels;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">       <span class="insert">/** egress_fcn_supported indicates whether the tm system supports</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       * egress function. It is an optional feature used to receive the</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       * packet from the tm system and its performance might be limited.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       */</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">       odp_bool_t egress_fcn_supported;</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="left">       /** tm_queue_shaper_supported indicates that the tm_queues support</td><td> </td><td class="right">       /** tm_queue_shaper_supported indicates that the tm_queues support</td></tr>
+      <tr><td class="left">        * proper TM shaping.  Note that TM Shaping is NOT the same thing as</td><td> </td><td class="right">        * proper TM shaping.  Note that TM Shaping is NOT the same thing as</td></tr>
+      <tr><td class="left">        * Ingress Metering/Policing as specified by RFC 2697 (A Single Rate</td><td> </td><td class="right">        * Ingress Metering/Policing as specified by RFC 2697 (A Single Rate</td></tr>
+      <tr><td class="left">        * Three Color Marker) or RFC 2698 (A Two Rate Three Color Marker).</td><td> </td><td class="right">        * Three Color Marker) or RFC 2698 (A Two Rate Three Color Marker).</td></tr>
+      <tr><td class="left">        * These RFC's can be used for a Diffserv traffic conditioner, or</td><td> </td><td class="right">        * These RFC's can be used for a Diffserv traffic conditioner, or</td></tr>
+      <tr><td class="left">        * other ingress policing.  They make no mention of and have no</td><td> </td><td class="right">        * other ingress policing.  They make no mention of and have no</td></tr>
+      <tr><td class="left">        * algorithms for delaying packets - which is what TM shapers are</td><td> </td><td class="right">        * algorithms for delaying packets - which is what TM shapers are</td></tr>
+      <tr><td class="left">        * expected to do. */</td><td> </td><td class="right">        * expected to do. */</td></tr>
+      <tr><td class="left">       odp_bool_t tm_queue_shaper_supported;</td><td> </td><td class="right">       odp_bool_t tm_queue_shaper_supported;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l3" /><small>skipping to change at</small><em> line 470</em></th><th> </th><th><a name="part-r3" /><small>skipping to change at</small><em> line 475</em></th></tr>
+      <tr><td class="left">       ODP_TM_EGRESS_FN,</td><td> </td><td class="right">       ODP_TM_EGRESS_FN,</td></tr>
+      <tr><td class="left">} odp_tm_egress_kind_t;</td><td> </td><td class="right">} odp_tm_egress_kind_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** The odp_tm_egress_t type is used to describe that type of "egress spigo
+t"</td><td> </td><td class="right">/** The odp_tm_egress_t type is used to describe that type of "egress spigo
+t"</td></tr>
+      <tr><td class="left"> * associated with this TM system.</td><td> </td><td class="right"> * associated with this TM system.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct {</td><td> </td><td class="right">typedef struct {</td></tr>
+      <tr><td class="left">       odp_tm_egress_kind_t egress_kind; /**&lt; Union discriminator */</td><td> </td><td class="right">       odp_tm_egress_kind_t egress_kind; /**&lt; Union discriminator */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       union {</td><td> </td><td class="right">       union {</td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock">               odp_pkt<span class="delete">out_queue_t pktout</span>;</td><td> </td><td class="rblock">               odp_pkt<span class="insert">io_t pktio</span>;</td></tr>
+      <tr><td class="left">               odp_tm_egress_fcn_t egress_fcn;</td><td> </td><td class="right">               odp_tm_egress_fcn_t egress_fcn;</td></tr>
+      <tr><td class="left">       };</td><td> </td><td class="right">       };</td></tr>
+      <tr><td class="left">} odp_tm_egress_t;</td><td> </td><td class="right">} odp_tm_egress_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** Initialize Requirements record.</td><td> </td><td class="right">/** Initialize Requirements record.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * odp_tm_requirements_init() must be called to initialize any</td><td> </td><td class="right"> * odp_tm_requirements_init() must be called to initialize any</td></tr>
+      <tr><td class="left"> * odp_tm_requirements_t record before it is first used or assigned to.</td><td> </td><td class="right"> * odp_tm_requirements_t record before it is first used or assigned to.</td></tr>
+      <tr><td class="left"> * This is done to allow for vendor specific additions to this record.</td><td> </td><td class="right"> * This is done to allow for vendor specific additions to this record.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l4" /><small>skipping to change at</small><em> line 883</em></th><th> </th><th><a name="part-r4" /><small>skipping to change at</small><em> line 888</em></th></tr>
+      <tr><td class="left"> * called on variables of this type before any of the fields are filled in.</td><td> </td><td class="right"> * called on variables of this type before any of the fields are filled in.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">typedef struct {</td><td> </td><td class="right">typedef struct {</td></tr>
+      <tr><td class="left">       /** sched_modes indicates whether weighted scheduling should be used</td><td> </td><td class="right">       /** sched_modes indicates whether weighted scheduling should be used</td></tr>
+      <tr><td class="left">        * or not - on a priority basis. */</td><td> </td><td class="right">        * or not - on a priority basis. */</td></tr>
+      <tr><td class="left">       odp_tm_sched_mode_t sched_modes[ODP_TM_MAX_PRIORITIES];</td><td> </td><td class="right">       odp_tm_sched_mode_t sched_modes[ODP_TM_MAX_PRIORITIES];</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">       /** In the case that sched_modes for a given strict priority level</td><td> </td><td class="right">       /** In the case that sched_modes for a given strict priority level</td></tr>
+      <tr><td class="left">        * indicates the use of weighted scheduling, this field supplies the</td><td> </td><td class="right">        * indicates the use of weighted scheduling, this field supplies the</td></tr>
+      <tr><td class="left">        * weighting factors.  The weights - when defined - are used such th
+at</td><td> </td><td class="right">        * weighting factors.  The weights - when defined - are used such th
+at</td></tr>
+      <tr><td><a name="diff0004" /></td></tr>
+      <tr><td class="lblock">        <span class="delete"> </span>* the (adjusted) frame lengths are divided by these 8-bit weights</td><td> </td><td class="rblock">        * the (adjusted) frame lengths are divided by these 8-bit weights</td></tr>
+      <tr><td class="left">        * (i.e. they are divisors and not multipliers).  Consequently a</td><td> </td><td class="right">        * (i.e. they are divisors and not multipliers).  Consequently a</td></tr>
+      <tr><td class="left">        * weight of 0 (when sched_mode is ODP_TM_BYTE_BASED_WEIGHTS) is</td><td> </td><td class="right">        * weight of 0 (when sched_mode is ODP_TM_BYTE_BASED_WEIGHTS) is</td></tr>
+      <tr><td class="left">        * illegal. */</td><td> </td><td class="right">        * illegal. */</td></tr>
+      <tr><td class="left">       uint8_t sched_weights[ODP_TM_MAX_PRIORITIES];</td><td> </td><td class="right">       uint8_t sched_weights[ODP_TM_MAX_PRIORITIES];</td></tr>
+      <tr><td class="left">} odp_tm_sched_params_t;</td><td> </td><td class="right">} odp_tm_sched_params_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** odp_tm_sched_params_init() must be called to initialize any</td><td> </td><td class="right">/** odp_tm_sched_params_init() must be called to initialize any</td></tr>
+      <tr><td class="left"> * odp_tm_sched_params_t record before it is first used or assigned to.</td><td> </td><td class="right"> * odp_tm_sched_params_t record before it is first used or assigned to.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @param[in] params  A pointer to an odp_tm_sched_params_t record which</td><td> </td><td class="right"> * @param[in] params  A pointer to an odp_tm_sched_params_t record which</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 4 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>3 lines changed or deleted</i></th><th><i> </i></th><th><i>8 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;version.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;version.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 47</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 47</em></th></tr>
+      <tr><td class="left"> * versions are likely not backward compatible.</td><td> </td><td class="right"> * versions are likely not backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_VERSION_API_GENERATION 1</td><td> </td><td class="right">#define ODP_VERSION_API_GENERATION 1</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API major version</td><td> </td><td class="right"> * ODP API major version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Introduction of major new features or changes. APIs with different major</td><td> </td><td class="right"> * Introduction of major new features or changes. APIs with different major</td></tr>
+      <tr><td class="left"> * versions are likely not backward compatible.</td><td> </td><td class="right"> * versions are likely not backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">#define ODP_VERSION_API_MAJOR 1<span class="delete">0</span></td><td> </td><td class="rblock">#define ODP_VERSION_API_MAJOR 1<span class="insert">1</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API minor version</td><td> </td><td class="right"> * ODP API minor version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Minor version is incremented when introducing backward compatible change
+s</td><td> </td><td class="right"> * Minor version is incremented when introducing backward compatible change
+s</td></tr>
+      <tr><td class="left"> * to the API. For an API with common generation and major version, but wit
+h</td><td> </td><td class="right"> * to the API. For an API with common generation and major version, but wit
+h</td></tr>
+      <tr><td class="left"> * different minor numbers the two versions are backward compatible.</td><td> </td><td class="right"> * different minor numbers the two versions are backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock">#define ODP_VERSION_API_MINOR <span class="delete">1</span></td><td> </td><td class="rblock">#define ODP_VERSION_API_MINOR <span class="insert">0</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API version string</td><td> </td><td class="right"> * ODP API version string</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * The API version string defines ODP API version in this format:</td><td> </td><td class="right"> * The API version string defines ODP API version in this format:</td></tr>
+      <tr><td class="left"> * @verbatim &lt;generation&gt;.&lt;major&gt;.&lt;minor&gt; @endverbatim</td><td> </td><td class="right"> * @verbatim &lt;generation&gt;.&lt;major&gt;.&lt;minor&gt; @endverbatim</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * The string is null terminated.</td><td> </td><td class="right"> * The string is null terminated.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return Pointer to API version string</td><td> </td><td class="right"> * @return Pointer to API version string</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 2 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>2 lines changed or deleted</i></th><th><i> </i></th><th><i>2 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;std_clib.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;std_clib.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 15</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 15</em></th></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_STD_CLIB_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_STD_CLIB_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_STD_CLIB_H_</td><td> </td><td class="right">#define ODP_PLAT_STD_CLIB_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#include &lt;odp/api/spec/std_types.h&gt;</td><td> </td><td class="right">#include &lt;odp/api/spec/std_types.h&gt;</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">#include &lt;string.h&gt;</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">static inline void *odp_memcpy(void *dst, const void *src, size_t num)</td><td> </td><td class="right">static inline void *odp_memcpy(void *dst, const void *src, size_t num)</td></tr>
+      <tr><td class="left">{</td><td> </td><td class="right">{</td></tr>
+      <tr><td class="left">       return memcpy(dst, src, num);</td><td> </td><td class="right">       return memcpy(dst, src, num);</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">static inline void *odp_memset(void *ptr, int value, size_t num)</td><td> </td><td class="right">static inline void *odp_memset(void *ptr, int value, size_t num)</td></tr>
+      <tr><td class="left">{</td><td> </td><td class="right">{</td></tr>
+      <tr><td class="left">       return memset(ptr, value, num);</td><td> </td><td class="right">       return memset(ptr, value, num);</td></tr>
+      <tr><td class="left">}</td><td> </td><td class="right">}</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>0 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;std_types.h (1.10.1.0)&nbsp;</th><th> </th><th>&nbsp;std_types.h (1.11.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 20</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 20</em></th></tr>
+      <tr><td class="left"> * Standard C language types and definitions for ODP.</td><td> </td><td class="right"> * Standard C language types and definitions for ODP.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifndef ODP_PLAT_STD_TYPES_H_</td><td> </td><td class="right">#ifndef ODP_PLAT_STD_TYPES_H_</td></tr>
+      <tr><td class="left">#define ODP_PLAT_STD_TYPES_H_</td><td> </td><td class="right">#define ODP_PLAT_STD_TYPES_H_</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">#ifdef __cplusplus</td><td> </td><td class="right">#ifdef __cplusplus</td></tr>
+      <tr><td class="left">extern "C" {</td><td> </td><td class="right">extern "C" {</td></tr>
+      <tr><td class="left">#endif</td><td> </td><td class="right">#endif</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;endian.h&gt;</span></td><td> </td><td class="rblock"><span class="insert">/* uint64_t, uint32_t, etc */</span></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;asm/byteorder.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;stdlib.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left">#include &lt;stdint.h&gt;</td><td> </td><td class="right">#include &lt;stdint.h&gt;</td></tr>
+      <tr><td><a name="diff0002" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;stddef.h&gt;</span></td><td> </td><td class="rblock">                                                                           </td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/* true and false for odp_bool_t */</span></td></tr>
+      <tr><td class="left">#include &lt;stdbool.h&gt;</td><td> </td><td class="right">#include &lt;stdbool.h&gt;</td></tr>
+      <tr><td><a name="diff0003" /></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;stdint.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;inttypes.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="lblock"><span class="delete">#include &lt;limits.h&gt;</span></td><td> </td><td class="rblock"></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/** @addtogroup odp_system ODP SYSTEM</td><td> </td><td class="right">/** @addtogroup odp_system ODP SYSTEM</td></tr>
+      <tr><td class="left"> *  @{</td><td> </td><td class="right"> *  @{</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">typedef int odp_bool_t;</td><td> </td><td class="right">typedef int odp_bool_t;</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * @}</td><td> </td><td class="right"> * @}</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 3 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>7 lines changed or deleted</i></th><th><i> </i></th><th><i>3 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><div style='width:100%;' align='left' class='small'>This html diff was produced by rfcdiff 1.41.The latest version is available from <a href='http://tools.ietf.org/tools/rfcdiff/'>http://tools.ietf.org/tools/rfcdiff/</a></div>
+</td></tr></table>
+</body>
+</html>

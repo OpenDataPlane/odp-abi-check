@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="ODP, header, diff" />
+    <meta name="description" content="Diff for header files between 1.18.0.1 and 1.19.0.0 versions of ODP" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/headers_diff.css" />
+    
+    
+    <title>
+        ODP: headers diff between 1.18.0.1 and 1.19.0.0 versions
+    </title>
+    
+    </head>
+
+<body>
+<table width='100%' cellpadding='0' cellspacing='0'><tr><td><table cellpadding='0' cellspacing='0'><tr><td align='center'><h1 class='tool'><a title='ABI tracker for ODP' href='../../../../timeline/ODP/index.html' class='tool'>ABI<br/>Tracker</a></h1></td><td width='30px;'></td><td><h1>(ODP)</h1></td></tr></table><hr/>
+<br/>
+<br/>
+<h1>Headers diff: <span class='version'>1.18.0.1</span> vs <span class='version'>1.19.0.0</span></h1><br/><br/> 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;packet.h (1.18.0.1)&nbsp;</th><th> </th><th>&nbsp;packet.h (1.19.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 1713</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 1713</em></th></tr>
+      <tr><td class="left">odp_packet_chksum_status_t odp_packet_l3_chksum_status(odp_packet_t pkt);</td><td> </td><td class="right">odp_packet_chksum_status_t odp_packet_l3_chksum_status(odp_packet_t pkt);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Layer 4 checksum check status</td><td> </td><td class="right"> * Layer 4 checksum check status</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Returns the result of the latest layer 4 checksum check done for the pac
+ket.</td><td> </td><td class="right"> * Returns the result of the latest layer 4 checksum check done for the pac
+ket.</td></tr>
+      <tr><td class="left"> * The status tells if checksum check was attempted and the result of the</td><td> </td><td class="right"> * The status tells if checksum check was attempted and the result of the</td></tr>
+      <tr><td class="left"> * attempt. It depends on packet input (or IPSEC) configuration, packet con
+tent</td><td> </td><td class="right"> * attempt. It depends on packet input (or IPSEC) configuration, packet con
+tent</td></tr>
+      <tr><td class="left"> * and implementation capabilities if checksum check is attempted for a pac
+ket.</td><td> </td><td class="right"> * and implementation capabilities if checksum check is attempted for a pac
+ket.</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"> <span class="insert">* When a UDP packet does not have a checksum (e.g. checksum field of a UDP</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert">/IPv4</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> * packet is zero), checksum check result is ODP_PACKET_CHKSUM_OK.</span></td></tr>
+      <tr><td class="lblock"></td><td> </td><td class="rblock"><span class="insert"> *</span></td></tr>
+      <tr><td class="left"> * @param pkt     Packet handle</td><td> </td><td class="right"> * @param pkt     Packet handle</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * @return L4 checksum check status</td><td> </td><td class="right"> * @return L4 checksum check status</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">odp_packet_chksum_status_t odp_packet_l4_chksum_status(odp_packet_t pkt);</td><td> </td><td class="right">odp_packet_chksum_status_t odp_packet_l4_chksum_status(odp_packet_t pkt);</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * Layer 3 checksum insertion override</td><td> </td><td class="right"> * Layer 3 checksum insertion override</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Override checksum insertion configuration per packet. This per packet se
+tting</td><td> </td><td class="right"> * Override checksum insertion configuration per packet. This per packet se
+tting</td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>0 lines changed or deleted</i></th><th><i> </i></th><th><i>4 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><br/>
+ 
+  <table class='diff_tbl' border="0" cellpadding="0" cellspacing="0"> 
+  <tr bgcolor="orange"><th>&nbsp;version.h (1.18.0.1)&nbsp;</th><th> </th><th>&nbsp;version.h (1.19.0.0)&nbsp;</th></tr> 
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr bgcolor="gray" ><th><a name="part-l1" /><small>skipping to change at</small><em> line 47</em></th><th> </th><th><a name="part-r1" /><small>skipping to change at</small><em> line 47</em></th></tr>
+      <tr><td class="left"> * versions are likely not backward compatible.</td><td> </td><td class="right"> * versions are likely not backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_VERSION_API_GENERATION 1</td><td> </td><td class="right">#define ODP_VERSION_API_GENERATION 1</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API major version</td><td> </td><td class="right"> * ODP API major version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Introduction of major new features or changes. APIs with different major</td><td> </td><td class="right"> * Introduction of major new features or changes. APIs with different major</td></tr>
+      <tr><td class="left"> * versions are likely not backward compatible.</td><td> </td><td class="right"> * versions are likely not backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td><a name="diff0001" /></td></tr>
+      <tr><td class="lblock">#define  ODP_VERSION_API_MAJOR 1<span class="delete">8</span></td><td> </td><td class="rblock">#define  ODP_VERSION_API_MAJOR 1<span class="insert">9</span></td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+      <tr><td class="left">/**</td><td> </td><td class="right">/**</td></tr>
+      <tr><td class="left"> * ODP API minor version</td><td> </td><td class="right"> * ODP API minor version</td></tr>
+      <tr><td class="left"> *</td><td> </td><td class="right"> *</td></tr>
+      <tr><td class="left"> * Minor version is incremented when introducing backward compatible change
+s</td><td> </td><td class="right"> * Minor version is incremented when introducing backward compatible change
+s</td></tr>
+      <tr><td class="left"> * to the API. For an API with common generation and major version, but wit
+h</td><td> </td><td class="right"> * to the API. For an API with common generation and major version, but wit
+h</td></tr>
+      <tr><td class="left"> * different minor numbers the two versions are backward compatible.</td><td> </td><td class="right"> * different minor numbers the two versions are backward compatible.</td></tr>
+      <tr><td class="left"> */</td><td> </td><td class="right"> */</td></tr>
+      <tr><td class="left">#define ODP_VERSION_API_MINOR 0</td><td> </td><td class="right">#define ODP_VERSION_API_MINOR 0</td></tr>
+      <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+
+     <tr><td class="left"></td><td> </td><td class="right"></td></tr>
+     <tr bgcolor="gray"><th colspan="5" align="center"><a name="end">&nbsp;End of changes. 1 change blocks.&nbsp;</a></th></tr>
+     <tr class="stats"><th><i>1 lines changed or deleted</i></th><th><i> </i></th><th><i>1 lines changed or added</i></th></tr>
+     <tr><td colspan="5" align="center" class="small"></td></tr>
+   </table>
+   <br/><div style='width:100%;' align='left' class='small'>This html diff was produced by rfcdiff 1.41.The latest version is available from <a href='http://tools.ietf.org/tools/rfcdiff/'>http://tools.ietf.org/tools/rfcdiff/</a></div>
+</td></tr></table>
+</body>
+</html>

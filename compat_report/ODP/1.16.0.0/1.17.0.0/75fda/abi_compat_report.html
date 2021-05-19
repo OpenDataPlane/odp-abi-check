@@ -1,0 +1,1795 @@
+<!-- verdict:incompatible;affected:1.9;added:54;removed:1;type_problems_high:2;type_problems_medium:29;type_problems_low:42;interface_problems_high:0;interface_problems_medium:1;interface_problems_low:3;changed_constants:0;type_changes_other:2;tool_version:2.2 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="libodp-linux, binary compatibility, API, report" />
+<meta name="description" content="Binary compatibility report for the libodp-linux object between 1.16.0.0 and 1.17.0.0 versions on x86_64" />
+<title>libodp-linux: 1.16.0.0 to 1.17.0.0 binary compatibility report</title>
+<style type="text/css">
+body {
+    font-family:Arial, sans-serif;
+    background-color:White;
+    color:Black;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.625em;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.25em;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:0.3125em;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:1.65em;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:3em;
+    font-size:1em;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.sect_aff {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:#cc3300;
+}
+span.sect_info {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:Black;
+}
+span.ext {
+    font-weight:normal;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:0.875em;
+    font-weight:bold;
+}
+div.h_list, div.lib_list {
+    font-size:0.94em;
+    padding-left:0.4em;
+}
+span.ns {
+    color:#408080;
+    font-size:0.94em;
+}
+span.lib_name {
+    color:Green;
+    font-size:0.875em;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    color:#003E69;
+    margin-left:0.3125em;
+}
+span.iname_b {
+    font-weight:bold;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:0.94em;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+span.sym_pd {
+    white-space:normal;
+}
+span.sym_p span, span.sym_pd span {
+    white-space:nowrap;
+}
+div.affect {
+    padding-left:1em;
+    padding-bottom:10px;
+    font-size:0.87em;
+    font-style:italic;
+    line-height:0.9em;
+}
+div.affected {
+    padding-left:1.9em;
+    padding-top:10px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:0.95em;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:56.25em;
+}
+table.ptable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    text-align:left;
+    vertical-align:top;
+    max-width:28em;
+    word-wrap:break-word;
+}
+table.ptable th.pn {
+    width:2%;
+}
+table.ptable th.chg {
+    width:47%;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:1.9em;
+    margin-top:0.7em;
+}
+table.vtable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    vertical-align:top;
+    max-width:450px;
+    word-wrap:break-word;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:0.875em;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding:3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:normal;
+    text-align:left;
+    font-size:0.94em;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px;
+}
+table.summary td {
+    text-align:right;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px 5px 3px 10px;
+}
+span.mngl {
+    padding-left:1em;
+    font-size:0.875em;
+    cursor:text;
+    color:#444444;
+    font-weight:bold;
+}
+span.pleft {
+    padding-left:2.5em;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:normal;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.p {
+    font-style:italic;
+}
+span.fp {
+    font-style:italic;
+    background-color:#DCDCDC;
+}
+span.ttype {
+    font-weight:normal;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    font-weight:bold;
+}
+.passed {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.warning {
+    background-color:#F4F4AF;
+    font-weight:normal;
+}
+.failed {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.new {
+    background-color:#C6DEFF;
+    font-weight:normal;
+}
+.compatible {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.almost_compatible {
+    background-color:#FFDAA3;
+    font-weight:normal;
+}
+.incompatible {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.gray {
+    background-color:#DCDCDC;
+    font-weight:normal;
+}
+.top_ref {
+    font-size:0.69em;
+}
+.footer {
+    font-size:0.75em;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+-->
+</script>
+</head>
+
+<body>
+<div><a name='Top'></a>
+<h1>Binary compatibility report for the <span style='color:Blue;'>libodp-linux.so</span> object between <span style='color:Red;'>1.16.0.0</span> and <span style='color:Red;'>1.17.0.0</span> versions on <span style='color:Blue;'>x86_64</span></h1>
+
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Module Name</th><td>libodp-linux</td></tr>
+<tr><th>Version #1</th><td>1.16.0.0</td></tr>
+<tr><th>Version #2</th><td>1.17.0.0</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>4.8.4</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>60</a></td></tr>
+<tr><th>Total Source Files</th><td><a href='#Sources' style='color:Blue;'>35</a></td></tr>
+<tr><th>Total Objects</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>539 / 235</td></tr>
+<tr><th>Compatibility</th>
+<td class='warning'>98.1%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Added' style='color:Blue;'>54</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td class='failed'><a href='#Removed' style='color:Blue;'>1</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td class='failed'><a href='#Type_Problems_High' style='color:Blue;'>2</a></td></tr>
+<tr><td>Medium</td><td class='failed'><a href='#Type_Problems_Medium' style='color:Blue;'>29</a></td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Type_Problems_Low' style='color:Blue;'>42</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td class='failed'><a href='#Symbol_Problems_Medium' style='color:Blue;'>1</a></td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Symbol_Problems_Low' style='color:Blue;'>3</a></td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td>0</td></tr>
+<tr><th>Other Changes<br/>in Data Types</th><td>-</td><td class='passed'><a href='#Other_Changes_In_Types' style='color:Blue;'>2</a></td></tr>
+</table>
+
+<a name='Added'></a><h2>Added Symbols <span class='new'>&nbsp;54&nbsp;</span></h2><hr/>
+<span class='h_name'>chksum.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_chksum_ones_comp16&#160;<span class='sym_p'><span>(&#160;void const* <span class='color_p'>p</span></span>, <span>uint32_t <span class='color_p'>len</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>classification.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_cls_cos_num_queue&#160;<span class='sym_p'><span>(&#160;odp_cos_t <span class='color_p'>cos_id</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_cls_cos_queues&#160;<span class='sym_p'><span>(&#160;odp_cos_t <span class='color_p'>cos_id</span></span>, <span>odp_queue_t* <span class='color_p'>queue</span></span>, <span>uint32_t <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>crypto.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_crypto_op&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>odp_packet_t* <span class='color_p'>pkt_out</span></span>, <span>odp_crypto_packet_op_param_t const* <span class='color_p'>param</span></span>, <span>int <span class='color_p'>num_pkt</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_crypto_op_enq&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>odp_packet_t const* <span class='color_p'>pkt_out</span></span>, <span>odp_crypto_packet_op_param_t const* <span class='color_p'>param</span></span>, <span>int <span class='color_p'>num_pkt</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_crypto_packet_from_event&#160;<span class='sym_p'><span>(&#160;odp_event_t <span class='color_p'>ev</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_crypto_packet_to_event&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_crypto_result&#160;<span class='sym_p'><span>(&#160;odp_crypto_packet_result_t* <span class='color_p'>result</span></span>, <span>odp_packet_t <span class='color_p'>packet</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>event.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_event_filter_packet&#160;<span class='sym_p'><span>(&#160;odp_event_t const* <span class='color_p'>event</span></span>, <span>odp_packet_t* <span class='color_p'>packet</span></span>, <span>odp_event_t* <span class='color_p'>remain</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_event_free_multi&#160;<span class='sym_p'><span>(&#160;odp_event_t const* <span class='color_p'>event</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_event_free_sp&#160;<span class='sym_p'><span>(&#160;odp_event_t const* <span class='color_p'>event</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_event_subtype&#160;<span class='sym_p'><span>(&#160;odp_event_t <span class='color_p'>event</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_event_type_multi&#160;<span class='sym_p'><span>(&#160;odp_event_t const* <span class='color_p'>event</span></span>, <span>int <span class='color_p'>num</span></span>, <span>odp_event_type_t* <span class='color_p'>type_out</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_event_types&#160;<span class='sym_p'><span>(&#160;odp_event_t <span class='color_p'>event</span></span>, <span>odp_event_subtype_t* <span class='color_p'>subtype</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>ipsec.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_ipsec_auth_capability&#160;<span class='sym_p'><span>(&#160;enum odp_auth_alg_t <span class='color_p'>auth</span></span>, <span>odp_ipsec_auth_capability_t* <span class='color_p'>capa</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_capability&#160;<span class='sym_p'><span>(&#160;odp_ipsec_capability_t* <span class='color_p'>capa</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_cipher_capability&#160;<span class='sym_p'><span>(&#160;enum odp_cipher_alg_t <span class='color_p'>cipher</span></span>, <span>odp_ipsec_cipher_capability_t* <span class='color_p'>capa</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_config&#160;<span class='sym_p'><span>(&#160;odp_ipsec_config_t const* <span class='color_p'>config</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_config_init&#160;<span class='sym_p'><span>(&#160;odp_ipsec_config_t* <span class='color_p'>config</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_in&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>int <span class='color_p'>num_in</span></span>, <span>odp_packet_t* <span class='color_p'>pkt_out</span></span>, <span>int* <span class='color_p'>num_out</span></span>, <span>odp_ipsec_in_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_in_enq&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>int <span class='color_p'>num_in</span></span>, <span>odp_ipsec_in_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_out&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>int <span class='color_p'>num_in</span></span>, <span>odp_packet_t* <span class='color_p'>pkt_out</span></span>, <span>int* <span class='color_p'>num_out</span></span>, <span>odp_ipsec_out_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_out_enq&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>int <span class='color_p'>num_in</span></span>, <span>odp_ipsec_out_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_out_inline&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt_in</span></span>, <span>int <span class='color_p'>num_in</span></span>, <span>odp_ipsec_out_param_t const* <span class='color_p'>param</span></span>, <span>odp_ipsec_out_inline_param_t const* <span class='color_p'>inline_param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_packet_from_event&#160;<span class='sym_p'><span>(&#160;odp_event_t <span class='color_p'>ev</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_packet_to_event&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_result&#160;<span class='sym_p'><span>(&#160;odp_ipsec_packet_result_t* <span class='color_p'>result</span></span>, <span>odp_packet_t <span class='color_p'>packet</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_context&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_t <span class='color_p'>sa</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_create&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_destroy&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_t <span class='color_p'>sa</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_disable&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_t <span class='color_p'>sa</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_mtu_update&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_t <span class='color_p'>sa</span></span>, <span>uint32_t <span class='color_p'>mtu</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_param_init&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_param_t* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_sa_to_u64&#160;<span class='sym_p'><span>(&#160;odp_ipsec_sa_t <span class='color_p'>sa</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_ipsec_status&#160;<span class='sym_p'><span>(&#160;odp_ipsec_status_t* <span class='color_p'>status</span></span>, <span>odp_event_t <span class='color_p'>event</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>packet.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_packet_free_sp&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_from_event_multi&#160;<span class='sym_p'><span>(&#160;odp_packet_t* <span class='color_p'>pkt</span></span>, <span>odp_event_t const* <span class='color_p'>ev</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_l3_chksum_insert&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>, <span>int <span class='color_p'>insert</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_l3_chksum_status&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_l4_chksum_insert&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>, <span>int <span class='color_p'>insert</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_l4_chksum_status&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_ones_comp&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>, <span>odp_packet_data_range_t* <span class='color_p'>range</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_parse&#160;<span class='sym_p'><span>(&#160;odp_packet_t <span class='color_p'>pkt</span></span>, <span>uint32_t <span class='color_p'>offset</span></span>, <span>odp_packet_parse_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_parse_multi&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt</span></span>, <span>uint32_t const* <span class='color_p'>offset</span></span>, <span>int <span class='color_p'>num</span></span>, <span>odp_packet_parse_param_t const* <span class='color_p'>param</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_packet_to_event_multi&#160;<span class='sym_p'><span>(&#160;odp_packet_t const* <span class='color_p'>pkt</span></span>, <span>odp_event_t* <span class='color_p'>ev</span></span>, <span>int <span class='color_p'>num</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>packet_inlines.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">_odp_packet_map&#160;<span class='sym_p'><span>(&#160;void* <span class='color_p'>pkt_ptr</span></span>, <span>uint32_t <span class='color_p'>offset</span></span>, <span>uint32_t* <span class='color_p'>seg_len</span></span>, <span>int* <span class='color_p'>seg_idx</span></span>&#160;)</span></span><br/>
+<span class="iname">_odp_pool_inline <span class='attr'>[data]</span></span><br/>
+<br/>
+<span class='h_name'>packet_io.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_pktin_maxlen&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <span class='color_p'>pktio</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_pktio_mac_addr_set&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <span class='color_p'>hdl</span></span>, <span>void const* <span class='color_p'>mac_addr</span></span>, <span>int <span class='color_p'>addr_size</span></span>&#160;)</span></span><br/>
+<span class="iname">odp_pktout_maxlen&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <span class='color_p'>pktio</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>schedule.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_schedule_order_unlock_lock&#160;<span class='sym_p'><span>(&#160;uint32_t <span class='color_p'>unlock_index</span></span>, <span>uint32_t <span class='color_p'>lock_index</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>shared_memory.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_shm_print&#160;<span class='sym_p'><span>(&#160;odp_shm_t <span class='color_p'>shm</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>time.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_time_diff_ns&#160;<span class='sym_p'><span>(&#160;odp_time_t <span class='color_p'>t2</span></span>, <span>odp_time_t <span class='color_p'>t1</span></span>&#160;)</span></span><br/>
+<br/>
+<span class='h_name'>timer.h</span>, <span class='lib_name'>libodp-linux.so.117.0.0</span><br/>
+<span class="iname">odp_timer_capability&#160;<span class='sym_p'><span>(&#160;enum odp_timer_clk_src_t <span class='color_p'>clk_src</span></span>, <span>odp_timer_capability_t* <span class='color_p'>capa</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Removed'></a><a name='Withdrawn'></a><h2>Removed Symbols <span class='failed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>packet_io.h</span>, <span class='lib_name'>libodp-linux.so.116.0.0</span><br/>
+<span class="iname">odp_pktio_mtu&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <span class='color_p'>hdl</span></span>&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='High_Risk_Problems'></a><a name='Type_Problems_High'></a>
+<h2>Problems with Data Types, High Severity <span class='failed'>&nbsp;2&nbsp;</span></h2><hr/>
+<span class='h_name'>classification.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_cls_cos_param <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_1" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>queue</b> has been removed from the middle position of this structural type.</td>
+<td>1) Previous accesses of applications to the removed field will be incorrect.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_2')">
+[+] affected symbols: 2 (0.4%)</span>
+<div id="c_2" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_cls_cos_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_cls_cos_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_cls_cos_param&#39;.</div>
+<span class='iname_a'>odp_cls_cos_param_init&#160;<span class='sym_p'><span>(&#160;odp_cls_cos_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_cls_cos_param&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>crypto.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_3')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_op_param_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_3" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>aad</b> has been removed from the middle position of this structural type.</td>
+<td>1) Previous accesses of applications to the removed field will be incorrect.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_4')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_4" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_operation&#160;<span class='sym_p'><span>(&#160;odp_crypto_op_param_t* <span class='fp'>param</span></span>, <span>odp_bool_t* <i>posted</i></span>, <span>odp_crypto_op_result_t* <i>result</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_op_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Medium_Risk_Problems'></a><a name='Type_Problems_Medium'></a>
+<h2>Problems with Data Types, Medium Severity <span class='failed'>&nbsp;29&nbsp;</span></h2><hr/>
+<span class='h_name'>classification.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_5')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_cls_capability_t <span class='failed'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_5" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>hash_protocols</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>max_hash_queues</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_6')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_6" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_cls_capability&#160;<span class='sym_p'><span>(&#160;odp_cls_capability_t* <span class='fp'>capability</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capability&#39; (pointer) has base type &#39;struct odp_cls_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_7')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_cls_cos_param <span class='failed'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_7" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>num_queue</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>unnamed0</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_8')">
+[+] affected symbols: 2 (0.4%)</span>
+<div id="c_8" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_cls_cos_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_cls_cos_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_cls_cos_param&#39;.</div>
+<span class='iname_a'>odp_cls_cos_param_init&#160;<span class='sym_p'><span>(&#160;odp_cls_cos_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_cls_cos_param&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>crypto.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_9')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> odp_auth_alg_t <span class='failed'>&nbsp;3&nbsp;</span></span>
+<br/>
+<div id="c_9" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Value of member <b>_deprecated_ODP_AUTH_ALG_AES128_GCM</b> has been changed from <b>8</b> to <b>9</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Value of member <b>_deprecated_ODP_AUTH_ALG_MD5_96</b> has been changed from <b>6</b> to <b>7</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Value of member <b>_deprecated_ODP_AUTH_ALG_SHA256_128</b> has been changed from <b>7</b> to <b>8</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_10')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_10" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_auth_capability&#160;<span class='sym_p'><span>(&#160;enum odp_auth_alg_t <span class='fp'>auth</span></span>, <span>odp_crypto_auth_capability_t* <i>dst</i></span>, <span>int <i>num_copy</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;auth&#39; is of type &#39;enum odp_auth_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>, <span>odp_crypto_session_t* <i>session_out</i></span>, <span>odp_crypto_ses_create_err_t* <i>status</i></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.auth_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_auth_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.auth_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_auth_alg_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_11')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> odp_cipher_alg_t <span class='failed'>&nbsp;3&nbsp;</span></span>
+<br/>
+<div id="c_11" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Value of member <b>ODP_CIPHER_ALG_AES_GCM</b> has been changed from <b>4</b> to <b>5</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Value of member <b>_deprecated_ODP_CIPHER_ALG_AES128_CBC</b> has been changed from <b>5</b> to <b>6</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Value of member <b>_deprecated_ODP_CIPHER_ALG_AES128_GCM</b> has been changed from <b>6</b> to <b>7</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_12')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_12" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_cipher_capability&#160;<span class='sym_p'><span>(&#160;enum odp_cipher_alg_t <span class='fp'>cipher</span></span>, <span>odp_crypto_cipher_capability_t* <i>dst</i></span>, <span>int <i>num_copy</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;cipher&#39; is of type &#39;enum odp_cipher_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>, <span>odp_crypto_session_t* <i>session_out</i></span>, <span>odp_crypto_ses_create_err_t* <i>status</i></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.cipher_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_cipher_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.cipher_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_cipher_alg_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_13')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-crypto.h-149 <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_13" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>aes_ctr</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_14')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_14" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_capability&#160;<span class='sym_p'><span>(&#160;odp_crypto_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.ciphers.bit&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-crypto.h-149&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_15')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-crypto.h-185 <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_15" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>aes_gmac</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_16')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_16" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_capability&#160;<span class='sym_p'><span>(&#160;odp_crypto_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.auths.bit&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-crypto.h-185&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_17')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_capability_t <span class='failed'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_17" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>async_mode</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>sync_mode</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_18')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_18" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_capability&#160;<span class='sym_p'><span>(&#160;odp_crypto_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_crypto_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_19')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_op_param_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_19" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>aad_ptr</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_20')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_20" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_operation&#160;<span class='sym_p'><span>(&#160;odp_crypto_op_param_t* <span class='fp'>param</span></span>, <span>odp_bool_t* <i>posted</i></span>, <span>odp_crypto_op_result_t* <i>result</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_op_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_21')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_session_param_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_21" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>op_mode</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_22')">
+[+] affected symbols: 2 (0.4%)</span>
+<div id="c_22" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>, <span>odp_crypto_session_t* <i>session_out</i></span>, <span>odp_crypto_ses_create_err_t* <i>status</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_session_param_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_session_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>packet_io.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_23')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-packet_io.h-327 <span class='failed'>&nbsp;4&nbsp;</span></span>
+<br/>
+<div id="c_23" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>ipv4_chksum_ena</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>sctp_chksum_ena</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Field <b>tcp_chksum_ena</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Field <b>udp_chksum_ena</b> has been added at the middle position of this structural type.</td>
+<td>Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_24')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_24" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktio_capability&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktio_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.config.pktout.bit&#39; in 2nd parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-packet_io.h-327&#39;.</div>
+<span class='iname_a'>odp_pktio_config&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>hdl</i></span>, <span>odp_pktio_config_t const* <span class='fp'>config</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;config.pktout.bit&#39; in 2nd parameter &#39;config&#39; (pointer) is of type &#39;anon-struct-packet_io.h-327&#39;.</div>
+<span class='iname_a'>odp_pktio_config_init&#160;<span class='sym_p'><span>(&#160;odp_pktio_config_t* <span class='fp'>config</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;config.pktout.bit&#39; in 1st parameter &#39;config&#39; (pointer) is of type &#39;anon-struct-packet_io.h-327&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_25')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pktio_capability_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_25" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of field <b>config</b> has been changed from <b>24</b> bytes to <b>32</b> bytes.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Previous accesses of applications and library functions to this field and fields at higher positions of the structure definition may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_26')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_26" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktio_capability&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktio_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_pktio_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_27')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pktio_parser_config_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_27" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Type of field <b>layer</b> has been changed from <b>odp_pktio_parser_layer_t</b> to <b>odp_proto_layer_t</b> of different format.</td>
+<td>This field may be incorrectly initialized or accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_28')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_28" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktio_capability&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktio_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.config.parser&#39; in 2nd parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_pktio_parser_config_t&#39;.</div>
+<span class='iname_a'>odp_pktio_config&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>hdl</i></span>, <span>odp_pktio_config_t const* <span class='fp'>config</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;config.parser&#39; in 2nd parameter &#39;config&#39; (pointer) has base type &#39;struct odp_pktio_parser_config_t&#39;.</div>
+<span class='iname_a'>odp_pktio_config_init&#160;<span class='sym_p'><span>(&#160;odp_pktio_config_t* <span class='fp'>config</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;config.parser&#39; in 1st parameter &#39;config&#39; (pointer) has base type &#39;struct odp_pktio_parser_config_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>packet_types.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_29')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> _odp_packet_inline_offset_t <span class='failed'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_29" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>l3_offset</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>l4_offset</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_30')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_30" style="display:none;">
+<div class='affected'><span class='iname_a'>_odp_packet_inline <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value has base type &#39;struct _odp_packet_inline_offset_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>pool.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_31')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-pool.h-73 <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_31" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>max_headroom</b> has been added at the middle position of this structural type.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Layout of structure fields has been changed and therefore fields at higher positions of the structure definition may be incorrectly accessed by applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_32')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_32" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_capability&#160;<span class='sym_p'><span>(&#160;odp_pool_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.pkt&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-pool.h-73&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_33')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_capability_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_33" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of field <b>pkt</b> has been changed from <b>36</b> bytes to <b>44</b> bytes.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Previous accesses of applications and library functions to this field and fields at higher positions of the structure definition may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_34')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_34" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_capability&#160;<span class='sym_p'><span>(&#160;odp_pool_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_pool_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_35')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_info_t <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_35" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of field <b>params</b> has been changed from <b>24</b> bytes to <b>108</b> bytes.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Previous accesses of applications and library functions to this field may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_36')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_36" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_pool_info_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>queue.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_37')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_queue_capability_t <span class='failed'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_37" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of field <b>plain</b> has been changed from <b>8</b> bytes to <b>12</b> bytes.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Previous accesses of applications and library functions to this field and fields at higher positions of the structure definition may be broken.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Size of field <b>sched</b> has been changed from <b>8</b> bytes to <b>12</b> bytes.</td>
+<td>1) Size of the inclusive type has been changed.<br/>2) Previous accesses of applications and library functions to this field may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_38')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_38" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_queue_capability&#160;<span class='sym_p'><span>(&#160;odp_queue_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_queue_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Symbol_Problems_Medium'></a><a name='Interface_Problems_Medium'></a>
+<h2>Problems with Symbols, Medium Severity <span class='failed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>packet_inlines.h</span>, <span class='lib_name'>libodp-linux.so.116.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_39')">
+<span class='ext'>[+]</span> _odp_packet_inline <span class='attr'>[data]</span> <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_39" style="display:none;">
+
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Size of this global data has been changed from <b>28</b> bytes to <b>32</b> bytes.</td>
+<td>Applications will obtain a different value and execution may change.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Low_Risk_Problems'></a><a name='Type_Problems_Low'></a>
+<h2>Problems with Data Types, Low Severity <span class='warning'>&nbsp;42&nbsp;</span></h2><hr/>
+<span class='h_name'>classification.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_40')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_cls_capability_t <span class='warning'>&nbsp;5&nbsp;</span></span>
+<br/>
+<div id="c_40" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>back_pressure</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>random_early_detection</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Field <b>threshold_red</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Size of this type has been changed from <b>24</b> bytes to <b>48</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Field <b>threshold_bp</b> has been added to this type.</td>
+<td>This field will not be initialized by old clients.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_41')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_41" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_cls_capability&#160;<span class='sym_p'><span>(&#160;odp_cls_capability_t* <span class='fp'>capability</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capability&#39; (pointer) has base type &#39;struct odp_cls_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_42')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_cls_cos_param <span class='warning'>&nbsp;3&nbsp;</span></span>
+<br/>
+<div id="c_42" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>bp</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>red</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Size of this type has been changed from <b>24</b> bytes to <b>144</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_43')">
+[+] affected symbols: 2 (0.4%)</span>
+<div id="c_43" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_cls_cos_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_cls_cos_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_cls_cos_param&#39;.</div>
+<span class='iname_a'>odp_cls_cos_param_init&#160;<span class='sym_p'><span>(&#160;odp_cls_cos_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_cls_cos_param&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>crypto.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_44')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_capability_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_44" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>20</b> bytes to <b>28</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_45')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_45" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_capability&#160;<span class='sym_p'><span>(&#160;odp_crypto_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_crypto_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_46')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_op_param_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_46" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>80</b> bytes to <b>72</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_47')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_47" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_operation&#160;<span class='sym_p'><span>(&#160;odp_crypto_op_param_t* <span class='fp'>param</span></span>, <span>odp_bool_t* <i>posted</i></span>, <span>odp_crypto_op_result_t* <i>result</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_op_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_48')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_op_result <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_48" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Type of field <b>auth_status</b> has been changed from <b>odp_crypto_compl_status_t</b> to <b>odp_crypto_op_status_t</b>.</td>
+<td>Replacement of the field data type may indicate a change in the semantic meaning of the field.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Type of field <b>cipher_status</b> has been changed from <b>odp_crypto_compl_status_t</b> to <b>odp_crypto_op_status_t</b>.</td>
+<td>Replacement of the field data type may indicate a change in the semantic meaning of the field.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_49')">
+[+] affected symbols: 2 (0.4%)</span>
+<div id="c_49" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_compl_result&#160;<span class='sym_p'><span>(&#160;odp_crypto_compl_t <i>completion_event</i></span>, <span>odp_crypto_op_result_t* <span class='fp'>result</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;result&#39; (pointer) has base type &#39;struct odp_crypto_op_result&#39;.</div>
+<span class='iname_a'>odp_crypto_operation&#160;<span class='sym_p'><span>(&#160;odp_crypto_op_param_t* <i>param</i></span>, <span>odp_bool_t* <i>posted</i></span>, <span>odp_crypto_op_result_t* <span class='fp'>result</span></span>&#160;)</span></span><br/>
+<div class='affect'>3rd parameter &#39;result&#39; (pointer) has base type &#39;struct odp_crypto_op_result&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_50')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_crypto_session_param_t <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_50" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>96</b> bytes to <b>104</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>auth_aad_len</b> has been added to this type.</td>
+<td>This field will not be initialized by old clients.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_51')">
+[+] affected symbols: 2 (0.4%)</span>
+<div id="c_51" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>, <span>odp_crypto_session_t* <i>session_out</i></span>, <span>odp_crypto_ses_create_err_t* <i>status</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_session_param_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_crypto_session_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>event.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_52')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> odp_event_type_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_52" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Name of member with value <b>5</b> has been changed from <b>ODP_EVENT_IPSEC_RESULT</b> to <b>ODP_EVENT_IPSEC_STATUS</b>.</td>
+<td>Applications may execute a wrong branch of code in the library and therefore change the behavior.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_53')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_53" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_event_type&#160;<span class='sym_p'><span>(&#160;odp_event_t <i>event</i></span>&#160;)</span></span><br/>
+<div class='affect'>Return value has base type &#39;enum odp_event_type_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>packet_io.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_54')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-packet_io.h-420 <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_54" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>mac_addr</b> has been added to this type.</td>
+<td>This field will not be initialized by old clients.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_55')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_55" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktio_capability&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktio_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.set_op.op&#39; in 2nd parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-packet_io.h-420&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_56')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pktio_capability_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_56" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>40</b> bytes to <b>48</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_57')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_57" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktio_capability&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktio_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_pktio_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_58')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pktio_config_t <span class='warning'>&nbsp;3&nbsp;</span></span>
+<br/>
+<div id="c_58" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>inbound_ipsec</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Size of this type has been changed from <b>24</b> bytes to <b>32</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Field <b>outbound_ipsec</b> has been added to this type.</td>
+<td>This field will not be initialized by old clients.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_59')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_59" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktio_capability&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktio_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.config&#39; in 2nd parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_pktio_config_t&#39;.</div>
+<span class='iname_a'>odp_pktio_config&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>hdl</i></span>, <span>odp_pktio_config_t const* <span class='fp'>config</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;config&#39; (pointer) has base type &#39;struct odp_pktio_config_t&#39;.</div>
+<span class='iname_a'>odp_pktio_config_init&#160;<span class='sym_p'><span>(&#160;odp_pktio_config_t* <span class='fp'>config</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;config&#39; (pointer) has base type &#39;struct odp_pktio_config_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>packet_types.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_60')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> _odp_packet_inline_offset_t <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_60" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>28</b> bytes to <b>32</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>user_area_size</b> has been renamed to <b>l2_offset</b>.</td>
+<td>Renaming of a field in data type may indicate a change in the semantic meaning of the field.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_61')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_61" style="display:none;">
+<div class='affected'><span class='iname_a'>_odp_packet_inline <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value has base type &#39;struct _odp_packet_inline_offset_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>pool.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_62')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-pool.h-73 <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_62" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>max_num_subparam</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Size of this type has been changed from <b>36</b> bytes to <b>44</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_63')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_63" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_capability&#160;<span class='sym_p'><span>(&#160;odp_pool_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.pkt&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-pool.h-73&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_64')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_capability_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_64" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>64</b> bytes to <b>72</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_65')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_65" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_capability&#160;<span class='sym_p'><span>(&#160;odp_pool_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_pool_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_66')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_info_t <span class='warning'>&nbsp;4&nbsp;</span></span>
+<br/>
+<div id="c_66" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>max_data_addr</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>min_data_addr</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Field <b>pkt</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Size of this type has been changed from <b>32</b> bytes to <b>136</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_67')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_67" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_pool_info_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_68')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_pool_param_t <span class='warning'>&nbsp;5&nbsp;</span></span>
+<br/>
+<div id="c_68" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>buf</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Field <b>pkt</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Field <b>tmo</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Size of this type has been changed from <b>24</b> bytes to <b>108</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Field <b>unnamed0</b> has been removed from this type.</td>
+<td>Size of the inclusive type has been changed.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_69')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_69" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pool_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;params&#39; (pointer) has base type &#39;struct odp_pool_param_t&#39;.</div>
+<span class='iname_a'>odp_pool_info&#160;<span class='sym_p'><span>(&#160;odp_pool_t <i>pool_hdl</i></span>, <span>odp_pool_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.params&#39; in 2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_pool_param_t&#39;.</div>
+<span class='iname_a'>odp_pool_param_init&#160;<span class='sym_p'><span>(&#160;odp_pool_param_t* <span class='fp'>params</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;params&#39; (pointer) has base type &#39;struct odp_pool_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>queue.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_70')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-queue.h-118 <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_70" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>nonblocking</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Size of this type has been changed from <b>8</b> bytes to <b>12</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_71')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_71" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_queue_capability&#160;<span class='sym_p'><span>(&#160;odp_queue_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.plain&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-queue.h-118&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_72')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> anon-struct-queue.h-131 <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_72" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>nonblocking</b> has been added to this type.</td>
+<td>1) This field will not be initialized by old clients.<br/>2) Size of the inclusive type has been changed.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Size of this type has been changed from <b>8</b> bytes to <b>12</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_73')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_73" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_queue_capability&#160;<span class='sym_p'><span>(&#160;odp_queue_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;capa.sched&#39; in 1st parameter &#39;capa&#39; (pointer) is of type &#39;anon-struct-queue.h-131&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_74')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_queue_capability_t <span class='warning'>&nbsp;2&nbsp;</span></span>
+<br/>
+<div id="c_74" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Size of this type has been changed from <b>32</b> bytes to <b>40</b> bytes.</td>
+<td>The fields or parameters of such data type may be incorrectly initialized or accessed by old client applications.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Type of field <b>max_ordered_locks</b> has been changed from <span class='value'>unsigned int</span> to <b>uint32_t</b>.</td>
+<td>Replacement of the field data type may indicate a change in the semantic meaning of the field.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_75')">
+[+] affected symbols: 1 (0.2%)</span>
+<div id="c_75" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_queue_capability&#160;<span class='sym_p'><span>(&#160;odp_queue_capability_t* <span class='fp'>capa</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;capa&#39; (pointer) has base type &#39;struct odp_queue_capability_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_76')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_queue_param_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_76" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Field <b>nonblocking</b> has been added to this type.</td>
+<td>This field will not be initialized by old clients.<br/><br/><b>NOTE</b>: this field should be accessed only from the new library functions, otherwise it may result in crash or incorrect behavior of applications.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_77')">
+[+] affected symbols: 5 (0.9%)</span>
+<div id="c_77" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktin_queue_config&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktin_queue_param_t const* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.queue_param&#39; in 2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_queue_param_t&#39;.</div>
+<span class='iname_a'>odp_pktin_queue_param_init&#160;<span class='sym_p'><span>(&#160;odp_pktin_queue_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.queue_param&#39; in 1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_queue_param_t&#39;.</div>
+<span class='iname_a'>odp_queue_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_queue_param_t const* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_queue_param_t&#39;.</div>
+<span class='iname_a'>odp_queue_info&#160;<span class='sym_p'><span>(&#160;odp_queue_t <i>queue</i></span>, <span>odp_queue_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.param&#39; in 2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_queue_param_t&#39;.</div>
+<span class='iname_a'>odp_queue_param_init&#160;<span class='sym_p'><span>(&#160;odp_queue_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_queue_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<span class='h_name'>schedule_types.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_78')">
+<span class='ext'>[+]</span> <span class='ttype'>struct</span> odp_schedule_param_t <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_78" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Type of field <b>lock_count</b> has been changed from <span class='value'>unsigned int</span> to <b>uint32_t</b>.</td>
+<td>Replacement of the field data type may indicate a change in the semantic meaning of the field.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_79')">
+[+] affected symbols: 5 (0.9%)</span>
+<div id="c_79" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_pktin_queue_config&#160;<span class='sym_p'><span>(&#160;odp_pktio_t <i>pktio</i></span>, <span>odp_pktin_queue_param_t const* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.queue_param.sched&#39; in 2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_schedule_param_t&#39;.</div>
+<span class='iname_a'>odp_pktin_queue_param_init&#160;<span class='sym_p'><span>(&#160;odp_pktin_queue_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.queue_param.sched&#39; in 1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_schedule_param_t&#39;.</div>
+<span class='iname_a'>odp_queue_create&#160;<span class='sym_p'><span>(&#160;char const* <i>name</i></span>, <span>odp_queue_param_t const* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.sched&#39; in 2nd parameter &#39;param&#39; (pointer) has base type &#39;struct odp_schedule_param_t&#39;.</div>
+<span class='iname_a'>odp_queue_info&#160;<span class='sym_p'><span>(&#160;odp_queue_t <i>queue</i></span>, <span>odp_queue_info_t* <span class='fp'>info</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;info.param.sched&#39; in 2nd parameter &#39;info&#39; (pointer) has base type &#39;struct odp_schedule_param_t&#39;.</div>
+<span class='iname_a'>odp_queue_param_init&#160;<span class='sym_p'><span>(&#160;odp_queue_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.sched&#39; in 1st parameter &#39;param&#39; (pointer) has base type &#39;struct odp_schedule_param_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Symbol_Problems_Low'></a><a name='Interface_Problems_Low'></a>
+<h2>Problems with Symbols, Low Severity <span class='warning'>&nbsp;3&nbsp;</span></h2><hr/>
+<span class='h_name'>queue.h</span>, <span class='lib_name'>libodp-linux.so.116.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_80')">
+<span class='ext'>[+]</span> odp_queue_lock_count&#160;<span class='sym_p'><span>(&#160;odp_queue_t <span class='color_p'>queue</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_80" style="display:none;">
+
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Type of return value has been changed from <b>int</b> to <b>uint32_t</b>.</td>
+<td>Replacement of return type may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<span class='h_name'>schedule.h</span>, <span class='lib_name'>libodp-linux.so.116.0.0</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_81')">
+<span class='ext'>[+]</span> odp_schedule_order_lock&#160;<span class='sym_p'><span>(&#160;unsigned int <span class='color_p'>lock_index</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_81" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_schedule_order_lock&#160;<span class='sym_p'><span>(&#160;uint32_t <span class='color_p'>lock_index</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Type of <b>1st</b> parameter <b>lock_index</b> has been changed from <span class='value'>unsigned int</span> to <b>uint32_t</b>.</td>
+<td>Replacement of parameter data type may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<span class="section" onclick="javascript:showContent(this, 'c_82')">
+<span class='ext'>[+]</span> odp_schedule_order_unlock&#160;<span class='sym_p'><span>(&#160;unsigned int <span class='color_p'>lock_index</span></span>&#160;)</span> <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_82" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>odp_schedule_order_unlock&#160;<span class='sym_p'><span>(&#160;uint32_t <span class='color_p'>lock_index</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>Type of <b>1st</b> parameter <b>lock_index</b> has been changed from <span class='value'>unsigned int</span> to <b>uint32_t</b>.</td>
+<td>Replacement of parameter data type may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Other_Changes'></a><a name='Other_Changes_In_Types'></a>
+<h2>Other Changes in Data Types <span class='passed'>&nbsp;2&nbsp;</span></h2><hr/>
+<span class='h_name'>crypto.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_83')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> odp_auth_alg_t <span class='passed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_83" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>The member <b>ODP_AUTH_ALG_AES_GMAC</b> with value <b>6</b> has been added.</td>
+<td>No effect.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_84')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_84" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_auth_capability&#160;<span class='sym_p'><span>(&#160;enum odp_auth_alg_t <span class='fp'>auth</span></span>, <span>odp_crypto_auth_capability_t* <i>dst</i></span>, <span>int <i>num_copy</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;auth&#39; is of type &#39;enum odp_auth_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>, <span>odp_crypto_session_t* <i>session_out</i></span>, <span>odp_crypto_ses_create_err_t* <i>status</i></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.auth_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_auth_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.auth_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_auth_alg_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_85')">
+<span class='ext'>[+]</span> <span class='ttype'>enum</span> odp_cipher_alg_t <span class='passed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_85" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>The member <b>ODP_CIPHER_ALG_AES_CTR</b> with value <b>4</b> has been added.</td>
+<td>No effect.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_86')">
+[+] affected symbols: 3 (0.6%)</span>
+<div id="c_86" style="display:none;">
+<div class='affected'><span class='iname_a'>odp_crypto_cipher_capability&#160;<span class='sym_p'><span>(&#160;enum odp_cipher_alg_t <span class='fp'>cipher</span></span>, <span>odp_crypto_cipher_capability_t* <i>dst</i></span>, <span>int <i>num_copy</i></span>&#160;)</span></span><br/>
+<div class='affect'>1st parameter &#39;cipher&#39; is of type &#39;enum odp_cipher_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_create&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>, <span>odp_crypto_session_t* <i>session_out</i></span>, <span>odp_crypto_ses_create_err_t* <i>status</i></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.cipher_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_cipher_alg_t&#39;.</div>
+<span class='iname_a'>odp_crypto_session_param_init&#160;<span class='sym_p'><span>(&#160;odp_crypto_session_param_t* <span class='fp'>param</span></span>&#160;)</span></span><br/>
+<div class='affect'>Field &#39;param.cipher_alg&#39; in 1st parameter &#39;param&#39; (pointer) is of type &#39;enum odp_cipher_alg_t&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;60&nbsp;</span></h2><hr/>
+<div class='h_list'>
+atomic.h<br/>
+atomic_inlines.h<br/>
+atomic_types.h<br/>
+barrier.h<br/>
+barrier_types.h<br/>
+buffer.h<br/>
+byteorder_inlines.h<br/>
+byteorder_types.h<br/>
+chksum.h<br/>
+classification.h<br/>
+cpu.h<br/>
+cpumask.h<br/>
+cpumask_types.h<br/>
+crypto.h<br/>
+errno.h<br/>
+event.h<br/>
+feature.h<br/>
+hash.h<br/>
+init.h<br/>
+init_types.h<br/>
+packet.h<br/>
+packet_flag_inlines_api.h<br/>
+packet_flags.h<br/>
+packet_inlines.h<br/>
+packet_inlines_api.h<br/>
+packet_io.h<br/>
+packet_io_stats.h<br/>
+packet_io_types.h<br/>
+packet_types.h<br/>
+pool.h<br/>
+queue.h<br/>
+random.h<br/>
+rwlock.h<br/>
+rwlock_recursive.h<br/>
+rwlock_recursive_types.h<br/>
+rwlock_types.h<br/>
+schedule.h<br/>
+schedule_types.h<br/>
+shared_memory.h<br/>
+spinlock.h<br/>
+spinlock_recursive.h<br/>
+spinlock_recursive_types.h<br/>
+spinlock_types.h<br/>
+std_clib_inlines.h<br/>
+std_types.h<br/>
+sync_inlines.h<br/>
+system_info.h<br/>
+thread.h<br/>
+thrmask.h<br/>
+thrmask_types.h<br/>
+ticketlock.h<br/>
+ticketlock_inlines_api.h<br/>
+ticketlock_types.h<br/>
+time.h<br/>
+time_types.h<br/>
+timer.h<br/>
+timer_types.h<br/>
+traffic_mngr.h<br/>
+traffic_mngr_types.h<br/>
+version.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Sources'></a><h2>Source Files <span class='gray'>&nbsp;35&nbsp;</span></h2><hr/>
+<div class='h_list'>
+odp_atomic.c<br/>
+odp_barrier.c<br/>
+odp_buffer.c<br/>
+odp_classification.c<br/>
+odp_cpu.c<br/>
+odp_cpu_arch.c<br/>
+odp_cpu_cycles.c<br/>
+odp_cpumask.c<br/>
+odp_cpumask_task.c<br/>
+odp_crypto.c<br/>
+odp_errno.c<br/>
+odp_event.c<br/>
+odp_hash.c<br/>
+odp_impl.c<br/>
+odp_init.c<br/>
+odp_packet.c<br/>
+odp_packet_flags.c<br/>
+odp_packet_io.c<br/>
+odp_pool.c<br/>
+odp_queue_if.c<br/>
+odp_rwlock.c<br/>
+odp_rwlock_recursive.c<br/>
+odp_schedule_if.c<br/>
+odp_shared_memory.c<br/>
+odp_spinlock.c<br/>
+odp_spinlock_recursive.c<br/>
+odp_system_info.c<br/>
+odp_thread.c<br/>
+odp_thrmask.c<br/>
+odp_ticketlock.c<br/>
+odp_time.c<br/>
+odp_timer.c<br/>
+odp_traffic_mngr.c<br/>
+odp_version.c<br/>
+odp_weak.c<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Objects <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libodp-linux.so.116.0.0<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+</div>
+<br/><br/><br/>
+<hr/>
+<div class='footer' align='right'><i>Generated by <a href='https://github.com/lvc/abi-compliance-checker'>ABI Compliance Checker</a> 2.2 &#160;</i>
+</div>
+<br/>
+
+</body></html>

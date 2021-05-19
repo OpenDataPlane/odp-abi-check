@@ -1,0 +1,1085 @@
+$VAR1 = {
+          'ABIDump' => {
+                         '1.10.0.0' => {
+                                         '2dc06' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.110.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.10.0.0/2dc06/ABI.dump',
+                                                      'TotalSymbols' => '449',
+                                                      'TotalSymbolsFiltered' => '449',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'ae3ff' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper-linux.so.110.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.10.0.0/ae3ff/ABI.dump',
+                                                      'TotalSymbols' => '8',
+                                                      'TotalSymbolsFiltered' => '8',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.10.1.0' => {
+                                         '480ec' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.110.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.10.1.0/480ec/ABI.dump',
+                                                      'TotalSymbols' => '452',
+                                                      'TotalSymbolsFiltered' => '452',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'f23a5' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper-linux.so.110.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.10.1.0/f23a5/ABI.dump',
+                                                      'TotalSymbols' => '14',
+                                                      'TotalSymbolsFiltered' => '14',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.11.0.0' => {
+                                         'aaf4e' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.111.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.11.0.0/aaf4e/ABI.dump',
+                                                      'TotalSymbols' => '452',
+                                                      'TotalSymbolsFiltered' => '452',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'f23a5' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper-linux.so.110.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.11.0.0/f23a5/ABI.dump',
+                                                      'TotalSymbols' => '14',
+                                                      'TotalSymbolsFiltered' => '14',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.11.0.1' => {
+                                         'f23a5' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper-linux.so.110.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.11.0.1/f23a5/ABI.dump',
+                                                      'TotalSymbols' => '14',
+                                                      'TotalSymbolsFiltered' => '14',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'ffc1f' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.111.1.0',
+                                                      'Path' => 'abi_dump/ODP/1.11.0.1/ffc1f/ABI.dump',
+                                                      'TotalSymbols' => '452',
+                                                      'TotalSymbolsFiltered' => '452',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.12.0.0' => {
+                                         '3d0a7' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper-linux.so.110.1.1',
+                                                      'Path' => 'abi_dump/ODP/1.12.0.0/3d0a7/ABI.dump',
+                                                      'TotalSymbols' => '14',
+                                                      'TotalSymbolsFiltered' => '14',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'be90c' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.112.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.12.0.0/be90c/ABI.dump',
+                                                      'TotalSymbols' => '514',
+                                                      'TotalSymbolsFiltered' => '514',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.13.0.0' => {
+                                         '7b9b2' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.113.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.13.0.0/7b9b2/ABI.dump',
+                                                      'TotalSymbols' => '521',
+                                                      'TotalSymbolsFiltered' => '521',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'c5ffb' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper-linux.so.111.0.2',
+                                                      'Path' => 'abi_dump/ODP/1.13.0.0/c5ffb/ABI.dump',
+                                                      'TotalSymbols' => '14',
+                                                      'TotalSymbolsFiltered' => '14',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.14.0.0' => {
+                                         '88f72' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.114.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.14.0.0/88f72/ABI.dump',
+                                                      'TotalSymbols' => '537',
+                                                      'TotalSymbolsFiltered' => '537',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'c9aec' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.112.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.14.0.0/c9aec/ABI.dump',
+                                                      'TotalSymbols' => '34',
+                                                      'TotalSymbolsFiltered' => '34',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.15.0.0' => {
+                                         '13644' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.112.1.0',
+                                                      'Path' => 'abi_dump/ODP/1.15.0.0/13644/ABI.dump',
+                                                      'TotalSymbols' => '34',
+                                                      'TotalSymbolsFiltered' => '34',
+                                                      'Version' => '1.9'
+                                                    },
+                                         '36045' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.115.0.2',
+                                                      'Path' => 'abi_dump/ODP/1.15.0.0/36045/ABI.dump',
+                                                      'TotalSymbols' => '537',
+                                                      'TotalSymbolsFiltered' => '537',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.16.0.0' => {
+                                         'a92d8' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.113.1.1',
+                                                      'Path' => 'abi_dump/ODP/1.16.0.0/a92d8/ABI.dump',
+                                                      'TotalSymbols' => '34',
+                                                      'TotalSymbolsFiltered' => '34',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'fb43b' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.116.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.16.0.0/fb43b/ABI.dump',
+                                                      'TotalSymbols' => '539',
+                                                      'TotalSymbolsFiltered' => '539',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.17.0.0' => {
+                                         'b2c28' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.113.2.1',
+                                                      'Path' => 'abi_dump/ODP/1.17.0.0/b2c28/ABI.dump',
+                                                      'TotalSymbols' => '34',
+                                                      'TotalSymbolsFiltered' => '34',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'bc067' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.117.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.17.0.0/bc067/ABI.dump',
+                                                      'TotalSymbols' => '592',
+                                                      'TotalSymbolsFiltered' => '592',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.18.0.0' => {
+                                         '14ec0' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.114.0.2',
+                                                      'Path' => 'abi_dump/ODP/1.18.0.0/14ec0/ABI.dump',
+                                                      'TotalSymbols' => '39',
+                                                      'TotalSymbolsFiltered' => '39',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'c7940' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.118.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.18.0.0/c7940/ABI.dump',
+                                                      'TotalSymbols' => '596',
+                                                      'TotalSymbolsFiltered' => '596',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.18.0.1' => {
+                                         '30590' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.118.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.18.0.1/30590/ABI.dump',
+                                                      'TotalSymbols' => '596',
+                                                      'TotalSymbolsFiltered' => '596',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'f14e1' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.118.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.18.0.1/f14e1/ABI.dump',
+                                                      'TotalSymbols' => '39',
+                                                      'TotalSymbolsFiltered' => '39',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.19.0.0' => {
+                                         '1e3eb' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.119.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.19.0.0/1e3eb/ABI.dump',
+                                                      'TotalSymbols' => '596',
+                                                      'TotalSymbolsFiltered' => '596',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'd1b78' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.119.0.0',
+                                                      'Path' => 'abi_dump/ODP/1.19.0.0/d1b78/ABI.dump',
+                                                      'TotalSymbols' => '39',
+                                                      'TotalSymbolsFiltered' => '39',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.19.0.1' => {
+                                         '6d5b7' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.119.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.19.0.1/6d5b7/ABI.dump',
+                                                      'TotalSymbols' => '596',
+                                                      'TotalSymbolsFiltered' => '596',
+                                                      'Version' => '1.9'
+                                                    },
+                                         'a381c' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.119.0.1',
+                                                      'Path' => 'abi_dump/ODP/1.19.0.1/a381c/ABI.dump',
+                                                      'TotalSymbols' => '39',
+                                                      'TotalSymbolsFiltered' => '39',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.19.0.2' => {
+                                         '03930' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.119.0.2',
+                                                      'Path' => 'abi_dump/ODP/1.19.0.2/03930/ABI.dump',
+                                                      'TotalSymbols' => '599',
+                                                      'Version' => '1.9'
+                                                    },
+                                         '7dab0' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.119.0.2',
+                                                      'Path' => 'abi_dump/ODP/1.19.0.2/7dab0/ABI.dump',
+                                                      'TotalSymbols' => '38',
+                                                      'Version' => '1.9'
+                                                    }
+                                       },
+                         '1.9.0.0' => {
+                                        '76cf6' => {
+                                                     'Lang' => 'C',
+                                                     'Object' => 'lib/libodphelper-linux.so.109.0.0',
+                                                     'Path' => 'abi_dump/ODP/1.9.0.0/76cf6/ABI.dump',
+                                                     'TotalSymbols' => '7',
+                                                     'TotalSymbolsFiltered' => '7',
+                                                     'Version' => '1.9'
+                                                   },
+                                        'ea46f' => {
+                                                     'Lang' => 'C',
+                                                     'Object' => 'lib/libodp-linux.so.109.0.0',
+                                                     'Path' => 'abi_dump/ODP/1.9.0.0/ea46f/ABI.dump',
+                                                     'TotalSymbols' => '402',
+                                                     'TotalSymbolsFiltered' => '402',
+                                                     'Version' => '1.9'
+                                                   }
+                                      },
+                         'api-next' => {
+                                         '662a5' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodphelper.so.120.0.0',
+                                                      'Path' => 'abi_dump/ODP/api-next/662a5/ABI.dump',
+                                                      'TotalSymbols' => '41',
+                                                      'Version' => '1.9'
+                                                    },
+                                         '8bc45' => {
+                                                      'Lang' => 'C',
+                                                      'Object' => 'lib/libodp-linux.so.120.0.0',
+                                                      'Path' => 'abi_dump/ODP/api-next/8bc45/ABI.dump',
+                                                      'TotalSymbols' => '624',
+                                                      'Version' => '1.9'
+                                                    }
+                                       }
+                       },
+          'ABIReport' => {
+                           '1.10.0.0' => {
+                                           '1.10.1.0' => {
+                                                           'Added' => 9,
+                                                           'BC' => 100,
+                                                           'ChangedSoname' => 0,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.10.0.0/1.10.1.0/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 15
+                                                         }
+                                         },
+                           '1.10.1.0' => {
+                                           '1.11.0.0' => {
+                                                           'Added' => 0,
+                                                           'BC' => '99.41',
+                                                           'ChangedSoname' => 1,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.10.1.0/1.11.0.0/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 8
+                                                         }
+                                         },
+                           '1.11.0.0' => {
+                                           '1.11.0.1' => {
+                                                           'Added' => 0,
+                                                           'BC' => 100,
+                                                           'ChangedSoname' => 0,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.11.0.0/1.11.0.1/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 0
+                                                         }
+                                         },
+                           '1.11.0.1' => {
+                                           '1.12.0.0' => {
+                                                           'Added' => 62,
+                                                           'BC' => 100,
+                                                           'ChangedSoname' => 1,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.11.0.1/1.12.0.0/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 4
+                                                         }
+                                         },
+                           '1.12.0.0' => {
+                                           '1.13.0.0' => {
+                                                           'Added' => 7,
+                                                           'BC' => '99.61',
+                                                           'ChangedSoname' => 2,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.12.0.0/1.13.0.0/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 23
+                                                         }
+                                         },
+                           '1.13.0.0' => {
+                                           '1.14.0.0' => {
+                                                           'Added' => 15,
+                                                           'BC' => '97.38',
+                                                           'ChangedSoname' => 1,
+                                                           'ObjectsAdded' => 1,
+                                                           'ObjectsAddedSymbols' => 34,
+                                                           'ObjectsRemoved' => 1,
+                                                           'ObjectsRemovedSymbols' => 14,
+                                                           'Path' => 'objects_report/ODP/1.13.0.0/1.14.0.0/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 9
+                                                         }
+                                         },
+                           '1.14.0.0' => {
+                                           '1.15.0.0' => {
+                                                           'Added' => 2,
+                                                           'BC' => '96.61',
+                                                           'ChangedSoname' => 1,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.14.0.0/1.15.0.0/report.html',
+                                                           'Removed' => 1,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 39
+                                                         }
+                                         },
+                           '1.15.0.0' => {
+                                           '1.16.0.0' => {
+                                                           'Added' => 3,
+                                                           'BC' => '99.52',
+                                                           'ChangedSoname' => 2,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.15.0.0/1.16.0.0/report.html',
+                                                           'Removed' => 1,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 36
+                                                         }
+                                         },
+                           '1.16.0.0' => {
+                                           '1.17.0.0' => {
+                                                           'Added' => 54,
+                                                           'BC' => '98.21',
+                                                           'ChangedSoname' => 1,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.16.0.0/1.17.0.0/report.html',
+                                                           'Removed' => 1,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 77
+                                                         }
+                                         },
+                           '1.17.0.0' => {
+                                           '1.18.0.0' => {
+                                                           'Added' => 12,
+                                                           'BC' => '98.29',
+                                                           'ChangedSoname' => 2,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.17.0.0/1.18.0.0/report.html',
+                                                           'Removed' => 3,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 65
+                                                         }
+                                         },
+                           '1.18.0.0' => {
+                                           '1.18.0.1' => {
+                                                           'Added' => 0,
+                                                           'BC' => 100,
+                                                           'ChangedSoname' => 1,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.18.0.0/1.18.0.1/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 0
+                                                         }
+                                         },
+                           '1.18.0.1' => {
+                                           '1.19.0.0' => {
+                                                           'Added' => 0,
+                                                           'BC' => '99.81',
+                                                           'ChangedSoname' => 2,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.18.0.1/1.19.0.0/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 1
+                                                         }
+                                         },
+                           '1.19.0.0' => {
+                                           '1.19.0.1' => {
+                                                           'Added' => 0,
+                                                           'BC' => 100,
+                                                           'ChangedSoname' => 0,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.19.0.0/1.19.0.1/report.html',
+                                                           'Removed' => 0,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 0
+                                                         }
+                                         },
+                           '1.19.0.1' => {
+                                           '1.19.0.2' => {
+                                                           'Added' => 3,
+                                                           'BC' => '99.76',
+                                                           'ChangedSoname' => 0,
+                                                           'ObjectsAdded' => 0,
+                                                           'ObjectsAddedSymbols' => 0,
+                                                           'ObjectsRemoved' => 0,
+                                                           'ObjectsRemovedSymbols' => 0,
+                                                           'Path' => 'objects_report/ODP/1.19.0.1/1.19.0.2/report.html',
+                                                           'Removed' => 1,
+                                                           'TotalObjects' => 2,
+                                                           'TotalProblems' => 7
+                                                         }
+                                         },
+                           '1.19.0.2' => {},
+                           '1.9.0.0' => {
+                                          '1.10.0.0' => {
+                                                          'Added' => 57,
+                                                          'BC' => '93.41',
+                                                          'ChangedSoname' => 2,
+                                                          'ObjectsAdded' => 0,
+                                                          'ObjectsAddedSymbols' => 0,
+                                                          'ObjectsRemoved' => 0,
+                                                          'ObjectsRemovedSymbols' => 0,
+                                                          'Path' => 'objects_report/ODP/1.9.0.0/1.10.0.0/report.html',
+                                                          'Removed' => 9,
+                                                          'TotalObjects' => 2,
+                                                          'TotalProblems' => 51
+                                                        }
+                                        },
+                           'current' => {}
+                         },
+          'ABIReport_D' => {
+                             '1.10.0.0' => {
+                                             '1.10.1.0' => {
+                                                             '703ec' => {
+                                                                          'Added' => 3,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.110.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.110.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.10.0.0/1.10.1.0/703ec/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 15
+                                                                        },
+                                                             '75392' => {
+                                                                          'Added' => 6,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper-linux.so.110.0.0',
+                                                                          'Object2' => 'lib/libodphelper-linux.so.110.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.10.0.0/1.10.1.0/75392/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.10.1.0' => {
+                                             '1.11.0.0' => {
+                                                             '12b72' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => '0.6',
+                                                                          'Object1' => 'lib/libodp-linux.so.110.0.1',
+                                                                          'Object2' => 'lib/libodp-linux.so.111.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.10.1.0/1.11.0.0/12b72/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 7
+                                                                        },
+                                                             '1c5b0' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper-linux.so.110.0.1',
+                                                                          'Object2' => 'lib/libodphelper-linux.so.110.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.10.1.0/1.11.0.0/1c5b0/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 1
+                                                                        }
+                                                           }
+                                           },
+                             '1.11.0.0' => {
+                                             '1.11.0.1' => {
+                                                             '1c5b0' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper-linux.so.110.0.1',
+                                                                          'Object2' => 'lib/libodphelper-linux.so.110.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.11.0.0/1.11.0.1/1c5b0/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             '2d0a6' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.111.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.111.1.0',
+                                                                          'Path' => 'compat_report/ODP/1.11.0.0/1.11.0.1/2d0a6/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.11.0.1' => {
+                                             '1.12.0.0' => {
+                                                             '0a64f' => {
+                                                                          'Added' => 62,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.111.1.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.112.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.11.0.1/1.12.0.0/0a64f/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 4
+                                                                        },
+                                                             '6d65a' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper-linux.so.110.0.1',
+                                                                          'Object2' => 'lib/libodphelper-linux.so.110.1.1',
+                                                                          'Path' => 'compat_report/ODP/1.11.0.1/1.12.0.0/6d65a/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.12.0.0' => {
+                                             '1.13.0.0' => {
+                                                             '3ee18' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper-linux.so.110.1.1',
+                                                                          'Object2' => 'lib/libodphelper-linux.so.111.0.2',
+                                                                          'Path' => 'compat_report/ODP/1.12.0.0/1.13.0.0/3ee18/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             '5d718' => {
+                                                                          'Added' => 7,
+                                                                          'Affected' => '0.4',
+                                                                          'Object1' => 'lib/libodp-linux.so.112.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.113.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.12.0.0/1.13.0.0/5d718/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 23
+                                                                        }
+                                                           }
+                                           },
+                             '1.13.0.0' => {
+                                             '1.14.0.0' => {
+                                                             '7ca60' => {
+                                                                          'Added' => 15,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.113.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.114.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.13.0.0/1.14.0.0/7ca60/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 9
+                                                                        }
+                                                           }
+                                           },
+                             '1.14.0.0' => {
+                                             '1.15.0.0' => {
+                                                             '7862e' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.112.0.0',
+                                                                          'Object2' => 'lib/libodphelper.so.112.1.0',
+                                                                          'Path' => 'compat_report/ODP/1.14.0.0/1.15.0.0/7862e/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             'be8dd' => {
+                                                                          'Added' => 2,
+                                                                          'Affected' => '3.6',
+                                                                          'Object1' => 'lib/libodp-linux.so.114.0.1',
+                                                                          'Object2' => 'lib/libodp-linux.so.115.0.2',
+                                                                          'Path' => 'compat_report/ODP/1.14.0.0/1.15.0.0/be8dd/abi_compat_report.html',
+                                                                          'Removed' => 1,
+                                                                          'TotalProblems' => 39
+                                                                        }
+                                                           }
+                                           },
+                             '1.15.0.0' => {
+                                             '1.16.0.0' => {
+                                                             '655ce' => {
+                                                                          'Added' => 3,
+                                                                          'Affected' => '0.5',
+                                                                          'Object1' => 'lib/libodp-linux.so.115.0.2',
+                                                                          'Object2' => 'lib/libodp-linux.so.116.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.15.0.0/1.16.0.0/655ce/abi_compat_report.html',
+                                                                          'Removed' => 1,
+                                                                          'TotalProblems' => 36
+                                                                        },
+                                                             '83233' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.112.1.0',
+                                                                          'Object2' => 'lib/libodphelper.so.113.1.1',
+                                                                          'Path' => 'compat_report/ODP/1.15.0.0/1.16.0.0/83233/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.16.0.0' => {
+                                             '1.17.0.0' => {
+                                                             '5ca57' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.113.1.1',
+                                                                          'Object2' => 'lib/libodphelper.so.113.2.1',
+                                                                          'Path' => 'compat_report/ODP/1.16.0.0/1.17.0.0/5ca57/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             '75fda' => {
+                                                                          'Added' => 54,
+                                                                          'Affected' => '1.9',
+                                                                          'Object1' => 'lib/libodp-linux.so.116.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.117.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.16.0.0/1.17.0.0/75fda/abi_compat_report.html',
+                                                                          'Removed' => 1,
+                                                                          'TotalProblems' => 77
+                                                                        }
+                                                           }
+                                           },
+                             '1.17.0.0' => {
+                                             '1.18.0.0' => {
+                                                             'bcd44' => {
+                                                                          'Added' => 5,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.113.2.1',
+                                                                          'Object2' => 'lib/libodphelper.so.114.0.2',
+                                                                          'Path' => 'compat_report/ODP/1.17.0.0/1.18.0.0/bcd44/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             'f0314' => {
+                                                                          'Added' => 7,
+                                                                          'Affected' => '1.8',
+                                                                          'Object1' => 'lib/libodp-linux.so.117.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.118.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.17.0.0/1.18.0.0/f0314/abi_compat_report.html',
+                                                                          'Removed' => 3,
+                                                                          'TotalProblems' => 65
+                                                                        }
+                                                           }
+                                           },
+                             '1.18.0.0' => {
+                                             '1.18.0.1' => {
+                                                             '5d7a4' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.114.0.2',
+                                                                          'Object2' => 'lib/libodphelper.so.118.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.18.0.0/1.18.0.1/5d7a4/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             'b5120' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.118.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.118.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.18.0.0/1.18.0.1/b5120/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.18.0.1' => {
+                                             '1.19.0.0' => {
+                                                             '9ef97' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => '0.2',
+                                                                          'Object1' => 'lib/libodp-linux.so.118.0.1',
+                                                                          'Object2' => 'lib/libodp-linux.so.119.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.18.0.1/1.19.0.0/9ef97/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 1
+                                                                        },
+                                                             'adb91' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.118.0.1',
+                                                                          'Object2' => 'lib/libodphelper.so.119.0.0',
+                                                                          'Path' => 'compat_report/ODP/1.18.0.1/1.19.0.0/adb91/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.19.0.0' => {
+                                             '1.19.0.1' => {
+                                                             'b6fdc' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.119.0.0',
+                                                                          'Object2' => 'lib/libodp-linux.so.119.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.19.0.0/1.19.0.1/b6fdc/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        },
+                                                             'd95d1' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodphelper.so.119.0.0',
+                                                                          'Object2' => 'lib/libodphelper.so.119.0.1',
+                                                                          'Path' => 'compat_report/ODP/1.19.0.0/1.19.0.1/d95d1/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 0
+                                                                        }
+                                                           }
+                                           },
+                             '1.19.0.1' => {
+                                             '1.19.0.2' => {
+                                                             'c34ed' => {
+                                                                          'Added' => 0,
+                                                                          'Affected' => '3.8',
+                                                                          'Object1' => 'lib/libodphelper.so.119.0.1',
+                                                                          'Object2' => 'lib/libodphelper.so.119.0.2',
+                                                                          'Path' => 'compat_report/ODP/1.19.0.1/1.19.0.2/c34ed/abi_compat_report.html',
+                                                                          'Removed' => 1,
+                                                                          'TotalProblems' => 2
+                                                                        },
+                                                             'f2e60' => {
+                                                                          'Added' => 3,
+                                                                          'Affected' => 0,
+                                                                          'Object1' => 'lib/libodp-linux.so.119.0.1',
+                                                                          'Object2' => 'lib/libodp-linux.so.119.0.2',
+                                                                          'Path' => 'compat_report/ODP/1.19.0.1/1.19.0.2/f2e60/abi_compat_report.html',
+                                                                          'Removed' => 0,
+                                                                          'TotalProblems' => 5
+                                                                        }
+                                                           }
+                                           },
+                             '1.9.0.0' => {
+                                            '1.10.0.0' => {
+                                                            '03d09' => {
+                                                                         'Added' => 1,
+                                                                         'Affected' => 0,
+                                                                         'Object1' => 'lib/libodphelper-linux.so.109.0.0',
+                                                                         'Object2' => 'lib/libodphelper-linux.so.110.0.0',
+                                                                         'Path' => 'compat_report/ODP/1.9.0.0/1.10.0.0/03d09/abi_compat_report.html',
+                                                                         'Removed' => 0,
+                                                                         'TotalProblems' => 0
+                                                                       },
+                                                            '145a5' => {
+                                                                         'Added' => 56,
+                                                                         'Affected' => '6.7',
+                                                                         'Object1' => 'lib/libodp-linux.so.109.0.0',
+                                                                         'Object2' => 'lib/libodp-linux.so.110.0.0',
+                                                                         'Path' => 'compat_report/ODP/1.9.0.0/1.10.0.0/145a5/abi_compat_report.html',
+                                                                         'Removed' => 9,
+                                                                         'TotalProblems' => 51
+                                                                       }
+                                                          }
+                                          }
+                           },
+          'ABIView' => {},
+          'ABIView_D' => {},
+          'Changelog' => {
+                           '1.10.0.0' => 'changelog/ODP/1.10.0.0/log.html',
+                           '1.10.1.0' => 'changelog/ODP/1.10.1.0/log.html',
+                           '1.11.0.0' => 'changelog/ODP/1.11.0.0/log.html',
+                           '1.11.0.1' => 'changelog/ODP/1.11.0.1/log.html',
+                           '1.12.0.0' => 'changelog/ODP/1.12.0.0/log.html',
+                           '1.13.0.0' => 'changelog/ODP/1.13.0.0/log.html',
+                           '1.14.0.0' => 'changelog/ODP/1.14.0.0/log.html',
+                           '1.15.0.0' => 'changelog/ODP/1.15.0.0/log.html',
+                           '1.16.0.0' => 'changelog/ODP/1.16.0.0/log.html',
+                           '1.17.0.0' => 'changelog/ODP/1.17.0.0/log.html',
+                           '1.18.0.0' => 'changelog/ODP/1.18.0.0/log.html',
+                           '1.18.0.1' => 'changelog/ODP/1.18.0.1/log.html',
+                           '1.19.0.0' => 'changelog/ODP/1.19.0.0/log.html',
+                           '1.19.0.1' => 'changelog/ODP/1.19.0.1/log.html',
+                           '1.19.0.2' => 'changelog/ODP/1.19.0.2/log.html',
+                           '1.9.0.0' => 'changelog/ODP/1.9.0.0/log.html',
+                           'current' => 'changelog/ODP/current/log.html'
+                         },
+          'Date' => {
+                      '1.10.0.0' => '2016-05-03 17:44',
+                      '1.10.1.0' => '2016-06-14 16:27',
+                      '1.11.0.0' => '2016-08-18 12:07',
+                      '1.11.0.1' => '2017-08-24 15:28',
+                      '1.12.0.0' => '2016-12-02 14:36',
+                      '1.13.0.0' => '2017-01-18 15:39',
+                      '1.14.0.0' => '2017-03-01 16:05',
+                      '1.15.0.0' => '2017-06-19 14:14',
+                      '1.16.0.0' => '2017-11-10 11:04',
+                      '1.17.0.0' => '2017-12-30 11:30',
+                      '1.18.0.0' => '2018-03-05 13:02',
+                      '1.18.0.1' => '2018-03-16 12:46',
+                      '1.19.0.0' => '2018-04-19 14:12',
+                      '1.19.0.1' => '2018-05-10 15:27',
+                      '1.19.0.2' => '2018-07-04 12:45',
+                      '1.9.0.0' => '2016-04-21 15:54',
+                      'current' => '2021-05-10 09:48:54'
+                    },
+          'HeadersDiff' => {
+                             '1.10.0.0' => {
+                                             '1.10.1.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.10.0.0/1.10.1.0/diff.html',
+                                                             'Total' => 7
+                                                           }
+                                           },
+                             '1.10.1.0' => {
+                                             '1.11.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.10.1.0/1.11.0.0/diff.html',
+                                                             'Total' => 12
+                                                           }
+                                           },
+                             '1.11.0.0' => {
+                                             '1.11.0.1' => {
+                                                             'Path' => 'headers_diff/ODP/1.11.0.0/1.11.0.1/diff.html',
+                                                             'Total' => 1
+                                                           }
+                                           },
+                             '1.11.0.1' => {
+                                             '1.12.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.11.0.1/1.12.0.0/diff.html',
+                                                             'Total' => 6
+                                                           }
+                                           },
+                             '1.12.0.0' => {
+                                             '1.13.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.12.0.0/1.13.0.0/diff.html',
+                                                             'Total' => 48
+                                                           }
+                                           },
+                             '1.13.0.0' => {
+                                             '1.14.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.13.0.0/1.14.0.0/diff.html',
+                                                             'Total' => 22
+                                                           }
+                                           },
+                             '1.14.0.0' => {
+                                             '1.15.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.14.0.0/1.15.0.0/diff.html',
+                                                             'Total' => 24
+                                                           }
+                                           },
+                             '1.15.0.0' => {
+                                             '1.16.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.15.0.0/1.16.0.0/diff.html',
+                                                             'Total' => 20
+                                                           }
+                                           },
+                             '1.16.0.0' => {
+                                             '1.17.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.16.0.0/1.17.0.0/diff.html',
+                                                             'Total' => 27
+                                                           }
+                                           },
+                             '1.17.0.0' => {
+                                             '1.18.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.17.0.0/1.18.0.0/diff.html',
+                                                             'Total' => 113
+                                                           }
+                                           },
+                             '1.18.0.0' => {
+                                             '1.18.0.1' => {
+                                                             'Path' => 'headers_diff/ODP/1.18.0.0/1.18.0.1/diff.html',
+                                                             'Total' => 0
+                                                           }
+                                           },
+                             '1.18.0.1' => {
+                                             '1.19.0.0' => {
+                                                             'Path' => 'headers_diff/ODP/1.18.0.1/1.19.0.0/diff.html',
+                                                             'Total' => 2
+                                                           }
+                                           },
+                             '1.19.0.0' => {
+                                             '1.19.0.1' => {
+                                                             'Path' => 'headers_diff/ODP/1.19.0.0/1.19.0.1/diff.html',
+                                                             'Total' => 0
+                                                           }
+                                           },
+                             '1.19.0.1' => {
+                                             '1.19.0.2' => {
+                                                             'Path' => 'headers_diff/ODP/1.19.0.1/1.19.0.2/diff.html',
+                                                             'Total' => 3
+                                                           }
+                                           },
+                             '1.19.0.2' => {},
+                             '1.9.0.0' => {
+                                            '1.10.0.0' => {
+                                                            'Path' => 'headers_diff/ODP/1.9.0.0/1.10.0.0/diff.html',
+                                                            'Total' => 32
+                                                          }
+                                          },
+                             'current' => {}
+                           },
+          'Maintainer' => undef,
+          'MaintainerUrl' => undef,
+          'PackageDiff' => {},
+          'Soname' => {
+                        '1.10.0.0' => {
+                                        'lib/libodp-linux.so.110.0.0' => 'libodp-linux.so.110',
+                                        'lib/libodphelper-linux.so.110.0.0' => 'libodphelper-linux.so.110'
+                                      },
+                        '1.10.1.0' => {
+                                        'lib/libodp-linux.so.110.0.1' => 'libodp-linux.so.110',
+                                        'lib/libodphelper-linux.so.110.0.1' => 'libodphelper-linux.so.110'
+                                      },
+                        '1.11.0.0' => {
+                                        'lib/libodp-linux.so.111.0.0' => 'libodp-linux.so.111',
+                                        'lib/libodphelper-linux.so.110.0.1' => 'libodphelper-linux.so.110'
+                                      },
+                        '1.11.0.1' => {
+                                        'lib/libodp-linux.so.111.1.0' => 'libodp-linux.so.111',
+                                        'lib/libodphelper-linux.so.110.0.1' => 'libodphelper-linux.so.110'
+                                      },
+                        '1.12.0.0' => {
+                                        'lib/libodp-linux.so.112.0.0' => 'libodp-linux.so.112',
+                                        'lib/libodphelper-linux.so.110.1.1' => 'libodphelper-linux.so.110'
+                                      },
+                        '1.13.0.0' => {
+                                        'lib/libodp-linux.so.113.0.0' => 'libodp-linux.so.113',
+                                        'lib/libodphelper-linux.so.111.0.2' => 'libodphelper-linux.so.111'
+                                      },
+                        '1.14.0.0' => {
+                                        'lib/libodp-linux.so.114.0.1' => 'libodp-linux.so.114',
+                                        'lib/libodphelper.so.112.0.0' => 'libodphelper.so.112'
+                                      },
+                        '1.15.0.0' => {
+                                        'lib/libodp-linux.so.115.0.2' => 'libodp-linux.so.115',
+                                        'lib/libodphelper.so.112.1.0' => 'libodphelper.so.112'
+                                      },
+                        '1.16.0.0' => {
+                                        'lib/libodp-linux.so.116.0.0' => 'libodp-linux.so.116',
+                                        'lib/libodphelper.so.113.1.1' => 'libodphelper.so.113'
+                                      },
+                        '1.17.0.0' => {
+                                        'lib/libodp-linux.so.117.0.0' => 'libodp-linux.so.117',
+                                        'lib/libodphelper.so.113.2.1' => 'libodphelper.so.113'
+                                      },
+                        '1.18.0.0' => {
+                                        'lib/libodp-linux.so.118.0.0' => 'libodp-linux.so.118',
+                                        'lib/libodphelper.so.114.0.2' => 'libodphelper.so.114'
+                                      },
+                        '1.18.0.1' => {
+                                        'lib/libodp-linux.so.118.0.1' => 'libodp-linux.so.118',
+                                        'lib/libodphelper.so.118.0.1' => 'libodphelper.so.118'
+                                      },
+                        '1.19.0.0' => {
+                                        'lib/libodp-linux.so.119.0.0' => 'libodp-linux.so.119',
+                                        'lib/libodphelper.so.119.0.0' => 'libodphelper.so.119'
+                                      },
+                        '1.19.0.1' => {
+                                        'lib/libodp-linux.so.119.0.1' => 'libodp-linux.so.119',
+                                        'lib/libodphelper.so.119.0.1' => 'libodphelper.so.119'
+                                      },
+                        '1.19.0.2' => {
+                                        'lib/libodp-linux.so.119.0.2' => 'libodp-linux.so.119',
+                                        'lib/libodphelper.so.119.0.2' => 'libodphelper.so.119'
+                                      },
+                        '1.9.0.0' => {
+                                       'lib/libodp-linux.so.109.0.0' => 'libodp-linux.so.109',
+                                       'lib/libodphelper-linux.so.109.0.0' => 'libodphelper-linux.so.109'
+                                     },
+                        'api-next' => {
+                                        'lib/libodp-linux.so.120.0.0' => 'libodp-linux.so.120',
+                                        'lib/libodphelper.so.120.0.0' => 'libodphelper.so.120'
+                                      }
+                      },
+          'Sover' => {
+                       '1.10.0.0' => '110',
+                       '1.10.1.0' => '110',
+                       '1.11.0.0' => '110/111',
+                       '1.11.0.1' => '110/111',
+                       '1.12.0.0' => '110/112',
+                       '1.13.0.0' => '111/113',
+                       '1.14.0.0' => '112/114',
+                       '1.15.0.0' => '112/115',
+                       '1.16.0.0' => '113/116',
+                       '1.17.0.0' => '113/117',
+                       '1.18.0.0' => '114/118',
+                       '1.18.0.1' => '118',
+                       '1.19.0.0' => '119',
+                       '1.19.0.1' => '119',
+                       '1.19.0.2' => '119',
+                       '1.9.0.0' => '109',
+                       'api-next' => '120'
+                     },
+          'Title' => undef
+        };
